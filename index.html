@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>大大寬頻｜新北板橋、中和光纖到府安裝服務</title>
+<meta name="description" content="大大寬頻提供新北板橋、中和、土城、樹林在地光纖到府(FTTH)服務,300M起，當周到府安裝，在地客服，真實網速無虛標。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700;900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink: #0E1B2A;
+    --ink-2: #FFFFFF;
+    --ink-3: #EAF2F0;
+    --cyan: #049C89;
+    --amber: #D97B00;
+    --fog: #6C7E90;
+    --fog-dim: #DCE6E3;
+    --paper: #F5F8F7;
+    --paper-dim: #46586B;
+    --radius: 14px;
+    --maxw: 1180px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"Noto Sans TC", sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.display{
+    font-family:"Space Grotesk","Noto Sans TC",sans-serif;
+    font-weight:700;
+    letter-spacing:0.01em;
+    margin:0;
+  }
+  .mono{ font-family:"IBM Plex Mono", monospace; }
+  a{ color:inherit; }
+  img{ max-width:100%; display:block; }
+  .wrap{ max-width:var(--maxw); margin:0 auto; padding:0 24px; }
+
+  :focus-visible{
+    outline:2px solid var(--cyan);
+    outline-offset:3px;
+  }
+
+  /* ---------- fiber pulse divider (signature element) ---------- */
+  .pulse-rail{
+    position:relative;
+    height:2px;
+    width:100%;
+    background:linear-gradient(90deg, transparent, var(--fog-dim) 15%, var(--fog-dim) 85%, transparent);
+    overflow:visible;
+    margin: 0;
+  }
+  .pulse-rail::before{
+    content:"";
+    position:absolute;
+    top:50%; left:-6%;
+    width:12%;
+    height:3px;
+    transform:translateY(-50%);
+    background:linear-gradient(90deg, transparent, var(--cyan), transparent);
+    box-shadow:0 0 12px 2px var(--cyan);
+    border-radius:99px;
+    animation:travel 4.5s linear infinite;
+  }
+  @keyframes travel{
+    0%{ left:-12%; }
+    100%{ left:100%; }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .pulse-rail::before{ animation:none; left:44%; }
+  }
+
+  /* ---------- nav ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(245,248,247,0.85);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--fog-dim);
+  }
+  nav.wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    height:72px;
+  }
+  .logo{
+    display:flex; align-items:center; gap:10px;
+    font-size:20px; font-weight:700;
+  }
+  .logo-mark{
+    width:30px; height:30px; border-radius:8px;
+    background:conic-gradient(from 200deg, var(--cyan), var(--amber), var(--cyan));
+    flex-shrink:0;
+  }
+  .navlinks{ display:flex; gap:32px; font-size:15px; color:var(--paper-dim); }
+  .navlinks a{ text-decoration:none; transition:color .2s; }
+  .navlinks a:hover{ color:var(--cyan); }
+  .nav-cta{
+    background:var(--amber); color:var(--ink);
+    padding:10px 20px; border-radius:99px;
+    font-weight:700; font-size:14px; text-decoration:none;
+    white-space:nowrap;
+  }
+  .nav-toggle{ display:none; }
+
+  @media (max-width:860px){
+    .navlinks{ display:none; }
+    .nav-cta{ padding:8px 14px; font-size:13px; }
+  }
+
+  /* ---------- hero ---------- */
+  .hero{
+    position:relative;
+    padding:96px 0 80px;
+    overflow:hidden;
+  }
+  .hero::before{
+    content:"";
+    position:absolute; inset:0;
+    background:
+      radial-gradient(600px 300px at 85% 10%, rgba(0,217,192,0.14), transparent),
+      radial-gradient(500px 260px at 10% 90%, rgba(255,176,32,0.08), transparent);
+    pointer-events:none;
+  }
+  .hero-grid{
+    position:relative;
+    display:grid; grid-template-columns:1.1fr 0.9fr; gap:48px; align-items:center;
+  }
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:8px;
+    font-size:13px; color:var(--cyan); font-weight:500;
+    background:rgba(0,217,192,0.08);
+    border:1px solid rgba(0,217,192,0.3);
+    padding:6px 14px; border-radius:99px;
+    margin-bottom:20px;
+  }
+  .eyebrow::before{ content:"●"; font-size:8px; }
+  .hero h1{
+    font-size:clamp(32px, 4.4vw, 52px);
+    line-height:1.15;
+    color:var(--ink);
+  }
+  .hero h1 .accent{ color:var(--cyan); }
+  .hero p.lead{
+    color:var(--paper-dim);
+    font-size:17px;
+    margin-top:22px;
+    max-width:46ch;
+  }
+  .hero-actions{ display:flex; gap:14px; margin-top:32px; flex-wrap:wrap; }
+  .btn-primary{
+    background:var(--amber); color:var(--ink);
+    padding:14px 26px; border-radius:10px;
+    font-weight:700; font-size:15px; text-decoration:none;
+    border:none; cursor:pointer;
+  }
+  .btn-ghost{
+    border:1px solid var(--fog-dim); color:var(--ink);
+    padding:14px 26px; border-radius:10px;
+    font-weight:500; font-size:15px; text-decoration:none;
+  }
+
+  /* speed dial visual */
+  .speed-card{
+    position:relative;
+    background:var(--ink-2);
+    border:1px solid var(--fog-dim);
+    border-radius:var(--radius);
+    padding:32px;
+    box-shadow:0 24px 48px -28px rgba(14,27,42,0.18);
+  }
+  .speed-top{ display:flex; justify-content:space-between; align-items:center; color:var(--fog); font-size:13px; }
+  .speed-num{
+    font-family:"IBM Plex Mono", monospace;
+    font-size:64px; font-weight:500; color:var(--ink);
+    margin:18px 0 4px;
+    display:flex; align-items:baseline; gap:8px;
+  }
+  .speed-num span.unit{ font-size:20px; color:var(--cyan); }
+  .speed-bars{ display:flex; gap:4px; align-items:flex-end; height:48px; margin:20px 0; }
+  .speed-bars i{
+    flex:1; background:var(--fog-dim); border-radius:3px;
+  }
+  .speed-bars i:nth-child(1){ height:30%; }
+  .speed-bars i:nth-child(2){ height:55%; }
+  .speed-bars i:nth-child(3){ height:40%; }
+  .speed-bars i:nth-child(4){ height:80%; background:var(--cyan); }
+  .speed-bars i:nth-child(5){ height:65%; }
+  .speed-bars i:nth-child(6){ height:95%; background:var(--cyan); }
+  .speed-bars i:nth-child(7){ height:70%; }
+  .speed-foot{ color:var(--fog); font-size:13px; border-top:1px solid var(--fog-dim); padding-top:14px; }
+
+  @media (max-width:860px){
+    .hero-grid{ grid-template-columns:1fr; }
+  }
+
+  /* ---------- section shell ---------- */
+  section{ padding:76px 0; }
+  .section-head{ max-width:56ch; margin-bottom:44px; }
+  .section-head .eyebrow{ margin-bottom:14px; }
+  .section-head h2{ font-size:clamp(24px,3vw,34px); }
+  .section-head p{ color:var(--paper-dim); margin-top:14px; font-size:16px; }
+
+  /* ---------- coverage chips ---------- */
+  .chips{ display:flex; flex-wrap:wrap; gap:10px; }
+  .chip{
+    background:var(--ink-2); border:1px solid var(--fog-dim);
+    padding:10px 18px; border-radius:99px; font-size:14px; color:var(--paper-dim);
+  }
+  .chip strong{ color:var(--ink); font-weight:500; }
+
+  /* ---------- pricing ---------- */
+  .plans{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+  .plan{
+    background:var(--ink-2); border:1px solid var(--fog-dim); border-radius:var(--radius);
+    padding:32px 28px; display:flex; flex-direction:column;
+    box-shadow:0 18px 36px -28px rgba(14,27,42,0.16);
+  }
+  .plan.featured{
+    border-color:var(--cyan);
+    box-shadow:0 0 0 1px var(--cyan), 0 24px 48px -26px rgba(14,27,42,0.22);
+    position:relative;
+  }
+  .plan.featured::after{
+    content:"最多人選擇";
+    position:absolute; top:-13px; left:28px;
+    background:var(--cyan); color:#FFFFFF;
+    font-size:12px; font-weight:700; padding:4px 12px; border-radius:99px;
+  }
+  .plan-name{ color:var(--fog); font-size:14px; margin-bottom:8px; }
+  .plan-speed{ font-family:"IBM Plex Mono",monospace; font-size:40px; color:var(--ink); }
+  .plan-speed span{ font-size:16px; color:var(--cyan); }
+  .plan-price{ margin:16px 0 24px; color:var(--paper-dim); font-size:15px; }
+  .plan-price b{ font-size:26px; color:var(--ink); font-family:"IBM Plex Mono",monospace; }
+  .plan-features{ list-style:none; padding:0; margin:0 0 28px; flex:1; }
+  .plan-features li{
+    padding:9px 0; border-top:1px solid var(--fog-dim);
+    font-size:14px; color:var(--paper-dim);
+    display:flex; gap:10px;
+  }
+  .plan-features li::before{ content:"＋"; color:var(--cyan); flex-shrink:0; }
+  .plan .btn-ghost, .plan .btn-primary{ text-align:center; }
+
+  @media (max-width:900px){ .plans{ grid-template-columns:1fr; } }
+
+  /* ---------- install steps ---------- */
+  .steps{ display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
+  .step{ position:relative; padding-top:8px; }
+  .step-num{
+    font-family:"IBM Plex Mono",monospace; font-size:14px; color:var(--cyan);
+    border:1px solid var(--fog-dim); width:32px; height:32px; border-radius:8px;
+    display:flex; align-items:center; justify-content:center; margin-bottom:18px;
+  }
+  .step h3{ font-size:17px; margin-bottom:8px; }
+  .step p{ color:var(--paper-dim); font-size:14px; margin:0; }
+
+  @media (max-width:900px){ .steps{ grid-template-columns:1fr 1fr; } }
+  @media (max-width:560px){ .steps{ grid-template-columns:1fr; } }
+
+  /* ---------- why us grid ---------- */
+  .features{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+  .feature{
+    background:var(--ink-2); border:1px solid var(--fog-dim); border-radius:var(--radius);
+    padding:26px;
+    box-shadow:0 16px 32px -28px rgba(14,27,42,0.14);
+  }
+  .feature h3{ font-size:16px; margin-bottom:8px; color:var(--ink); }
+  .feature p{ font-size:14px; color:var(--paper-dim); margin:0; }
+  @media (max-width:900px){ .features{ grid-template-columns:1fr 1fr; } }
+  @media (max-width:560px){ .features{ grid-template-columns:1fr; } }
+
+  /* ---------- testimonials ---------- */
+  .quotes{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+  .quote{
+    background:var(--ink-2); border:1px solid var(--fog-dim); border-radius:var(--radius);
+    padding:26px;
+    box-shadow:0 16px 32px -28px rgba(14,27,42,0.14);
+  }
+  .quote p.text{ font-size:15px; color:var(--paper-dim); margin:0 0 18px; }
+  .quote .who{ display:flex; justify-content:space-between; font-size:13px; color:var(--fog); }
+  @media (max-width:900px){ .quotes{ grid-template-columns:1fr; } }
+
+  /* ---------- final cta ---------- */
+  .cta-band{
+    background:linear-gradient(135deg, var(--ink-3), var(--ink-2));
+    border:1px solid var(--fog-dim); border-radius:20px;
+    padding:56px; text-align:center;
+    box-shadow:0 24px 48px -30px rgba(14,27,42,0.18);
+  }
+  .cta-band h2{ font-size:clamp(22px,3vw,30px); margin-bottom:14px; }
+  .cta-band p{ color:var(--paper-dim); max-width:44ch; margin:0 auto 28px; }
+
+  /* ---------- footer ---------- */
+  footer{ border-top:1px solid var(--fog-dim); padding:48px 0 32px; color:var(--fog); font-size:13px; }
+  .foot-grid{ display:flex; justify-content:space-between; flex-wrap:wrap; gap:24px; margin-bottom:24px; }
+  .foot-col h4{ color:var(--paper-dim); font-size:14px; margin-bottom:12px; }
+  .foot-col a{ display:block; text-decoration:none; color:var(--fog); padding:4px 0; }
+  .foot-col a:hover{ color:var(--cyan); }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap">
+    <div class="logo">
+      <span class="logo-mark" aria-hidden="true"></span>
+      大大寬頻
+    </div>
+    <div class="navlinks">
+      <a href="#coverage">服務範圍</a>
+      <a href="#plans">資費方案</a>
+      <a href="#steps">安裝流程</a>
+      <a href="#reviews">用戶評價</a>
+    </div>
+    <a class="nav-cta" href="#apply">立即申辦</a>
+  </nav>
+</header>
+
+<div class="pulse-rail" aria-hidden="true"></div>
+
+<main>
+
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">新北板橋・中和・土城・樹林在地服務</span>
+        <h1>光真的用「纖」的<br>不是用「喊」的<span class="accent">。</span></h1>
+        <p class="lead">大大寬頻用真光纖到府，白天晚上網速一樣快。當周到府會勘、免費安裝，在地客服接得到人，不是總機轉來轉去。</p>
+        <div class="hero-actions">
+          <a class="btn-primary" href="#apply">免費預約到府會勘</a>
+          <a class="btn-ghost" href="#plans">看資費方案</a>
+        </div>
+      </div>
+
+      <div class="speed-card" role="img" aria-label="示意圖：實測下載速度約 940 Mbps，接近方案標示的 1000M">
+        <div class="speed-top">
+          <span>即時測速示意</span>
+          <span class="mono">PING 4ms</span>
+        </div>
+        <div class="speed-num">940<span class="unit">Mbps ↓</span></div>
+        <div class="speed-bars" aria-hidden="true">
+          <i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+        </div>
+        <div class="speed-foot">近 12 個月板橋區用戶實測平均值・非保證速率</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="pulse-rail" aria-hidden="true"></div>
+
+  <section id="coverage">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">服務範圍</span>
+        <h2>這些地區，我們的工程車都跑得到</h2>
+        <p>持續拉線中，若您的地址不在清單上，仍歡迎預約，我們會實際到場評估管線可行性。</p>
+      </div>
+      <div class="chips">
+        <span class="chip"><strong>板橋區</strong> 全區</span>
+        <span class="chip"><strong>中和區</strong> 全區</span>
+        <span class="chip"><strong>土城區</strong> 全區</span>
+        <span class="chip"><strong>樹林區</strong> 大部分里別</span>
+        <span class="chip"><strong>三峽區</strong> 市區周邊</span>
+        <span class="chip"><strong>新莊區</strong> 部分社區</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="plans">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">資費方案</span>
+        <h2>三種方案，對應三種生活型態</h2>
+        <p>價格皆為每月費用，簽約期間內設備租用與到府安裝均免費。</p>
+      </div>
+      <div class="plans">
+
+        <div class="plan">
+          <div class="plan-name">輕巧入門</div>
+          <div class="plan-speed">300<span>M</span></div>
+          <div class="plan-price"><b>NT$599</b> /月</div>
+          <ul class="plan-features">
+            <li>適合 1–2 人小家庭</li>
+            <li>基本網頁瀏覽、追劇順暢</li>
+            <li>免費 WiFi 分享器</li>
+            <li>24 個月約</li>
+          </ul>
+          <a class="btn-ghost" href="#apply">選擇方案</a>
+        </div>
+
+        <div class="plan featured">
+          <div class="plan-name">家庭首選</div>
+          <div class="plan-speed">600<span>M</span></div>
+          <div class="plan-price"><b>NT$799</b> /月</div>
+          <ul class="plan-features">
+            <li>適合 3–4 人多裝置家庭</li>
+            <li>4K 追劇＋視訊會議同時穩定</li>
+            <li>免費 WiFi 6 分享器</li>
+            <li>24 個月約，首月折抵 200 元</li>
+          </ul>
+          <a class="btn-primary" href="#apply">選擇方案</a>
+        </div>
+
+        <div class="plan">
+          <div class="plan-name">電競飆速</div>
+          <div class="plan-speed">1000<span>M</span></div>
+          <div class="plan-price"><b>NT$999</b> /月</div>
+          <ul class="plan-features">
+            <li>適合線上遊戲、直播、多人同時上網</li>
+            <li>低延遲專屬頻寬</li>
+            <li>免費 WiFi 6E 分享器</li>
+            <li>24 個月約</li>
+          </ul>
+          <a class="btn-ghost" href="#apply">選擇方案</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="pulse-rail" aria-hidden="true"></div>
+
+  <section id="steps">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">安裝流程</span>
+        <h2>從申請到開通，四個步驟</h2>
+        <p>多數地區最快當周即可完成安裝，實際時間依管線施工狀況而定。</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">01</div>
+          <h3>線上留資料</h3>
+          <p>填寫地址與聯絡方式，或直接來電，5 分鐘完成申請。</p>
+        </div>
+        <div class="step">
+          <div class="step-num">02</div>
+          <h3>到府會勘</h3>
+          <p>工程師到場確認管線與最佳走線位置，現場報價無隱藏費用。</p>
+        </div>
+        <div class="step">
+          <div class="step-num">03</div>
+          <h3>免費安裝</h3>
+          <p>牽線、配發分享器、現場實測速度，確認無誤才簽收。</p>
+        </div>
+        <div class="step">
+          <div class="step-num">04</div>
+          <h3>開通使用</h3>
+          <p>當天開通，之後有問題可直接找同一位在地客服窗口。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">為什麼選大大寬頻</span>
+        <h2>比起業配話術，我們更在意接電話的速度</h2>
+      </div>
+      <div class="features">
+        <div class="feature">
+          <h3>在地客服，不是總機</h3>
+          <p>板橋、中和在地服務據點，故障報修有真人回應，不必重複轉接說明。</p>
+        </div>
+        <div class="feature">
+          <h3>公資費，無綁約陷阱</h3>
+          <p>資費與速度公開透明，合約內容白紙黑字，提前解約不藏違約金細節。</p>
+        </div>
+        <div class="feature">
+          <h3>光纖到府，非共享頻寬</h3>
+          <p>每戶獨立光纖線路，尖峰時段網速不因鄰居使用而被拖慢。</p>
+        </div>
+        <div class="feature">
+          <h3>當周到府安裝</h3>
+          <p>多數地區申請後一週內完成會勘與牽線，不必等待數週。</p>
+        </div>
+        <div class="feature">
+          <h3>免費設備租用</h3>
+          <p>WiFi 分享器與路由設備簽約期間免費提供，故障免費更換。</p>
+        </div>
+        <div class="feature">
+          <h3>在地口碑十年以上</h3>
+          <p>深耕新北多年，多數新客戶來自舊客戶介紹。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="pulse-rail" aria-hidden="true"></div>
+
+  <section id="reviews">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">用戶怎麼說</span>
+        <h2>板橋、中和用戶的真實回饋</h2>
+      </div>
+      <div class="quotes">
+        <div class="quote">
+          <p class="text">「原本用的網路每到晚上就掉速，換過來之後打線上遊戲終於不會突然延遲。」</p>
+          <div class="who"><span>板橋・住宅用戶</span><span>2025 年安裝</span></div>
+        </div>
+        <div class="quote">
+          <p class="text">「工程師當天就把管線問題解決，沒有推說要改天，這點比之前用的業者好很多。」</p>
+          <div class="who"><span>中和・住宅用戶</span><span>2025 年安裝</span></div>
+        </div>
+        <div class="quote">
+          <p class="text">「客服每次都是同一個人接，不用每次重講一遍地址跟問題，省很多時間。」</p>
+          <div class="who"><span>土城・小型辦公室</span><span>2024 年安裝</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="apply">
+    <div class="wrap">
+      <div class="cta-band">
+        <h2>先讓工程師到現場看一眼，再決定要不要換</h2>
+        <p>會勘免費、不強迫推銷，確認管線可行再簽約。</p>
+        <a class="btn-primary" href="tel:0288888888">致電預約：(02) 8888-8888</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-col">
+        <h4>大大寬頻</h4>
+        <a href="#coverage">服務範圍</a>
+        <a href="#plans">資費方案</a>
+        <a href="#steps">安裝流程</a>
+      </div>
+      <div class="foot-col">
+        <h4>聯絡我們</h4>
+        <a href="tel:0288888888">(02) 8888-8888</a>
+        <a href="#">新北市板橋區○○路 000 號</a>
+        <a href="#">服務時間：09:00–21:00</a>
+      </div>
+      <div class="foot-col">
+        <h4>條款</h4>
+        <a href="#">服務條款</a>
+        <a href="#">隱私權政策</a>
+      </div>
+    </div>
+    <div>© 2026 大大寬頻 FTTH．本頁面為版型示意稿，內容與聯絡資訊請自行替換為正式資料。</div>
+  </div>
+</footer>
+
+</body>
+</html>
