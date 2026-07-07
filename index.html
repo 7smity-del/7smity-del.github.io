@@ -104,9 +104,10 @@
     backdrop-filter:blur(8px);
     border-bottom:1px solid var(--fog-dim);
   }
-  nav.wrap{ display:flex; align-items:center; justify-content:space-between; height:72px; gap:16px; }
-  .logo{ display:flex; align-items:center; gap:10px; font-size:19px; font-weight:700; white-space:nowrap; }
-  .logo small{ display:block; font-size:11px; font-weight:400; color:var(--fog); }
+  nav.wrap{ display:flex; align-items:center; justify-content:space-between; min-height:72px; gap:12px; flex-wrap:wrap; padding-top:10px; padding-bottom:10px; }
+  .logo{ display:flex; align-items:center; gap:10px; font-size:19px; font-weight:700; min-width:0; }
+  .logo small{ display:block; font-size:11px; font-weight:400; color:var(--fog); white-space:normal; }
+  .logo span{ min-width:0; overflow:hidden; text-overflow:ellipsis; }
   .logo-mark{
     width:30px; height:30px; border-radius:8px; flex-shrink:0;
     background:conic-gradient(from 200deg, var(--cyan), var(--amber), var(--cyan));
@@ -125,6 +126,10 @@
   @media (max-width:900px){
     .navlinks{ display:none; }
     .nav-cta{ padding:8px 12px; font-size:12px; }
+  }
+  @media (max-width:480px){
+    .logo small{ display:none; }
+    .logo{ font-size:16px; }
   }
 
   /* ---------- hero ---------- */
@@ -178,6 +183,7 @@
   .route-card.sales .route-phone{ color:var(--amber); }
   .route-card.repair .route-phone{ color:var(--red); }
   .route-note{ font-size:12px; color:var(--fog); margin-top:6px; }
+  .route-note a{ color:var(--red); text-decoration:underline; font-weight:600; }
   .route-sub{ margin-top:12px; }
   .route-sub a{
     font-size:13px; text-decoration:underline; color:var(--paper-dim);
@@ -327,6 +333,23 @@
   .foot-col a:hover{ color:var(--cyan); }
   .foot-col a.phone-highlight{ color:var(--ink); font-weight:700; font-family:"IBM Plex Mono",monospace; }
   .foot-legal{ border-top:1px solid var(--fog-dim); padding-top:18px; font-size:12px; }
+
+  /* ---------- news iframe ---------- */
+  .news-frame-wrap{
+    background:var(--ink-2); border:1px solid var(--fog-dim); border-radius:var(--radius);
+    overflow:hidden; box-shadow:0 18px 36px -28px rgba(14,27,42,0.16);
+  }
+  .news-frame-wrap iframe{
+    width:100%; height:420px; border:none; display:block;
+  }
+  @media (max-width:640px){
+    .news-frame-wrap iframe{ height:320px; }
+  }
+  .news-fallback{
+    text-align:center; font-size:13px; color:var(--fog); margin-top:14px;
+  }
+  .news-fallback a{ color:var(--cyan); text-decoration:underline; }
+
 </style>
 </head>
 <body>
@@ -341,6 +364,7 @@
       <a href="#coverage">服務範圍</a>
       <a href="#plans">資費方案</a>
       <a href="#steps">安裝流程</a>
+      <a href="#news">最新消息</a>
       <a href="#faq">常見問題</a>
     </div>
     <div class="nav-ctas">
@@ -358,7 +382,7 @@
     <div class="wrap hero-inner">
       <span class="eyebrow">新北板橋・中和・永和・土城・樹林・三峽・鶯歌</span>
       <h1>大大寬頻真光纖到府<br>不是隨便一條線都叫<span class="accent">光纖</span></h1>
-      <p class="lead">大豐有線電視旗下大大寬頻，深耕新北超過10年。獨立光纖不共享頻寬，最高1Gbps對稱速率，當周到府安裝。</p>
+      <p class="lead">大豐有線電視旗下大大寬頻，深耕新北超過10年。獨立光纖不共享頻寬，最高1.2Gbps對稱速率，最快隔天到府安裝。</p>
 
       <!-- 分流：新申辦 vs 故障維修，避免客人打錯電話 -->
       <div class="route-bar">
@@ -369,6 +393,8 @@
           <a class="route-phone" href="tel:0988232247">📞 0988-232-247</a>
           <div class="route-sub">
             <a href="https://www.ftth.com.tw/%E7%B7%9A%E4%B8%8A%E9%A0%90%E7%B4%84%E5%AE%89%E8%A3%9D%E6%9C%8D%E5%8B%99" target="_blank" rel="noopener">或線上預約安裝 →</a>
+            ・
+            <a href="https://lin.ee/TD36TlR" target="_blank" rel="noopener">加 LINE 詢問</a>
           </div>
         </div>
         <div class="route-card repair">
@@ -376,7 +402,7 @@
           <h3>故障報修專線</h3>
           <p>已裝機用戶斷線、訊號異常請撥打</p>
           <a class="route-phone" href="tel:0282538999">🔧 02-8253-8999</a>
-          <div class="route-note">客服中心服務時間內即時受理</div>
+          <div class="route-note">或免付費專線 <a href="tel:0800360999">0800-360-999</a>・客服中心服務時間內即時受理</div>
         </div>
       </div>
     </div>
@@ -388,8 +414,8 @@
     <div class="wrap">
       <div class="section-head">
         <span class="eyebrow">服務範圍</span>
-        <h2>新北這幾區，我們的工程車都跑得到</h2>
-        <p>大大寬頻／大豐有線電視深耕新北多年，若您的地址不在清單上，仍歡迎來電，我們會實際評估管線可行性。</p>
+        <h2>新北、高雄都有我們的工程車</h2>
+        <p>大大寬頻／大豐有線電視深耕在地多年，全台第一家上市上櫃有線電視業者。若您的地址不在清單上，仍歡迎來電，我們會實際評估管線可行性。</p>
       </div>
       <div class="chips">
         <span class="chip"><strong>板橋區</strong> 全區</span>
@@ -400,6 +426,7 @@
         <span class="chip"><strong>三峽區</strong> 市區周邊</span>
         <span class="chip"><strong>鶯歌區</strong> 市區周邊</span>
       </div>
+      <p style="font-size:13px;color:var(--fog);margin-top:16px;">高雄地區服務：苓雅區、前鎮區、左營區、三民區（有線電視＋光纖網路）；楠梓區、鼓山區、小港區、新興區、前金區、鹽埕區（光纖到府網路服務）</p>
     </div>
   </section>
 
@@ -414,12 +441,12 @@
 
         <div class="plan">
           <div class="plan-name">輕巧入門</div>
-          <div class="plan-speed">300<span>M</span></div>
-          <div class="plan-price">適合 1–2 人小家庭</div>
+          <div class="plan-speed">120<span>M</span></div>
+          <div class="plan-price"><b>NT$400</b>/月起</div>
           <ul class="plan-features">
+            <li>適合 1–2 人小家庭</li>
             <li>基本瀏覽、追劇順暢</li>
             <li>光纖到府，獨立頻寬</li>
-            <li>免費 WiFi 分享器</li>
             <li>可單辦網路，不強制綁第四台</li>
           </ul>
           <a class="btn-ghost" href="tel:0988232247">來電洽詢</a>
@@ -428,11 +455,11 @@
         <div class="plan featured">
           <div class="plan-name">家庭首選</div>
           <div class="plan-speed">500<span>M</span></div>
-          <div class="plan-price">適合 3–4 人多裝置家庭</div>
+          <div class="plan-price"><b>NT$600</b>/月起</div>
           <ul class="plan-features">
+            <li>適合 3–4 人多裝置家庭</li>
             <li>4K 追劇＋視訊會議同時穩定</li>
             <li>光纖到府，獨立頻寬</li>
-            <li>免費 WiFi 6 分享器</li>
             <li>新申辦享當期優惠</li>
           </ul>
           <a class="btn-primary" href="tel:0988232247">來電洽詢</a>
@@ -440,19 +467,20 @@
 
         <div class="plan">
           <div class="plan-name">電競旗艦</div>
-          <div class="plan-speed">1000<span>M</span></div>
-          <div class="plan-price">適合線上遊戲、直播、多人上網</div>
+          <div class="plan-speed">1200<span>M</span></div>
+          <div class="plan-price"><b>NT$999</b>/月起</div>
           <ul class="plan-features">
-            <li>1Gbps 對稱高速頻寬</li>
+            <li>1.2Gbps 超高速對稱頻寬</li>
             <li>低延遲，尖峰不降速</li>
-            <li>免費 WiFi 6E 分享器</li>
+            <li>適合線上遊戲、直播、多人上網</li>
             <li>店面／公司戶另有專屬方案</li>
           </ul>
           <a class="btn-ghost" href="tel:0988232247">來電洽詢</a>
         </div>
 
       </div>
-      <p class="plan-note">另有 120M 經濟型方案可洽詢。也可加購大豐有線電視數位頻道，一次辦好不用兩頭找廠商。<br>
+      <p class="plan-note">另有 360M／888M／66M 方案可洽詢，也可加購大豐有線電視數位頻道，網路+第四台組合價每月700元起（依速率不同）。<br>
+      實際月費、裝機費(季繳制、約期一年)與優惠請以業務人員報價為準。<br>
       <a href="https://www.ftth.com.tw/%E7%B7%9A%E4%B8%8A%E9%A0%90%E7%B4%84%E5%AE%89%E8%A3%9D%E6%9C%8D%E5%8B%99" target="_blank" rel="noopener">點此線上預約安裝</a>，或直接撥打 0988-232-247 陳先生</p>
     </div>
   </section>
@@ -475,7 +503,7 @@
         <div class="step">
           <div class="step-num">02</div>
           <h3>到府會勘</h3>
-          <p>工程師到場確認管線與最佳走線位置，現場報價無隱藏費用。</p>
+          <p>最快隔天安排工程師到場確認管線與最佳走線位置，現場報價無隱藏費用。</p>
         </div>
         <div class="step">
           <div class="step-num">03</div>
@@ -511,8 +539,8 @@
           <p>每戶獨立光纖線路，尖峰時段網速不因鄰居使用而被拖慢。</p>
         </div>
         <div class="feature">
-          <h3>當周到府安裝</h3>
-          <p>多數地區申請後一週內完成會勘與牽線，不必等待數週。</p>
+          <h3>最快隔天到府安裝</h3>
+          <p>多數地區申請確認後，最快隔天即可安排工程師到府，不必苦等好幾週。</p>
         </div>
         <div class="feature">
           <h3>免費設備租用</h3>
@@ -523,6 +551,22 @@
           <p>不想裝第四台也沒關係，網路可單獨申辦，不強制綁約有線電視。</p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <div class="pulse-rail" aria-hidden="true"></div>
+
+  <section id="news">
+    <div class="wrap">
+      <div class="section-head center">
+        <span class="eyebrow">最新消息</span>
+        <h2>官網公告即時同步</h2>
+        <p>以下內容直接來自官方網站，如有線路維護或優惠公告會即時顯示。若下方畫面空白，代表官網目前不開放嵌入，請點下方連結前往查看。</p>
+      </div>
+      <div class="news-frame-wrap">
+        <iframe src="https://www.iframe-custom-content.com/versions/2/wizard/modules/customIframePlugin/iframeScriptLoad_V3.php?id=app_iframe_protect_script_671f8fd227617&customHeight=&itemID=2264950723&uniqueID=671f8fd4236a2&moduleID=671f8fd227617&moduleTypeNUM=80&websiteID=3882418&status=1" title="大大寬頻 LINE 官方帳號最新消息" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+      <p class="news-fallback">畫面沒有顯示嗎？<a href="https://lin.ee/TD36TlR" target="_blank" rel="noopener">加 LINE 官方帳號看最新消息 →</a></p>
     </div>
   </section>
 
@@ -542,23 +586,23 @@
         </details>
 
         <details class="faq-item">
-          <summary>申請後多久可以裝好？會不會等很久？</summary>
-          <p>多數地區在申請後一週內即可完成到府會勘與牽線安裝，實際時間仍依管線施工狀況、社區管委會協調進度而定。詳細時程可在電話中直接向業務確認。</p>
-        </details>
-
-        <details class="faq-item">
-          <summary>一定要綁約嗎？違約金怎麼算？</summary>
-          <p>方案是否綁約、綁約期間與提前解約的相關費用，會在簽約前由業務人員說明清楚並寫在合約上，不會口頭承諾卻沒有白紙黑字。建議簽約前務必詳閱合約內容，有疑問當場提出。</p>
+          <summary>「光纖到府」是真的整條都用光纖嗎？</summary>
+          <p>大大寬頻的 FTTH 是真正「最後一哩」都以光纖傳輸訊號到府，不是只有到大樓或到路邊機箱、最後一段還是用傳統銅線的「半套」光纖。真光纖到府不受停電影響連線、不易受電磁干擾、訊號品質更穩定。申辦前可直接詢問業務是否為完整光纖到戶，避免花錢卻裝到「半套」。</p>
         </details>
 
         <details class="faq-item">
           <summary>可以只裝網路，不裝第四台嗎？</summary>
-          <p>可以。網路可單獨申辦，不會強制綁定大豐有線電視的第四台頻道。如果之後想加裝數位頻道，也可以再另外加購。</p>
+          <p>可以。速率選擇很多（1.2G／888M／500M／360M／120M／66M），單辦網路不會強制綁定第四台。若之後想加裝大豐有線電視數位頻道，也能再另外加購組合方案。</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>申請後多久可以裝好？</summary>
+          <p>確認安裝需求後，通常最快一個工作天內就能安排工程師到府施工，平日、假日、晚上時段都可預約，不需要苦等好幾週。</p>
         </details>
 
         <details class="faq-item">
           <summary>數據機燈號正常，卻不能上網，是故障嗎？</summary>
-          <p>可以先自行嘗試：重新啟動數據機與路由器(拔插電源約30秒後再接上)、確認網路線有確實接妥。若重啟後仍無法連線，再撥打報修專線 02-8253-8999，由客服協助線上排除或安排工程師到府檢修。</p>
+          <p>可以先自行嘗試：重新啟動數據機與路由器(拔插電源約30秒後再接上)、確認網路線有確實接妥。若重啟後仍無法連線，請撥打報修專線 02-8253-8999 或免付費 0800-360-999，也可以<a href="https://www.da.net.tw/cs/contact" target="_blank" rel="noopener">線上申告</a>，由客服協助線上排除或安排工程師到府檢修。</p>
         </details>
 
         <details class="faq-item">
@@ -625,11 +669,20 @@
       <div class="foot-col">
         <h4>故障報修</h4>
         <a class="phone-highlight" href="tel:0282538999">02-8253-8999</a>
-        <a href="#">服務時間：客服中心受理時段內</a>
+        <a href="#">客服總機 (02)8253-8966</a>
+        <a href="https://lin.ee/TD36TlR" target="_blank" rel="noopener">LINE 官方客服</a>
+      </div>
+      <div class="foot-col">
+        <h4>門市據點</h4>
+        <a href="#">區運門市｜板橋區區運路4號1樓</a>
+        <a href="#">中正門市｜板橋區中正路325巷19號1樓</a>
+        <a href="#">水源門市｜土城區水源街52號1樓</a>
+        <a href="#">中和門市｜中和區中和路210號</a>
       </div>
     </div>
     <div class="foot-legal">
       © 2026 大大寬頻／大豐有線電視．服務範圍：新北市板橋區、中和區、永和區、土城區、樹林區、三峽區、鶯歌區。<br>
+      門市服務時間：區運／水源門市 週一～週六 10:30–19:00；中正／中和門市 週一～週五 10:30–19:00(午休13:30–14:30)。<br>
       本頁面內容與資費仍以正式合約及業務人員報價為準，如有疑問請直接電洽確認。
     </div>
   </div>
