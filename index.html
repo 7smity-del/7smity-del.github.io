@@ -162,6 +162,23 @@
     }
   ]
 }
+
+
+(function(){
+  const form = document.getElementById('addressForm');
+  const btn = document.getElementById('sendLineLead');
+  if(!form || !btn) return;
+  const build = () => {
+    const data = new FormData(form);
+    const msg = `您好，我想查詢大大寬頻是否可安裝：\n姓名：${data.get('name') || ''}\n電話：${data.get('phone') || ''}\n地址：${data.get('address') || ''}\n想辦方案：${data.get('plan') || ''}\n使用需求：${data.get('need') || ''}\n備註：${data.get('note') || ''}`;
+    btn.href = 'https://line.me/R/msg/text/?' + encodeURIComponent(msg);
+  };
+  form.addEventListener('input', build);
+  form.addEventListener('change', build);
+  btn.addEventListener('click', build);
+  build();
+})();
+
 </script>
 
 <style>
@@ -433,6 +450,40 @@
   .feature p{ font-size:13.5px; color:var(--paper-dim); margin:0; }
   @media (max-width:900px){ .features{ grid-template-columns:1fr 1fr; } }
   @media (max-width:560px){ .features{ grid-template-columns:1fr; } }
+
+  /* ---------- pre-application pain points ---------- */
+  .preapply-hero{
+    background:linear-gradient(135deg, rgba(37,99,235,.08), rgba(249,115,22,.08));
+    border:1px solid rgba(37,99,235,.16); border-radius:22px; padding:26px;
+    display:grid; grid-template-columns:1.15fr .85fr; gap:22px; align-items:center; margin-bottom:22px;
+  }
+  .preapply-hero h3{ font-size:clamp(20px,2.5vw,28px); margin:0 0 10px; }
+  .preapply-hero p{ color:var(--paper-dim); margin:0; font-size:14.5px; line-height:1.8; }
+  .preapply-quick{ display:grid; grid-template-columns:repeat(2,1fr); gap:10px; }
+  .preapply-pill{ background:#fff; border:1px solid var(--fog-dim); border-radius:14px; padding:13px; font-size:13px; color:var(--paper-dim); }
+  .preapply-pill b{ display:block; color:var(--ink); margin-bottom:3px; }
+  .pre-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-top:20px; }
+  .pre-card{ background:var(--ink-2); border:1px solid var(--fog-dim); border-radius:20px; padding:22px; box-shadow:0 16px 32px -28px rgba(15,23,42,.15); }
+  .pre-card h3{ font-size:17px; margin:0 0 10px; }
+  .pre-card p{ color:var(--paper-dim); font-size:13.5px; line-height:1.75; margin:0; }
+  .pre-card ul{ margin:12px 0 0; padding-left:18px; color:var(--paper-dim); font-size:13.5px; line-height:1.75; }
+  .pre-table{ width:100%; border-collapse:separate; border-spacing:0; overflow:hidden; border:1px solid var(--fog-dim); border-radius:16px; background:#fff; margin-top:14px; }
+  .pre-table th,.pre-table td{ padding:12px 14px; border-bottom:1px solid var(--fog-dim); font-size:13px; text-align:left; vertical-align:top; }
+  .pre-table th{ background:#F8FAFC; color:var(--ink); font-weight:800; }
+  .pre-table td{ color:var(--paper-dim); }
+  .pre-table tr:last-child td{ border-bottom:none; }
+  .pre-badge{ display:inline-block; padding:4px 9px; border-radius:999px; font-size:12px; font-weight:800; }
+  .pre-badge.good{ background:#ECFDF5; color:#166534; }
+  .pre-badge.mid{ background:#FFF7ED; color:#9A3412; }
+  .pre-badge.check{ background:#EFF6FF; color:#1D4ED8; }
+  .pre-cta{ display:flex; gap:12px; flex-wrap:wrap; margin-top:18px; }
+  .pre-cta a{ text-decoration:none; }
+  .wifi-compare{ display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:14px; }
+  .wifi-box{ border-radius:16px; padding:16px; border:1px solid var(--fog-dim); background:#fff; }
+  .wifi-box h4{ margin:0 0 8px; color:var(--ink); font-size:15px; }
+  .wifi-box p{ margin:0; color:var(--paper-dim); font-size:13.5px; line-height:1.7; }
+  @media (max-width:1000px){ .preapply-hero,.pre-grid,.wifi-compare{ grid-template-columns:1fr; } }
+  @media (max-width:640px){ .preapply-quick{ grid-template-columns:1fr; } .pre-card{ padding:18px; } }
 
   /* ---------- FAQ ---------- */
   .faq-list{ max-width:760px; margin:0 auto; display:flex; flex-direction:column; gap:12px; }
@@ -737,6 +788,67 @@
   }
   .news-fallback a{ color:var(--cyan); text-decoration:underline; }
 
+
+
+  /* ---------- conversion complete add-ons ---------- */
+  .line-float{
+    position:fixed; right:18px; bottom:92px; z-index:80; display:flex; align-items:center; gap:9px;
+    background:#06C755; color:#fff; text-decoration:none; font-weight:900; font-size:14px;
+    border-radius:999px; padding:12px 16px; box-shadow:0 18px 34px -18px rgba(6,199,85,.8);
+  }
+  .line-float::before{ content:"LINE"; font-size:12px; background:rgba(255,255,255,.22); padding:3px 7px; border-radius:999px; }
+  .conversion-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+  .conversion-card{
+    background:var(--ink-2); border:1px solid var(--fog-dim); border-radius:20px; padding:20px;
+    box-shadow:0 18px 36px -28px rgba(15,23,42,.18);
+  }
+  .conversion-card.featured{ border-color:rgba(249,115,22,.35); background:linear-gradient(180deg,#fff,#FFF7ED); }
+  .conversion-card h3{ font-size:18px; margin:0 0 8px; color:var(--ink); }
+  .conversion-card p{ color:var(--paper-dim); font-size:14px; margin:0 0 14px; }
+  .conversion-price{ font-size:28px; color:var(--cyan); font-weight:900; margin:8px 0 2px; }
+  .conversion-card ul{ margin:12px 0 0; padding-left:18px; color:var(--paper-dim); font-size:13px; line-height:1.75; }
+  .compare-wrap{ overflow-x:auto; border:1px solid var(--fog-dim); border-radius:20px; background:var(--ink-2); box-shadow:0 18px 36px -28px rgba(15,23,42,.16); }
+  .compare-table{ width:100%; border-collapse:collapse; min-width:760px; }
+  .compare-table th,.compare-table td{ padding:15px 16px; border-bottom:1px solid var(--fog-dim); text-align:left; font-size:14px; }
+  .compare-table th{ background:#EFF6FF; color:var(--ink); font-weight:900; }
+  .compare-table td{ color:var(--paper-dim); }
+  .compare-table tr:last-child td{ border-bottom:none; }
+  .lead-wrap{ display:grid; grid-template-columns:minmax(0,.95fr) minmax(320px,1.05fr); gap:22px; align-items:stretch; }
+  .lead-box{ background:var(--ink-2); border:1px solid var(--fog-dim); border-radius:22px; padding:24px; box-shadow:0 20px 42px -30px rgba(15,23,42,.18); }
+  .lead-form{ display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+  .lead-form label{ display:grid; gap:6px; color:var(--paper-dim); font-size:13px; font-weight:700; }
+  .lead-form input,.lead-form select,.lead-form textarea{
+    width:100%; border:1px solid var(--fog-dim); border-radius:12px; padding:12px 13px; font:inherit; background:#fff; color:var(--ink);
+  }
+  .lead-form textarea{ min-height:92px; resize:vertical; }
+  .lead-form .full{ grid-column:1 / -1; }
+  .lead-actions{ display:flex; gap:10px; flex-wrap:wrap; margin-top:12px; }
+  .mini-help{ color:var(--fog); font-size:12.5px; line-height:1.7; margin-top:10px; }
+  .check-grid,.store-grid,.search-grid,.biz-grid,.photo-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+  .check-card,.store-card,.search-card,.biz-card,.photo-card{
+    background:var(--ink-2); border:1px solid var(--fog-dim); border-radius:18px; padding:18px;
+    box-shadow:0 16px 32px -28px rgba(15,23,42,.15);
+  }
+  .check-card h3,.store-card h3,.search-card h3,.biz-card h3,.photo-card h3{ font-size:16px; margin:0 0 8px; color:var(--ink); }
+  .check-card p,.store-card p,.search-card p,.biz-card p,.photo-card p{ color:var(--paper-dim); font-size:13.5px; margin:0; line-height:1.7; }
+  .store-card a,.search-card a{ color:var(--cyan); font-weight:800; text-decoration:none; display:inline-block; margin-top:10px; }
+  .bundle-band{ background:linear-gradient(135deg,#EFF6FF,#FFF7ED); border:1px solid rgba(37,99,235,.14); border-radius:22px; padding:24px; display:grid; grid-template-columns:1fr auto 1fr; gap:16px; align-items:center; }
+  .bundle-plus{ width:44px; height:44px; border-radius:999px; display:grid; place-items:center; background:var(--amber); color:#fff; font-size:24px; font-weight:900; }
+  .photo-visual{ height:118px; border-radius:14px; background:linear-gradient(135deg,#EAF2FF,#fff); border:1px dashed #CBD5E1; margin-bottom:12px; position:relative; overflow:hidden; }
+  .photo-visual::before{ content:""; position:absolute; inset:24px 30px; border-radius:14px; border:8px solid #CBD5E1; background:#fff; box-shadow:inset 0 0 0 6px #EAF2FF; }
+  .photo-visual::after{ content:""; position:absolute; left:38px; right:38px; top:58px; height:7px; background:linear-gradient(90deg,#2563EB,#F97316); border-radius:999px; }
+  .search-tags{ display:flex; flex-wrap:wrap; gap:10px; justify-content:center; }
+  .search-tags span{ background:#fff; border:1px solid var(--fog-dim); border-radius:999px; padding:9px 12px; color:var(--paper-dim); font-size:13px; font-weight:800; }
+  @media (max-width:900px){
+    .conversion-grid,.check-grid,.store-grid,.search-grid,.biz-grid,.photo-grid,.lead-wrap{ grid-template-columns:1fr; }
+    .bundle-band{ grid-template-columns:1fr; }
+    .bundle-plus{ margin:auto; }
+  }
+  @media (max-width:640px){
+    .line-float{ right:12px; bottom:78px; padding:10px 12px; font-size:13px; }
+    .lead-form{ grid-template-columns:1fr; }
+  }
+
 </style>
 </head>
 <body>
@@ -764,12 +876,15 @@
     <div class="navlinks">
       <a href="#coverage">服務範圍</a>
       <a href="#plans">資費方案</a>
+      <a href="#hot-plans">熱門方案</a>
       <a href="#steps">安裝流程</a>
       <a href="#setup">接線圖解</a>
       <a href="#repair-check">報修檢查</a>
       <a href="#local-seo">服務區域</a>
       <a href="#news">最新消息</a>
       <a href="#faq">常見問題</a>
+        <a href="#address-check">地址查詢</a>
+        <a href="#business-internet">公司店面</a>
     </div>
     <div class="nav-ctas">
       <a class="nav-cta" href="tel:0988232247">新申辦</a>
@@ -857,6 +972,38 @@
     </div>
   </section>
 
+
+
+
+  <section id="hot-plans" class="section-alt">
+    <div class="wrap">
+      <div class="section-head center">
+        <span class="eyebrow">熱門方案推薦</span>
+        <h2>不知道怎麼選？先看這 3 種最常見需求</h2>
+        <p>用人數與用途來選，比只看速度更準。實際可安裝方案仍以地址查詢與業務報價為準。</p>
+      </div>
+      <div class="conversion-grid">
+        <div class="conversion-card">
+          <h3>小家庭／租屋族</h3>
+          <div class="conversion-price">120M 起</div>
+          <p>適合 1–2 人，一般上網、追劇、滑手機。</p>
+          <ul><li>小資預算優先</li><li>不常打遊戲或直播</li><li>可先詢問是否可升速</li></ul>
+        </div>
+        <div class="conversion-card featured">
+          <h3>一般家庭最多人問</h3>
+          <div class="conversion-price">500M</div>
+          <p>適合 3–4 人、多台手機、電視、筆電同時使用。</p>
+          <ul><li>多人同時追劇、視訊</li><li>4K 影音更穩</li><li>家庭用戶優先推薦</li></ul>
+        </div>
+        <div class="conversion-card">
+          <h3>電競／直播／店面</h3>
+          <div class="conversion-price">1.2G</div>
+          <p>適合高需求用戶、直播、監視器、NAS、公司店面。</p>
+          <ul><li>重視上傳與穩定</li><li>多設備同時連線</li><li>可搭配現場會勘</li></ul>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <section id="recommend" class="section-alt">
     <div class="wrap">
@@ -968,6 +1115,30 @@
 
   <div class="pulse-rail" aria-hidden="true"></div>
 
+
+
+  <section id="plan-compare" class="section-alt">
+    <div class="wrap">
+      <div class="section-head center">
+        <span class="eyebrow">方案比較表</span>
+        <h2>120M、360M、500M、888M、1.2G 怎麼看</h2>
+        <p>先用表格抓方向，再用地址查詢確認你家可安裝的實際方案。</p>
+      </div>
+      <div class="compare-wrap">
+        <table class="compare-table">
+          <thead><tr><th>速率</th><th>月費參考</th><th>適合對象</th><th>推薦用途</th><th>建議</th></tr></thead>
+          <tbody>
+            <tr><td><b>120M</b></td><td>400 起</td><td>1–2 人、小資族</td><td>上網、追劇、手機</td><td>預算優先可先看這個</td></tr>
+            <tr><td><b>360M</b></td><td>洽詢</td><td>一般家庭</td><td>多設備、視訊、影音</td><td>看現場方案是否合適</td></tr>
+            <tr><td><b>500M</b></td><td>600 起</td><td>3–4 人家庭</td><td>4K、多人同時上網</td><td>最均衡、最多人詢問</td></tr>
+            <tr><td><b>888M</b></td><td>洽詢</td><td>重度家庭</td><td>遊戲、下載、多人使用</td><td>想要更順可評估</td></tr>
+            <tr><td><b>1.2G</b></td><td>999 起</td><td>電競／直播／公司戶</td><td>直播、NAS、監視器、工作室</td><td>高需求直接問這個</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
   <section id="steps">
     <div class="wrap">
       <div class="section-head">
@@ -1000,6 +1171,25 @@
     </div>
   </section>
 
+
+
+
+  <section id="install-prep" class="section-alt">
+    <div class="wrap">
+      <div class="section-head center">
+        <span class="eyebrow">安裝前準備事項</span>
+        <h2>工程師到府前，先確認這幾件事會更快</h2>
+      </div>
+      <div class="check-grid">
+        <div class="check-card"><h3>家中需有人在</h3><p>裝機當天需要有人開門、確認路線、簽收設備與測速結果。</p></div>
+        <div class="check-card"><h3>先想好分享器位置</h3><p>建議放在客廳或家中中央，減少牆面阻隔，Wi‑Fi 覆蓋會比較好。</p></div>
+        <div class="check-card"><h3>確認是否要接電腦</h3><p>桌機、電視盒、監視器、NAS 若要走有線，可先告知工程師。</p></div>
+        <div class="check-card"><h3>弱電箱可先清空</h3><p>若設備要放弱電箱，請先保留插座、散熱與線材空間。</p></div>
+        <div class="check-card"><h3>舊網路先不要急著退</h3><p>建議新線路確認可正常使用後，再安排舊網路退租或停用。</p></div>
+        <div class="check-card"><h3>準備想辦的用途</h3><p>人數、遊戲、直播、監視器、店面 POS 都會影響建議方案。</p></div>
+      </div>
+    </div>
+  </section>
 
   <section id="setup" class="section-alt setup-teach">
     <div class="wrap">
@@ -1306,6 +1496,84 @@
     </div>
   </section>
 
+
+
+  <section id="stores-map" class="section-alt">
+    <div class="wrap">
+      <div class="section-head center">
+        <span class="eyebrow">Google Maps 門市區塊</span>
+        <h2>常用門市與服務據點</h2>
+        <p>實際營業時間與可辦業務請以官方公告為準；新申辦可先直接電話或 LINE 詢問。</p>
+      </div>
+      <div class="store-grid">
+        <div class="store-card"><h3>區運門市｜板橋</h3><p>板橋區區運路4號1樓，適合板橋、江子翠、新埔周邊用戶查詢。</p><a href="https://www.google.com/maps/search/?api=1&query=板橋區區運路4號1樓" target="_blank" rel="noopener">開啟地圖 →</a></div>
+        <div class="store-card"><h3>中正門市｜板橋</h3><p>板橋區中正路325巷19號1樓，板橋舊市區、府中周邊可參考。</p><a href="https://www.google.com/maps/search/?api=1&query=板橋區中正路325巷19號1樓" target="_blank" rel="noopener">開啟地圖 →</a></div>
+        <div class="store-card"><h3>水源門市｜土城</h3><p>土城區水源街52號1樓，土城、海山、頂埔一帶用戶可參考。</p><a href="https://www.google.com/maps/search/?api=1&query=土城區水源街52號1樓" target="_blank" rel="noopener">開啟地圖 →</a></div>
+        <div class="store-card"><h3>中和門市｜中和</h3><p>中和區中和路210號，中和、永和、雙和生活圈用戶可參考。</p><a href="https://www.google.com/maps/search/?api=1&query=中和區中和路210號" target="_blank" rel="noopener">開啟地圖 →</a></div>
+        <div class="store-card"><h3>線上詢問</h3><p>不確定要找哪個門市時，直接傳地址給業務查詢可否安裝最快。</p><a href="https://lin.ee/TD36TlR" target="_blank" rel="noopener">LINE 詢問 →</a></div>
+        <div class="store-card"><h3>電話申辦</h3><p>新申辦、可裝區域、方案價格，可直接撥 0988-232-247 詢問。</p><a href="tel:0988232247">立即撥打 →</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="search-keywords">
+    <div class="wrap">
+      <div class="section-head center">
+        <span class="eyebrow">客人最常搜尋問題</span>
+        <h2>你可能正在找這些關鍵字</h2>
+      </div>
+      <div class="search-tags">
+        <span>板橋網路推薦</span><span>中和光纖到府</span><span>土城寬頻申辦</span><span>大大寬頻報修</span><span>大豐有線電視客服</span><span>永和網路申辦</span><span>三峽光纖網路</span><span>鶯歌寬頻安裝</span><span>分享器 WAN LAN 怎麼接</span><span>LOS 紅燈怎麼辦</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="business-internet" class="section-alt">
+    <div class="wrap">
+      <div class="section-head center">
+        <span class="eyebrow">公司戶／店面網路</span>
+        <h2>店面、辦公室、監視器、POS 更需要穩定線路</h2>
+      </div>
+      <div class="biz-grid">
+        <div class="biz-card"><h3>餐飲／零售店面</h3><p>POS、外送平台平板、刷卡機、監視器都需要穩定連線，建議現場確認分享器位置。</p></div>
+        <div class="biz-card"><h3>小辦公室</h3><p>多人視訊、雲端檔案、NAS、印表機共用，建議評估 500M 以上或高階方案。</p></div>
+        <div class="biz-card"><h3>監視器遠端</h3><p>若需要遠端觀看、固定 IP、Port Forwarding、橋接模式，可安裝時先提出需求。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="bundle-tv-net">
+    <div class="wrap">
+      <div class="section-head center">
+        <span class="eyebrow">第四台＋網路組合</span>
+        <h2>想要電視一起辦，也可以直接問組合方案</h2>
+      </div>
+      <div class="bundle-band">
+        <div><h3>光纖網路</h3><p>120M、500M、888M、1.2G 等方案依地址與活動檔期確認。</p></div>
+        <div class="bundle-plus">＋</div>
+        <div><h3>大豐有線電視</h3><p>家中長輩看第四台、客廳電視需求、機上盒與網路可一起評估。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="construction-cases" class="section-alt">
+    <div class="wrap">
+      <div class="section-head center">
+        <span class="eyebrow">施工案例照片區</span>
+        <h2>未來可放實際施工照片，提升信任感</h2>
+        <p>目前先用示意卡呈現，之後你有照片可以直接替換成實拍。</p>
+      </div>
+      <div class="photo-grid">
+        <div class="photo-card"><div class="photo-visual"></div><h3>弱電箱接線</h3><p>展示 ONT、分享器與家中網路線如何整理，減少客人對施工的疑慮。</p></div>
+        <div class="photo-card"><div class="photo-visual"></div><h3>ONT 放置位置</h3><p>說明光纖數據機建議擺放、散熱與電源插座注意事項。</p></div>
+        <div class="photo-card"><div class="photo-visual"></div><h3>分享器擺放建議</h3><p>示範客廳、玄關、弱電箱不同位置對 Wi‑Fi 訊號的影響。</p></div>
+        <div class="photo-card"><div class="photo-visual"></div><h3>電腦有線連接</h3><p>展示分享器 LAN 接桌機，適合遊戲、直播、工作電腦。</p></div>
+        <div class="photo-card"><div class="photo-visual"></div><h3>店面網路配置</h3><p>POS、刷卡機、外送平台、監視器同時使用的基本網路架構。</p></div>
+        <div class="photo-card"><div class="photo-visual"></div><h3>裝機完成測速</h3><p>工程師現場測速，確認可正常使用再完成安裝流程。</p></div>
+      </div>
+    </div>
+  </section>
+
   <section id="news">
     <div class="wrap">
       <div class="section-head center">
@@ -1317,6 +1585,114 @@
         <iframe src="https://www.iframe-custom-content.com/versions/2/wizard/modules/customIframePlugin/iframeScriptLoad_V3.php?id=app_iframe_protect_script_671f8fd227617&customHeight=&itemID=2264950723&uniqueID=671f8fd4236a2&moduleID=671f8fd227617&moduleTypeNUM=80&websiteID=3882418&status=1" title="大大寬頻 LINE 官方帳號最新消息" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
       <p class="news-fallback">畫面沒有顯示嗎？<a href="https://lin.ee/TD36TlR" target="_blank" rel="noopener">加 LINE 官方帳號看最新消息 →</a></p>
+    </div>
+  </section>
+
+  <div class="pulse-rail" aria-hidden="true"></div>
+
+
+  <section id="preapply" class="section-alt">
+    <div class="wrap">
+      <div class="section-head center">
+        <span class="eyebrow">申辦前疑問解除</span>
+        <h2>還沒申辦前，先把你最擔心的問題講清楚</h2>
+        <p>多數人不是不想辦，而是卡在「我家能不能裝、會不會加價、Wi‑Fi 會不會不穩、裝機要準備什麼」。這一區專門解決申辦前的猶豫。</p>
+      </div>
+
+      <div class="preapply-hero">
+        <div>
+          <h3>先不用急著選方案，先確認這 4 件事</h3>
+          <p>地址是否可裝、家裡格局適合怎麼放設備、費用是否清楚、舊網路要不要先退。把這些先問完，安裝時比較不會遇到「到了現場才發現不能裝」或「裝完 Wi‑Fi 還是不滿意」的問題。</p>
+          <div class="pre-cta">
+            <a class="btn-primary" href="#address-check">傳地址查可否安裝</a>
+            <a class="btn-ghost" href="tel:0988232247">直接問業務</a>
+          </div>
+        </div>
+        <div class="preapply-quick">
+          <div class="preapply-pill"><b>能不能裝</b>先用完整地址查管線與服務區</div>
+          <div class="preapply-pill"><b>費用怕不清楚</b>月租、裝機、設備與特殊施工先講明</div>
+          <div class="preapply-pill"><b>Wi‑Fi 怕不穩</b>申辦前先看坪數、隔間與分享器位置</div>
+          <div class="preapply-pill"><b>施工怕麻煩</b>先確認弱電箱、牽線位置與家中是否有人</div>
+        </div>
+      </div>
+
+      <div class="pre-grid">
+        <div class="pre-card">
+          <h3>我家能不能裝？先看這張表</h3>
+          <p>實際仍以完整地址查詢為準，但可以先用住宅情況粗略判斷。</p>
+          <table class="pre-table">
+            <tr><th>情況</th><th>可裝機率</th></tr>
+            <tr><td>同社區有人裝過大豐／大大寬頻</td><td><span class="pre-badge good">高</span></td></tr>
+            <tr><td>大樓有第四台線路或弱電箱</td><td><span class="pre-badge good">高</span></td></tr>
+            <tr><td>新大樓、社區型住宅</td><td><span class="pre-badge mid">中高</span></td></tr>
+            <tr><td>透天、巷弄內、老公寓</td><td><span class="pre-badge check">需查線</span></td></tr>
+            <tr><td>裝潢封板、弱電箱很小</td><td><span class="pre-badge check">需確認</span></td></tr>
+          </table>
+        </div>
+
+        <div class="pre-card">
+          <h3>費用會不會臨時加價？</h3>
+          <p>建議申辦前先確認月租、裝機、設備與特殊施工。若現場條件需要額外施工，應先說明再施工，不要讓客人到現場才措手不及。</p>
+          <table class="pre-table">
+            <tr><th>項目</th><th>說明</th></tr>
+            <tr><td>月租費</td><td>依選擇速率與方案</td></tr>
+            <tr><td>裝機費</td><td>依活動或現場條件</td></tr>
+            <tr><td>設備費</td><td>確認是否含 Wi‑Fi 分享器</td></tr>
+            <tr><td>組合方案</td><td>網路＋第四台另行確認</td></tr>
+            <tr><td>特殊施工</td><td>需現場確認並事先告知</td></tr>
+          </table>
+        </div>
+
+        <div class="pre-card">
+          <h3>申辦前要準備什麼？</h3>
+          <p>準備越清楚，工程師到府越順利。</p>
+          <ul>
+            <li>當天家裡需有人可開門配合施工。</li>
+            <li>先想好 ONT／分享器要放客廳、弱電箱或電腦旁。</li>
+            <li>有自備分享器可先準備好。</li>
+            <li>要接電腦、監視器、電視盒、NAS 可先告知。</li>
+            <li>舊網路不一定要先退，建議新網路穩定後再處理。</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pre-card" style="margin-top:18px;">
+        <h3>Wi‑Fi 訊號不等於網路速度，這點申辦前一定要先說清楚</h3>
+        <div class="wifi-compare">
+          <div class="wifi-box">
+            <h4>網路速度</h4>
+            <p>指的是光纖線路進到家裡後，ONT／數據機可提供的連線能力。電腦用網路線直接測速，通常較能反映線路本身狀況。</p>
+          </div>
+          <div class="wifi-box">
+            <h4>Wi‑Fi 訊號</h4>
+            <p>會受到分享器位置、牆壁、樓層、弱電箱、舊設備規格影響。網路正常，不代表每個房間 Wi‑Fi 都一定滿格。</p>
+          </div>
+        </div>
+        <table class="pre-table">
+          <tr><th>常見狀況</th><th>建議解法</th></tr>
+          <tr><td>分享器放弱電箱，房間訊號差</td><td>分享器盡量放客廳開放位置，或加 Mesh</td></tr>
+          <tr><td>透天、多樓層、牆很厚</td><td>建議 Mesh 或有線回程規劃</td></tr>
+          <tr><td>電視盒、桌機、監視器不穩</td><td>能接有線就接有線，比 Wi‑Fi 穩</td></tr>
+          <tr><td>舊分享器速度跑不上去</td><td>檢查 WAN/LAN 是否支援 Gigabit、Wi‑Fi 規格是否太舊</td></tr>
+        </table>
+      </div>
+
+      <div class="section-head center" style="margin-top:42px;">
+        <span class="eyebrow">申辦前 FAQ</span>
+        <h2>申辦前 10 大常見疑問</h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item"><summary>我不知道家裡能不能裝，可以先查嗎？</summary><p>可以。建議直接提供完整地址，先查詢服務範圍、管線與社區狀況，再決定是否安排到府安裝。</p></details>
+        <details class="faq-item"><summary>裝機會不會鑽牆？</summary><p>一般會依現場線路與屋內配置判斷，不一定需要鑽牆。若有特殊施工需求，應先與客人確認位置與施工方式。</p></details>
+        <details class="faq-item"><summary>可以只辦網路不辦第四台嗎？</summary><p>可以。可單辦網路，也可依需求搭配第四台或組合方案，實際優惠以申辦時業務說明為準。</p></details>
+        <details class="faq-item"><summary>可以用自己的分享器嗎？</summary><p>可以。常見接法是 ONT 的 LAN 接到自己分享器的 WAN／Internet，再由分享器分配 Wi‑Fi 與有線網路。</p></details>
+        <details class="faq-item"><summary>分享器要放哪裡比較好？</summary><p>建議放在客廳或家中中央、開放的位置。弱電箱、櫃子內、地上角落通常會影響 Wi‑Fi 覆蓋。</p></details>
+        <details class="faq-item"><summary>申辦後多久可以安裝？</summary><p>確認地址與方案後，會依工程排程安排到府；實際時間需看服務區、管線狀況與住戶可配合時段。</p></details>
+        <details class="faq-item"><summary>舊網路需要先退掉嗎？</summary><p>不一定。很多人會等新網路裝好並測試穩定後，再處理舊網路退租，避免中間沒網路可用。</p></details>
+        <details class="faq-item"><summary>租屋可以申辦嗎？</summary><p>通常可以，但建議先確認房東或管理室是否同意施工與牽線，尤其是需要進弱電箱、管道間或公共空間時。</p></details>
+        <details class="faq-item"><summary>店面可以申辦嗎？</summary><p>可以。店面若有 POS、外送平台、監視器、刷卡機等需求，建議申辦前先說明設備數量與使用情境。</p></details>
+        <details class="faq-item"><summary>裝完會幫我測速嗎？</summary><p>工程師通常會確認線路與設備能正常使用。若要確認最準速度，建議用電腦接有線測試，Wi‑Fi 測速會受環境影響。</p></details>
+      </div>
     </div>
   </section>
 
@@ -1412,6 +1788,43 @@
       </div>
     </div>
   </section>
+
+
+  <section id="address-check" class="section-alt">
+    <div class="wrap">
+      <div class="section-head center">
+        <span class="eyebrow">地址查詢表單</span>
+        <h2>免費查詢是否可安裝</h2>
+        <p>填好後按下方按鈕，會自動整理成 LINE 訊息，直接傳給業務查詢。</p>
+      </div>
+      <div class="lead-wrap">
+        <div class="lead-box">
+          <h3>最快的詢問方式</h3>
+          <p>傳「地址＋想辦速率＋聯絡電話」最有效率。若是社區大樓，也可以補上社區名稱、樓層、是否有弱電箱。</p>
+          <div class="teach-list">
+            <div class="teach-item"><b>新申辦</b><span>0988-232-247 陳先生，先查地址可不可裝，再確認方案與安裝時間。</span></div>
+            <div class="teach-item"><b>故障報修</b><span>已裝機用戶請打 02-8253-8999，並先看 PON / LOS / LAN 燈號。</span></div>
+          </div>
+        </div>
+        <div class="lead-box">
+          <form class="lead-form" id="addressForm">
+            <label>姓名<input name="name" placeholder="例如：陳先生"></label>
+            <label>電話<input name="phone" placeholder="例如：09xx-xxx-xxx"></label>
+            <label class="full">安裝地址<input name="address" placeholder="例如：新北市板橋區○○路○號○樓"></label>
+            <label>想辦方案<select name="plan"><option>還不確定，請協助推薦</option><option>120M 起</option><option>500M</option><option>888M</option><option>1.2G</option><option>第四台＋網路組合</option></select></label>
+            <label>使用需求<select name="need"><option>一般家庭上網</option><option>遊戲／直播</option><option>店面／公司戶</option><option>監視器／遠端觀看</option><option>只想查可否安裝</option></select></label>
+            <label class="full">備註<textarea name="note" placeholder="例如：社區名稱、希望安裝時間、是否要接自己的分享器"></textarea></label>
+          </form>
+          <div class="lead-actions">
+            <a class="btn-primary" id="sendLineLead" href="https://lin.ee/TD36TlR" target="_blank" rel="noopener">整理好傳 LINE</a>
+            <a class="btn-ghost" href="tel:0988232247">直接打電話</a>
+          </div>
+          <div class="mini-help">提醒：LINE 送出前可以再修改文字；表單不會在網站上儲存個資。</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section id="apply">
     <div class="wrap">
       <div class="cta-band">
@@ -1462,6 +1875,8 @@
     </div>
   </div>
 </footer>
+
+<a class="line-float" href="https://lin.ee/TD36TlR" target="_blank" rel="noopener">詢問可否安裝</a>
 
 <div class="sticky-call">
   <a class="sales" href="tel:0988232247"><svg class="icon"><use href="#i-phone"/></svg>新申辦</a>
