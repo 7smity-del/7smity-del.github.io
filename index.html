@@ -211,17 +211,20 @@
   .pulse-rail{
     position:relative; height:2px; width:100%;
     background:linear-gradient(90deg, transparent, var(--fog-dim) 15%, var(--fog-dim) 85%, transparent);
-    overflow:visible; margin:0;
+    overflow:hidden; margin:0; contain:paint; isolation:isolate;
   }
   .pulse-rail::before{
-    content:""; position:absolute; top:50%; left:-6%; width:12%; height:3px;
+    content:""; position:absolute; top:50%; left:-16%; width:14%; height:4px;
+    min-width:64px; max-width:140px;
     transform:translateY(-50%);
-    background:linear-gradient(90deg, transparent, var(--cyan), transparent);
-    box-shadow:0 0 12px 2px var(--cyan);
+    background:linear-gradient(90deg, transparent, rgba(37,99,235,0.05), var(--cyan) 45%, rgba(37,99,235,0.05), transparent);
+    box-shadow:0 0 10px 1px rgba(37,99,235,0.45);
     border-radius:99px;
     animation:travel 4.5s linear infinite;
+    will-change:left;
+    pointer-events:none;
   }
-  @keyframes travel{ 0%{ left:-12%; } 100%{ left:100%; } }
+  @keyframes travel{ 0%{ left:-16%; } 100%{ left:102%; } }
   @media (prefers-reduced-motion: reduce){ .pulse-rail::before{ animation:none; left:44%; } }
 
   /* ---------- nav ---------- */
@@ -516,26 +519,38 @@
   @media (max-width:900px){ .recommend-grid{ grid-template-columns:1fr; } }
 
   /* ---------- wiring / setup diagram ---------- */
-  .setup-grid{ display:grid; grid-template-columns:minmax(0,1.1fr) minmax(300px,.9fr); gap:28px; align-items:center; }
+  .setup-grid{ display:grid; grid-template-columns:minmax(0,1.08fr) minmax(320px,.92fr); gap:28px; align-items:start; }
   .setup-panel{
     background:var(--ink-2); border:1px solid var(--fog-dim); border-radius:20px; padding:26px;
     box-shadow:0 22px 44px -30px rgba(15,23,42,0.20);
   }
-  .device-chain{ display:grid; grid-template-columns:1fr auto 1fr auto 1fr; gap:12px; align-items:stretch; }
+  .device-chain{ display:grid; grid-template-columns:1fr auto 1fr auto 1fr auto 1fr; gap:12px; align-items:stretch; }
   .device-card{
     background:linear-gradient(180deg, #fff, var(--paper)); border:1px solid var(--fog-dim); border-radius:16px;
-    padding:18px 14px; text-align:center; min-height:142px; display:flex; flex-direction:column; justify-content:center; align-items:center;
+    padding:18px 14px; text-align:center; min-height:150px; display:flex; flex-direction:column; justify-content:center; align-items:center;
   }
   .device-card .icon{ width:34px; height:34px; color:var(--cyan); margin-bottom:10px; }
   .device-card strong{ display:block; font-size:15px; color:var(--ink); line-height:1.35; }
   .device-card span{ display:block; font-size:12px; color:var(--fog); margin-top:6px; }
-  .chain-arrow{ display:flex; align-items:center; color:var(--amber); font-weight:900; font-size:24px; }
+  .chain-arrow{ display:flex; align-items:center; justify-content:center; color:var(--amber); font-weight:900; font-size:24px; }
+  .setup-steps{ display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:18px; }
+  .setup-step{
+    background:var(--ink-2); border:1px solid var(--fog-dim); border-radius:14px; padding:14px;
+  }
+  .setup-step b{ display:block; color:var(--ink); margin-bottom:6px; font-size:14px; }
+  .setup-step span{ color:var(--paper-dim); font-size:13px; }
   .port-list{ list-style:none; padding:0; margin:20px 0 0; display:grid; gap:10px; }
   .port-list li{
-    background:rgba(37,99,235,0.08); border:1px solid rgba(37,99,235,0.18); border-radius:12px; padding:11px 13px;
+    background:rgba(37,99,235,0.08); border:1px solid rgba(37,99,235,0.18); border-radius:12px; padding:12px 13px;
     color:var(--paper-dim); font-size:13.5px;
   }
   .port-list b{ color:var(--ink); }
+  .setup-tips{ display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:16px; }
+  .setup-tip{
+    background:rgba(248,250,252,0.95); border:1px solid var(--fog-dim); border-radius:12px; padding:13px 14px;
+    font-size:13px; color:var(--paper-dim);
+  }
+  .setup-tip b{ color:var(--ink); }
   .setup-note{
     background:rgba(249,115,22,0.11); border:1px solid rgba(249,115,22,0.22); color:#9A3412; border-radius:12px;
     padding:13px 14px; font-size:13.5px; margin-top:16px;
@@ -543,10 +558,40 @@
   .diagram-svg{ width:100%; height:auto; }
   .diagram-label{ font-family:"Noto Sans TC", sans-serif; font-size:13px; fill:var(--paper-dim); }
   .diagram-title{ font-family:"Noto Sans TC", sans-serif; font-weight:700; font-size:15px; fill:var(--ink); }
+  .diagram-subtitle{ font-family:"Noto Sans TC", sans-serif; font-size:12px; fill:var(--fog); }
+  .setup-visual-stack{ display:grid; gap:16px; }
+  .wrong-grid{ display:grid; gap:12px; margin-top:14px; }
+  .wrong-card{
+    background:#FFF7F7; border:1px solid rgba(239,68,68,0.22); border-radius:16px; padding:14px;
+  }
+  .wrong-title{ display:flex; align-items:center; gap:8px; color:var(--red); font-weight:800; font-size:14px; margin-bottom:10px; }
+  .wrong-badge{
+    display:inline-flex; align-items:center; justify-content:center; width:22px; height:22px; border-radius:999px;
+    background:rgba(239,68,68,0.14); color:var(--red); font-weight:900; flex-shrink:0;
+  }
+  .wrong-note{ color:#991B1B; font-size:12.5px; margin-top:8px; line-height:1.6; }
+  .extra-grid{ display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:14px; }
+  .extra-card{
+    background:linear-gradient(180deg,#FFFFFF 0%, #F8FAFC 100%); border:1px solid var(--fog-dim); border-radius:16px; padding:16px;
+    box-shadow:0 10px 24px -18px rgba(15,23,42,0.18);
+  }
+  .extra-title{ font-size:14px; font-weight:800; color:var(--ink); margin-bottom:10px; }
+  .extra-note{ color:var(--paper-dim); font-size:12.8px; line-height:1.65; margin-top:8px; }
+  .port-chip-wrap{ display:flex; flex-wrap:wrap; gap:8px; margin-top:10px; }
+  .port-chip{ font-size:12px; font-weight:700; padding:6px 9px; border-radius:999px; border:1px solid var(--fog-dim); background:#fff; color:var(--paper-dim); }
+  .port-chip.green{ background:#ECFDF5; border-color:#A7F3D0; color:#166534; }
+  .port-chip.orange{ background:#FFF7ED; border-color:#FED7AA; color:#9A3412; }
+  .port-chip.blue{ background:#EFF6FF; border-color:#BFDBFE; color:#1D4ED8; }
+  .port-chip.gray{ background:#F8FAFC; border-color:#CBD5E1; color:#475569; }
+  .test-list{ margin:10px 0 0; padding-left:18px; color:var(--paper-dim); font-size:12.8px; line-height:1.7; }
+  @media (max-width:900px){
+    .extra-grid{ grid-template-columns:1fr; }
+  }
   @media (max-width:900px){
     .setup-grid{ grid-template-columns:1fr; }
     .device-chain{ grid-template-columns:1fr; }
-    .chain-arrow{ justify-content:center; transform:rotate(90deg); min-height:24px; }
+    .chain-arrow{ transform:rotate(90deg); min-height:24px; }
+    .setup-steps,.setup-tips{ grid-template-columns:1fr; }
   }
   @media (max-width:640px){
     .hero{ padding:42px 0 36px; }
@@ -561,6 +606,121 @@
     body{ padding-bottom:72px; }
   }
 
+  /* ---------- big teaching setup section ---------- */
+  .setup-teach .wrap{ max-width:1320px; }
+  .setup-head{ max-width:920px; margin:0 auto 30px; text-align:center; }
+  .setup-head h2{ font-size:clamp(28px,4vw,42px); line-height:1.25; }
+  .setup-head p{ font-size:16px; color:var(--paper-dim); margin:14px auto 0; }
+  .teach-intro{
+    background:linear-gradient(135deg, rgba(37,99,235,0.08), rgba(249,115,22,0.08));
+    border:1px solid rgba(37,99,235,0.14); border-radius:18px; padding:16px 18px; max-width:1080px; margin:0 auto 28px;
+    font-size:14px; color:var(--paper-dim); text-align:center;
+  }
+  .teach-layout{ display:grid; grid-template-columns:minmax(0,1.3fr) minmax(320px,.7fr); gap:18px; align-items:stretch; }
+  .teach-panel{
+    background:var(--ink-2); border:1px solid var(--fog-dim); border-radius:22px; padding:22px;
+    box-shadow:0 22px 44px -30px rgba(15,23,42,0.18);
+  }
+  .teach-panel h3{ font-size:18px; margin:0 0 8px; }
+  .teach-panel p.lead-mini{ color:var(--paper-dim); font-size:13.5px; margin:0 0 12px; }
+  .teach-list{ display:grid; gap:10px; margin-top:14px; }
+  .teach-item{ background:#F8FAFC; border:1px solid var(--fog-dim); border-radius:14px; padding:13px 14px; }
+  .teach-item b{ color:var(--ink); display:block; margin-bottom:4px; font-size:14px; }
+  .teach-item span{ color:var(--paper-dim); font-size:13px; line-height:1.65; }
+  .teach-note{
+    margin-top:14px; background:rgba(249,115,22,0.11); border:1px solid rgba(249,115,22,0.22);
+    color:#9A3412; border-radius:14px; padding:13px 14px; font-size:13px; line-height:1.65;
+  }
+  .teach-subgrid{ display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-top:18px; }
+  .teach-card{
+    background:var(--ink-2); border:1px solid var(--fog-dim); border-radius:20px; padding:18px;
+    box-shadow:0 18px 36px -28px rgba(15,23,42,0.16);
+  }
+  .teach-card h4{ margin:0 0 10px; font-size:16px; }
+  .signal-grid{ display:grid; gap:12px; }
+  .signal-row{
+    display:grid; grid-template-columns:auto 1fr; gap:12px; align-items:start; background:#F8FAFC;
+    border:1px solid var(--fog-dim); border-radius:14px; padding:12px;
+  }
+  .light-stack{ display:flex; gap:10px; align-items:center; }
+  .light-dot{ width:18px; height:18px; border-radius:50%; box-shadow:inset 0 0 0 2px rgba(255,255,255,0.55), 0 0 0 1px rgba(15,23,42,0.08); }
+  .light-green{ background:#22C55E; }
+  .light-blue{ background:#2563EB; }
+  .light-red{ background:#EF4444; }
+  .light-gray{ background:#CBD5E1; }
+  .light-orange{ background:#F97316; }
+  .signal-row b{ display:block; color:var(--ink); margin-bottom:4px; font-size:14px; }
+  .signal-row span{ color:var(--paper-dim); font-size:13px; line-height:1.65; }
+  .signal-tip{ margin-top:12px; font-size:12.8px; color:var(--paper-dim); line-height:1.7; }
+  @media (max-width:1100px){
+    .teach-layout{ grid-template-columns:1fr; }
+    .teach-subgrid{ grid-template-columns:1fr; }
+  }
+  @media (max-width:640px){
+    .setup-head p{ font-size:15px; }
+    .teach-intro{ text-align:left; }
+  }
+  /* ---------- repair checklist / device visual / local SEO ---------- */
+  .check-hero{ background:linear-gradient(135deg, rgba(37,99,235,.08), rgba(14,165,233,.04)); border:1px solid rgba(37,99,235,.16); border-radius:22px; padding:24px; margin-bottom:22px; }
+  .check-hero h3{ margin:0 0 8px; font-size:22px; }
+  .check-hero p{ margin:0; color:var(--paper-dim); font-size:14px; }
+  .check-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+  .check-card,.device-real-card,.local-card{ background:var(--ink-2); border:1px solid var(--fog-dim); border-radius:20px; padding:20px; box-shadow:0 18px 36px -28px rgba(15,23,42,.16); }
+  .check-num{ display:inline-flex; align-items:center; justify-content:center; width:34px; height:34px; border-radius:12px; background:rgba(37,99,235,.1); color:var(--cyan); font-family:"IBM Plex Mono", monospace; font-weight:800; margin-bottom:12px; }
+  .check-card h4,.device-real-card h4,.local-card h4{ margin:0 0 8px; font-size:16px; color:var(--ink); }
+  .check-card p,.device-real-card p,.local-card p{ margin:0; color:var(--paper-dim); font-size:13.2px; line-height:1.7; }
+  .check-action{ margin-top:12px; background:#F8FAFC; border:1px solid var(--fog-dim); border-radius:12px; padding:10px 12px; font-size:12.8px; color:var(--paper-dim); }
+  .check-action b{ color:var(--ink); }
+  .device-real-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+  .photo-device{ background:linear-gradient(180deg,#fff,#E2E8F0); border:1px solid #CBD5E1; border-radius:22px; padding:18px; margin-bottom:12px; min-height:170px; position:relative; overflow:hidden; }
+  .photo-device::before{ content:""; position:absolute; inset:14px 18px auto 18px; height:24px; border-radius:10px; background:rgba(255,255,255,.72); border:1px solid rgba(203,213,225,.75); }
+  .device-face-title{ position:relative; z-index:1; margin-top:4px; text-align:center; font-size:13px; font-weight:800; color:var(--ink); }
+  .device-light-row{ position:relative; z-index:1; display:flex; justify-content:center; gap:12px; margin-top:44px; }
+  .device-port-row{ position:relative; z-index:1; display:flex; justify-content:center; align-items:flex-end; gap:8px; margin-top:42px; }
+  .real-port{ width:28px; height:16px; border-radius:4px; background:#CBD5E1; border:1px solid rgba(15,23,42,.12); }
+  .real-port.green{ background:#22C55E; } .real-port.blue{ background:#2563EB; } .real-port.orange{ background:#F97316; } .real-port.red{ background:#EF4444; }
+  .port-caption{ text-align:center; font-size:11.5px; color:var(--fog); margin-top:5px; }
+  .local-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
+  .local-card h4{ color:var(--cyan); }
+  .local-tags{ display:flex; flex-wrap:wrap; gap:6px; margin-top:12px; }
+  .local-tags span{ background:#EFF6FF; color:#1D4ED8; border:1px solid #BFDBFE; border-radius:999px; padding:4px 8px; font-size:11.5px; font-weight:700; }
+  .local-seo-note{ margin-top:18px; color:var(--fog); font-size:13px; line-height:1.7; }
+  @media (max-width:1000px){ .check-grid,.device-real-grid{ grid-template-columns:1fr; } .local-grid{ grid-template-columns:1fr 1fr; } }
+  @media (max-width:640px){ .local-grid{ grid-template-columns:1fr; } .check-hero{ padding:20px; } }
+  /* ---------- speed chooser / upgraded trust sections ---------- */
+  .speed-chooser{ background:linear-gradient(135deg, rgba(37,99,235,0.07), rgba(249,115,22,0.08)); border:1px solid rgba(37,99,235,0.16); border-radius:22px; padding:26px; box-shadow:0 22px 44px -32px rgba(15,23,42,.18); }
+  .chooser-grid{ display:grid; grid-template-columns:minmax(0,1fr) minmax(300px,.8fr); gap:18px; align-items:stretch; }
+  .chooser-options{ display:grid; grid-template-columns:repeat(2,1fr); gap:12px; }
+  .chooser-option{ position:relative; display:flex; gap:10px; align-items:flex-start; background:#fff; border:1px solid var(--fog-dim); border-radius:14px; padding:13px; cursor:pointer; transition:transform .16s ease, border-color .16s ease, box-shadow .16s ease; }
+  .chooser-option:hover{ transform:translateY(-1px); border-color:rgba(37,99,235,.35); box-shadow:0 12px 26px -22px rgba(15,23,42,.28); }
+  .chooser-option input{ margin-top:4px; accent-color:var(--cyan); }
+  .chooser-option b{ display:block; color:var(--ink); font-size:14px; }
+  .chooser-option span{ display:block; color:var(--paper-dim); font-size:12.5px; line-height:1.55; margin-top:2px; }
+  .chooser-result{ background:var(--ink); color:#fff; border-radius:18px; padding:22px; display:flex; flex-direction:column; justify-content:space-between; min-height:100%; }
+  .chooser-result .tag{ display:inline-block; width:max-content; background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.18); border-radius:99px; padding:4px 10px; font-size:12px; margin-bottom:10px; }
+  .chooser-result h3{ font-size:28px; margin:0 0 8px; color:#fff; }
+  .chooser-result p{ color:rgba(255,255,255,.82); margin:0 0 14px; font-size:14px; }
+  .chooser-actions{ display:flex; flex-wrap:wrap; gap:10px; margin-top:10px; }
+  .chooser-actions a{ text-decoration:none; border-radius:10px; padding:10px 14px; font-weight:800; font-size:13px; }
+  .chooser-actions .call{ background:var(--amber); color:#fff; }
+  .chooser-actions .line{ background:#fff; color:var(--ink); }
+  .mega-route{ display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+  .mega-card{ border-radius:24px; padding:30px; min-height:260px; position:relative; overflow:hidden; box-shadow:0 24px 48px -34px rgba(15,23,42,.22); }
+  .mega-card::after{ content:""; position:absolute; right:-70px; bottom:-70px; width:180px; height:180px; border-radius:50%; background:rgba(255,255,255,.14); }
+  .mega-card.sales{ background:linear-gradient(135deg, #1D4ED8, #2563EB); color:#fff; }
+  .mega-card.repair{ background:linear-gradient(135deg, #991B1B, #EF4444); color:#fff; }
+  .mega-card .route-tag{ background:rgba(255,255,255,.16)!important; color:#fff!important; border:1px solid rgba(255,255,255,.22); }
+  .mega-card h3{ font-size:28px; margin:10px 0; color:#fff; }
+  .mega-card p{ color:rgba(255,255,255,.84); margin:0 0 18px; }
+  .mega-card a{ position:relative; z-index:2; display:inline-flex; align-items:center; gap:8px; text-decoration:none; background:#fff; color:var(--ink); border-radius:12px; padding:12px 18px; font-weight:900; margin-right:8px; margin-top:8px; }
+  .case-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:18px; }
+  .case-card{ background:var(--ink-2); border:1px solid var(--fog-dim); border-radius:18px; padding:20px; box-shadow:0 18px 36px -30px rgba(15,23,42,.18); }
+  .case-card .area{ display:inline-block; color:var(--cyan); background:rgba(37,99,235,.08); border:1px solid rgba(37,99,235,.16); border-radius:99px; padding:4px 10px; font-size:12px; font-weight:800; margin-bottom:10px; }
+  .case-card h3{ font-size:16px; margin:0 0 8px; }
+  .case-card p{ color:var(--paper-dim); font-size:13.5px; margin:0 0 12px; }
+  .case-card ul{ margin:0; padding-left:18px; color:var(--paper-dim); font-size:12.8px; line-height:1.7; }
+  @media (max-width:1000px){ .case-grid{ grid-template-columns:1fr 1fr; } .chooser-grid,.mega-route{ grid-template-columns:1fr; } }
+  @media (max-width:640px){ .chooser-options,.case-grid{ grid-template-columns:1fr; } .speed-chooser{ padding:18px; } .mega-card{ padding:24px 20px; } .mega-card h3{ font-size:24px; } }
   /* ---------- news iframe ---------- */
   .news-frame-wrap{
     background:var(--ink-2); border:1px solid var(--fog-dim); border-radius:var(--radius);
@@ -606,9 +766,10 @@
       <a href="#plans">資費方案</a>
       <a href="#steps">安裝流程</a>
       <a href="#setup">接線圖解</a>
+      <a href="#repair-check">報修檢查</a>
+      <a href="#local-seo">服務區域</a>
       <a href="#news">最新消息</a>
-      <a href="#setup">接線圖解</a>
-        <a href="#faq">常見問題</a>
+      <a href="#faq">常見問題</a>
     </div>
     <div class="nav-ctas">
       <a class="nav-cta" href="tel:0988232247">新申辦</a>
@@ -724,6 +885,32 @@
     </div>
   </section>
 
+
+  <section id="speed-chooser" class="section-alt">
+    <div class="wrap">
+      <div class="section-head center">
+        <span class="eyebrow">我該選幾 M？</span>
+        <h2>用 30 秒選出適合你的網速</h2>
+        <p>勾選你的使用情境，右側會即時推薦方案。這不是正式報價，但能幫你先判斷 120M、500M 或 1.2G 哪個比較適合。</p>
+      </div>
+      <div class="speed-chooser">
+        <div class="chooser-grid">
+          <div class="chooser-options" id="speedChooser">
+            <label class="chooser-option"><input type="checkbox" value="1"><div><b>1–2 人使用</b><span>租屋、小家庭、長輩住家，一般上網與追劇。</span></div></label>
+            <label class="chooser-option"><input type="checkbox" value="2"><div><b>3–4 人以上</b><span>多支手機、平板、電視、筆電同時上網。</span></div></label>
+            <label class="chooser-option"><input type="checkbox" value="2"><div><b>常看 4K / 多台電視</b><span>客廳電視、房間電視、手機同時串流。</span></div></label>
+            <label class="chooser-option"><input type="checkbox" value="3"><div><b>線上遊戲 / 低延遲</b><span>PS5、Switch、電腦遊戲，希望尖峰時段更穩。</span></div></label>
+            <label class="chooser-option"><input type="checkbox" value="3"><div><b>直播 / 大檔上傳</b><span>開直播、剪片、雲端備份、NAS、大量上傳下載。</span></div></label>
+            <label class="chooser-option"><input type="checkbox" value="3"><div><b>店面 / 公司 / 監視器</b><span>POS、監視器、外送平台、多人共用網路。</span></div></label>
+          </div>
+          <div class="chooser-result" id="chooserResult">
+            <div><span class="tag">推薦結果</span><h3>先從 500M 評估</h3><p>一般家庭最容易落在 500M，兼顧多人上網、4K 追劇與視訊會議。若只有 1–2 人輕度使用，可往 120M；若有直播、遊戲、公司店面需求，再看 1.2G。</p></div>
+            <div class="chooser-actions"><a class="call" href="tel:0988232247">打電話問方案</a><a class="line" href="https://lin.ee/TD36TlR" target="_blank" rel="noopener">LINE 傳地址詢問</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
   <section id="plans">
     <div class="wrap">
       <div class="section-head">
@@ -814,77 +1001,192 @@
   </section>
 
 
-  <section id="setup" class="section-alt">
-    <div class="wrap setup-grid">
-      <div>
-        <div class="section-head">
-          <span class="eyebrow">接線圖解</span>
-          <h2>光纖數據機接自己的分享器，再接電腦主機</h2>
-          <p>安裝完成後，若想使用自己買的 Wi‑Fi 分享器，照下面順序接最不容易出錯：光纖線進 ONT／光纖數據機，ONT 的 LAN 孔接分享器 WAN 孔，分享器 LAN 孔再接電腦。</p>
-        </div>
-        <div class="device-chain" aria-label="光纖數據機、分享器、電腦主機接線順序">
-          <div class="device-card">
-            <svg class="icon"><use href="#i-router"/></svg>
-            <strong>光纖數據機／ONT</strong>
-            <span>光纖線進來的第一台設備</span>
-          </div>
-          <div class="chain-arrow">→</div>
-          <div class="device-card">
-            <svg class="icon"><use href="#i-router"/></svg>
-            <strong>自己的 Wi‑Fi 分享器</strong>
-            <span>網路線插 WAN／Internet 孔</span>
-          </div>
-          <div class="chain-arrow">→</div>
-          <div class="device-card">
-            <svg class="icon"><use href="#i-monitor"/></svg>
-            <strong>電腦主機</strong>
-            <span>從分享器 LAN 孔接網路線</span>
-          </div>
-        </div>
-        <ul class="port-list">
-          <li><b>第 1 條線：</b>光纖線 → 光纖數據機／ONT，不要自行拔插光纖頭。</li>
-          <li><b>第 2 條線：</b>ONT 的 LAN 孔 → 分享器的 WAN／Internet 孔。</li>
-          <li><b>第 3 條線：</b>分享器的 LAN 1–4 任一孔 → 電腦主機網路孔。</li>
-        </ul>
-        <div class="setup-note">提醒：若要避免雙重 NAT、遊戲連線或監視器遠端問題，安裝時可請工程師協助確認橋接／路由設定。</div>
+  <section id="setup" class="section-alt setup-teach">
+    <div class="wrap">
+      <div class="setup-head">
+        <span class="eyebrow">接線教學專區</span>
+        <h2>光纖數據機、分享器、電腦到底怎麼接？<br>一次看懂正確接法與燈號異常判斷</h2>
+        <p>這一區改成更大、更醒目的教學版面。就算你不懂網路設備，只要照著「光纖盒 → ONT → 分享器 WAN → 分享器 LAN → 電腦」這個順序，就比較不容易插錯。</p>
       </div>
-      <div class="setup-panel" aria-hidden="true">
-        <svg class="diagram-svg" viewBox="0 0 520 430" role="img">
-          <defs>
-            <linearGradient id="wire" x1="0" x2="1">
-              <stop offset="0" stop-color="#2563EB"/>
-              <stop offset="1" stop-color="#F97316"/>
-            </linearGradient>
-          </defs>
-          <text x="260" y="28" text-anchor="middle" class="diagram-title">家中網路正確接法</text>
-          <rect x="36" y="72" width="136" height="92" rx="16" fill="#fff" stroke="#CBD5E1"/>
-          <text x="104" y="108" text-anchor="middle" class="diagram-title">光纖線</text>
-          <text x="104" y="134" text-anchor="middle" class="diagram-label">從外線進屋</text>
-          <path d="M172 118 C214 118 214 118 248 118" stroke="url(#wire)" stroke-width="6" fill="none" stroke-linecap="round"/>
-          <circle cx="248" cy="118" r="5" fill="#F97316"/>
 
-          <rect x="248" y="72" width="156" height="92" rx="16" fill="#fff" stroke="#CBD5E1"/>
-          <text x="326" y="104" text-anchor="middle" class="diagram-title">ONT 光纖數據機</text>
-          <text x="326" y="130" text-anchor="middle" class="diagram-label">LAN 孔輸出網路</text>
-          <rect x="306" y="148" width="40" height="10" rx="3" fill="#2563EB"/>
-          <text x="326" y="181" text-anchor="middle" class="diagram-label">LAN</text>
+      <div class="teach-intro">
+        <b>最重要先記住：</b> <b>ONT 的 LAN 孔</b> 是把網路送出來；<b>分享器的 WAN／Internet 孔</b> 是把網路接進去；<b>分享器的 LAN 孔</b> 才是分給電腦、電視盒、監視器或其他設備使用。
+      </div>
 
-          <path d="M326 194 V235 C326 258 294 258 294 282" stroke="url(#wire)" stroke-width="6" fill="none" stroke-linecap="round"/>
-          <text x="360" y="236" class="diagram-label">網路線</text>
+      <div class="teach-layout">
+        <div class="teach-panel">
+          <h3>正確接法｜大圖版</h3>
+          <p class="lead-mini">請依照下方順序接線：壁面光纖盒 → ONT 光纖數據機 → 分享器 WAN → 分享器 LAN → 電腦；手機與筆電則連分享器的 Wi‑Fi。</p>
+          <svg class="diagram-svg" viewBox="0 0 940 530" role="img">
+            <defs>
+              <linearGradient id="wireBig" x1="0" x2="1">
+                <stop offset="0" stop-color="#2563EB"/>
+                <stop offset="1" stop-color="#F97316"/>
+              </linearGradient>
+            </defs>
+            <text x="470" y="28" text-anchor="middle" class="diagram-title">正確接法</text>
+            <text x="470" y="49" text-anchor="middle" class="diagram-subtitle">光纖盒 → ONT（PON）→ ONT LAN1 → 分享器 WAN → 分享器 LAN1-4 → 電腦</text>
 
-          <rect x="160" y="282" width="268" height="80" rx="18" fill="#fff" stroke="#CBD5E1"/>
-          <text x="294" y="314" text-anchor="middle" class="diagram-title">自己的 Wi‑Fi 分享器</text>
-          <text x="294" y="340" text-anchor="middle" class="diagram-label">WAN 孔接 ONT，LAN 孔接電腦</text>
-          <rect x="220" y="266" width="46" height="12" rx="3" fill="#F97316"/>
-          <text x="242" y="258" text-anchor="middle" class="diagram-label">WAN</text>
-          <rect x="318" y="266" width="46" height="12" rx="3" fill="#2563EB"/>
-          <text x="341" y="258" text-anchor="middle" class="diagram-label">LAN</text>
+            <rect x="34" y="128" width="160" height="124" rx="20" fill="#fff" stroke="#CBD5E1"/>
+            <text x="114" y="164" text-anchor="middle" class="diagram-title">壁面光纖盒</text>
+            <text x="114" y="189" text-anchor="middle" class="diagram-label">光纖入戶位置</text>
+            <circle cx="160" cy="220" r="8" fill="#22C55E"/>
+            <text x="113" y="228" text-anchor="middle" class="diagram-subtitle">細光纖跳線</text>
 
-          <path d="M342 362 V392 H438" stroke="url(#wire)" stroke-width="6" fill="none" stroke-linecap="round"/>
-          <rect x="438" y="344" width="54" height="68" rx="8" fill="#fff" stroke="#CBD5E1"/>
-          <rect x="448" y="354" width="34" height="22" rx="4" fill="#EAF2FF"/>
-          <text x="465" y="426" text-anchor="middle" class="diagram-label">電腦主機</text>
-        </svg>
+            <rect x="252" y="104" width="226" height="172" rx="24" fill="#fff" stroke="#CBD5E1"/>
+            <rect x="274" y="126" width="182" height="36" rx="10" fill="#EFF6FF" stroke="#BFDBFE"/>
+            <text x="365" y="149" text-anchor="middle" class="diagram-title">ONT 光纖數據機</text>
+            <rect x="294" y="212" width="34" height="18" rx="4" fill="#22C55E"/>
+            <text x="311" y="204" text-anchor="middle" class="diagram-subtitle">PON</text>
+            <rect x="392" y="212" width="34" height="18" rx="4" fill="#2563EB"/>
+            <text x="409" y="204" text-anchor="middle" class="diagram-subtitle">LAN1</text>
+            <rect x="432" y="212" width="34" height="18" rx="4" fill="#CBD5E1"/>
+            <text x="449" y="204" text-anchor="middle" class="diagram-subtitle">LAN2</text>
+            <text x="365" y="252" text-anchor="middle" class="diagram-label">PON 收光，LAN1 輸出網路</text>
+
+            <rect x="530" y="304" width="276" height="138" rx="24" fill="#fff" stroke="#CBD5E1"/>
+            <rect x="554" y="326" width="228" height="30" rx="10" fill="#FFF7ED" stroke="#FED7AA"/>
+            <text x="668" y="345" text-anchor="middle" class="diagram-title">自己的 Wi‑Fi 分享器</text>
+            <rect x="584" y="381" width="42" height="18" rx="4" fill="#F97316"/>
+            <text x="605" y="373" text-anchor="middle" class="diagram-subtitle">WAN</text>
+            <rect x="674" y="381" width="98" height="18" rx="4" fill="#2563EB"/>
+            <text x="723" y="373" text-anchor="middle" class="diagram-subtitle">LAN1-4</text>
+            <text x="668" y="419" text-anchor="middle" class="diagram-label">WAN 接來自 ONT 的網路線，LAN 分給電腦</text>
+
+            <rect x="812" y="140" width="94" height="118" rx="12" fill="#fff" stroke="#CBD5E1"/>
+            <rect x="829" y="160" width="60" height="36" rx="6" fill="#EAF2FF"/>
+            <rect x="839" y="205" width="40" height="10" rx="3" fill="#CBD5E1"/>
+            <text x="859" y="279" text-anchor="middle" class="diagram-label">電腦主機</text>
+
+            <path d="M194 219 C230 219 244 221 294 221" stroke="url(#wireBig)" stroke-width="8" fill="none" stroke-linecap="round"/>
+            <text x="232" y="206" class="diagram-label">光纖線</text>
+
+            <path d="M409 230 V288 C409 318 605 318 605 381" stroke="url(#wireBig)" stroke-width="8" fill="none" stroke-linecap="round"/>
+            <text x="443" y="291" class="diagram-label">RJ45 網路線</text>
+
+            <path d="M724 399 V448 H860 V258" stroke="url(#wireBig)" stroke-width="8" fill="none" stroke-linecap="round"/>
+            <text x="790" y="438" class="diagram-label">LAN 接電腦</text>
+
+            <path d="M668 304 C704 230 804 212 902 226" stroke="#93C5FD" stroke-width="5" fill="none" stroke-dasharray="8 10" stroke-linecap="round"/>
+            <path d="M668 304 C716 194 836 170 930 186" stroke="#93C5FD" stroke-width="5" fill="none" stroke-dasharray="8 10" stroke-linecap="round"/>
+            <text x="770" y="183" class="diagram-label">Wi‑Fi 給手機／筆電</text>
+          </svg>
+        </div>
+
+        <div class="teach-panel">
+          <h3>4 個接線重點</h3>
+          <div class="teach-list">
+            <div class="teach-item"><b>步驟 1｜光纖進 ONT</b><span>牆上出來的細光纖跳線，要插在 ONT 的 <b>PON／OPTICAL</b> 孔，不要太彎也不要硬拔。</span></div>
+            <div class="teach-item"><b>步驟 2｜ONT LAN 輸出</b><span>一般會用 <b>LAN1</b> 把網路送出來，再接一條網路線到你自己的分享器。</span></div>
+            <div class="teach-item"><b>步驟 3｜分享器接 WAN</b><span>分享器的 <b>WAN／Internet</b> 是吃進網路的孔，這一孔通常和 LAN 顏色不同。</span></div>
+            <div class="teach-item"><b>步驟 4｜電腦接 LAN</b><span>桌機或筆電要走有線時，請接分享器的 <b>LAN1～LAN4</b> 任一孔，不要接到 WAN。</span></div>
+          </div>
+          <div class="teach-note"><b>常見錯誤：</b> 1）ONT 的 LAN 接到分享器的 LAN；2）電腦插到分享器的 WAN；3）看到 ONT 有燈就以為一定正常，其實還要看是什麼燈號。</div>
+        </div>
+      </div>
+
+      <div class="teach-subgrid">
+        <div class="teach-card">
+          <h4>常見錯誤接法 1｜ONT 的 LAN 接到分享器的 LAN</h4>
+          <svg class="diagram-svg" viewBox="0 0 560 190" role="img">
+            <rect x="18" y="48" width="176" height="92" rx="18" fill="#fff" stroke="#CBD5E1"/>
+            <text x="106" y="83" text-anchor="middle" class="diagram-title">ONT 光纖數據機</text>
+            <rect x="126" y="101" width="34" height="16" rx="4" fill="#2563EB"/>
+            <text x="143" y="95" text-anchor="middle" class="diagram-subtitle">LAN1</text>
+
+            <rect x="356" y="38" width="184" height="112" rx="18" fill="#fff" stroke="#FCA5A5"/>
+            <text x="448" y="74" text-anchor="middle" class="diagram-title">Wi‑Fi 分享器</text>
+            <rect x="388" y="102" width="38" height="16" rx="4" fill="#F97316"/>
+            <text x="407" y="96" text-anchor="middle" class="diagram-subtitle">WAN</text>
+            <rect x="452" y="102" width="64" height="16" rx="4" fill="#2563EB"/>
+            <text x="484" y="96" text-anchor="middle" class="diagram-subtitle">LAN1-4</text>
+
+            <path d="M160 109 C250 109 286 109 452 109" stroke="#EF4444" stroke-width="8" fill="none" stroke-linecap="round"/>
+            <circle cx="306" cy="109" r="22" fill="#FEE2E2" stroke="#EF4444"/>
+            <path d="M296 99 L316 119 M316 99 L296 119" stroke="#EF4444" stroke-width="5" stroke-linecap="round"/>
+            <text x="280" y="156" class="diagram-label">錯在接到分享器 LAN，正確應改接分享器 WAN</text>
+          </svg>
+        </div>
+
+        <div class="teach-card">
+          <h4>常見錯誤接法 2｜電腦插到分享器 WAN 孔</h4>
+          <svg class="diagram-svg" viewBox="0 0 560 190" role="img">
+            <rect x="22" y="38" width="212" height="112" rx="18" fill="#fff" stroke="#CBD5E1"/>
+            <text x="128" y="74" text-anchor="middle" class="diagram-title">Wi‑Fi 分享器</text>
+            <rect x="70" y="102" width="40" height="16" rx="4" fill="#F97316"/>
+            <text x="90" y="96" text-anchor="middle" class="diagram-subtitle">WAN</text>
+            <rect x="142" y="102" width="80" height="16" rx="4" fill="#2563EB"/>
+            <text x="182" y="96" text-anchor="middle" class="diagram-subtitle">LAN1-4</text>
+
+            <rect x="392" y="44" width="98" height="104" rx="12" fill="#fff" stroke="#CBD5E1"/>
+            <rect x="408" y="62" width="66" height="36" rx="5" fill="#EAF2FF"/>
+            <text x="441" y="167" text-anchor="middle" class="diagram-label">電腦主機</text>
+
+            <path d="M110 110 C218 110 256 110 392 110" stroke="#EF4444" stroke-width="8" fill="none" stroke-linecap="round"/>
+            <circle cx="286" cy="110" r="22" fill="#FEE2E2" stroke="#EF4444"/>
+            <path d="M276 100 L296 120 M296 100 L276 120" stroke="#EF4444" stroke-width="5" stroke-linecap="round"/>
+            <text x="255" y="156" class="diagram-label">電腦不該插 WAN，應改插分享器 LAN1～LAN4</text>
+          </svg>
+        </div>
+
+        <div class="teach-card">
+          <h4>燈號異常怎麼看｜簡易判讀</h4>
+          <div class="signal-grid">
+            <div class="signal-row">
+              <div class="light-stack"><span class="light-dot light-green"></span><span class="light-dot light-blue"></span><span class="light-dot light-gray"></span></div>
+              <div><b>PON 綠燈正常、LOS 沒亮</b><span>通常代表光纖訊號正常；若還是不能上網，再檢查分享器 WAN、電腦網路線或是否取得 IP。</span></div>
+            </div>
+            <div class="signal-row">
+              <div class="light-stack"><span class="light-dot light-red"></span><span class="light-dot light-gray"></span><span class="light-dot light-gray"></span></div>
+              <div><b>LOS 紅燈亮／閃</b><span>多半是光纖異常、訊號中斷或光纖頭鬆脫。先不要亂拔光纖，確認線路沒有被拉扯，再聯絡客服報修。</span></div>
+            </div>
+            <div class="signal-row">
+              <div class="light-stack"><span class="light-dot light-gray"></span><span class="light-dot light-orange"></span><span class="light-dot light-gray"></span></div>
+              <div><b>LAN 燈不亮</b><span>代表 ONT 和分享器／電腦之間可能沒有連上。請檢查網路線有沒有插到底、是否插錯孔、線材是否故障。</span></div>
+            </div>
+            <div class="signal-row">
+              <div class="light-stack"><span class="light-dot light-green"></span><span class="light-dot light-gray"></span><span class="light-dot light-gray"></span></div>
+              <div><b>只有電源燈、其他燈都不正常</b><span>可能是設備未完全開機、線路未接好，或分享器根本沒接上 ONT。可先重開 ONT 與分享器測試。</span></div>
+            </div>
+          </div>
+          <div class="signal-tip"><b>快速判斷：</b> <b>LOS 紅燈</b> 通常偏向光纖問題；<b>LAN 燈不亮</b> 比較像網路線或孔位沒接好；如果 <b>PON 正常</b> 但仍無法上網，常見原因是分享器 WAN 沒接對、DHCP 沒拿到 IP，或電腦插錯孔。</div>
+        </div>
+      </div>
+
+      <div class="teach-subgrid" style="margin-top:18px;">
+        <div class="teach-card" style="grid-column:1 / -1;">
+          <h4>故障排除｜只接 ONT 直接上電腦測試</h4>
+          <div class="teach-layout" style="grid-template-columns:minmax(0,1fr) minmax(320px,.9fr); gap:18px;">
+            <div>
+              <svg class="diagram-svg" viewBox="0 0 660 220" role="img">
+                <defs>
+                  <linearGradient id="wireTest" x1="0" x2="1">
+                    <stop offset="0" stop-color="#2563EB"/>
+                    <stop offset="1" stop-color="#F97316"/>
+                  </linearGradient>
+                </defs>
+                <rect x="34" y="52" width="204" height="118" rx="20" fill="#fff" stroke="#CBD5E1"/>
+                <text x="136" y="88" text-anchor="middle" class="diagram-title">ONT 光纖數據機</text>
+                <rect x="154" y="126" width="34" height="18" rx="4" fill="#2563EB"/>
+                <text x="171" y="118" text-anchor="middle" class="diagram-subtitle">LAN1</text>
+
+                <rect x="484" y="46" width="102" height="120" rx="12" fill="#fff" stroke="#CBD5E1"/>
+                <rect x="501" y="66" width="68" height="40" rx="5" fill="#EAF2FF"/>
+                <text x="535" y="186" text-anchor="middle" class="diagram-label">電腦主機</text>
+
+                <path d="M188 135 C288 135 366 135 484 135" stroke="url(#wireTest)" stroke-width="8" fill="none" stroke-linecap="round"/>
+                <text x="335" y="121" text-anchor="middle" class="diagram-label">RJ45 網路線直接接到電腦</text>
+                <circle cx="336" cy="165" r="24" fill="#ECFDF5" stroke="#22C55E"/>
+                <text x="336" y="171" text-anchor="middle" style="font-size:28px; fill:#16A34A; font-weight:700;">✓</text>
+              </svg>
+            </div>
+            <div class="teach-list" style="margin-top:0;">
+              <div class="teach-item"><b>測試目的</b><span>如果你懷疑是分享器設定有問題，可以先把分享器拔掉，改成 <b>ONT LAN1 → 電腦網路孔</b> 直接測試。</span></div>
+              <div class="teach-item"><b>如果直接接電腦正常</b><span>通常代表問題更可能在分享器的 <b>WAN 孔、設定、DHCP、重開機</b>，或分享器與 ONT 之間的線材。</span></div>
+              <div class="teach-item"><b>如果直接接電腦也不行</b><span>就回頭看 ONT 的 <b>PON / LOS / LAN</b> 燈號，再聯絡客服報修，較可能是光纖訊號或主設備異常。</span></div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -926,6 +1228,83 @@
   </section>
 
   <div class="pulse-rail" aria-hidden="true"></div>
+
+  <section id="repair-check" class="section-alt">
+    <div class="wrap">
+      <div class="section-head center">
+        <span class="eyebrow">報修前自我檢查</span>
+        <h2>打報修電話前，先花 3 分鐘確認這 6 件事</h2>
+        <p>很多斷線問題其實是分享器、網路線或孔位接錯。先照這個順序檢查，客服或工程師也能更快判斷問題點。</p>
+      </div>
+      <div class="check-hero">
+        <h3>最快排除順序：先看燈號 → 再重開機 → 再檢查線 → 最後直接接電腦測試</h3>
+        <p>如果出現 LOS 紅燈、光纖線疑似鬆脫或折到，請不要自行拆光纖頭，直接撥打報修專線 02-8253-8999。</p>
+      </div>
+      <div class="check-grid">
+        <div class="check-card"><span class="check-num">01</span><h4>確認 ONT 電源與 PON / LOS 燈</h4><p>PON 正常、LOS 沒亮，通常代表光纖訊號有進來；LOS 紅燈亮或閃，較可能是光纖訊號異常。</p><div class="check-action"><b>怎麼做：</b>拍一張 ONT 燈號照片，報修時傳給客服最清楚。</div></div>
+        <div class="check-card"><span class="check-num">02</span><h4>重開 ONT 與分享器</h4><p>先拔分享器電源，再拔 ONT 電源，等待 30 秒後先插回 ONT，等燈號穩定後再插分享器。</p><div class="check-action"><b>注意：</b>不要拔光纖線，只需要拔電源。</div></div>
+        <div class="check-card"><span class="check-num">03</span><h4>確認 ONT LAN 接分享器 WAN</h4><p>ONT 的 LAN1 要接到分享器的 WAN / Internet 孔，不是接到分享器 LAN1-4。</p><div class="check-action"><b>常見錯誤：</b>LAN 對 LAN 會造成分享器無法正常撥接或分配網路。</div></div>
+        <div class="check-card"><span class="check-num">04</span><h4>確認電腦插分享器 LAN</h4><p>電腦主機要插在分享器 LAN1-4 任一孔，不要插到 WAN 孔。</p><div class="check-action"><b>判斷：</b>電腦插上後，分享器對應 LAN 燈通常會亮或閃。</div></div>
+        <div class="check-card"><span class="check-num">05</span><h4>換一條網路線測試</h4><p>網路線老化、卡榫斷掉或沒有插到底，都會造成 LAN 燈不亮或速度異常。</p><div class="check-action"><b>建議：</b>至少準備一條正常的 CAT5e / CAT6 網路線做交叉測試。</div></div>
+        <div class="check-card"><span class="check-num">06</span><h4>ONT 直接接電腦測試</h4><p>把分享器先拔掉，用網路線從 ONT LAN1 直接接電腦。若這樣正常，多半是分享器設定或分享器本體問題。</p><div class="check-action"><b>結果：</b>直接接也不行，再看 PON / LOS / LAN 燈並報修。</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="device-ports">
+    <div class="wrap">
+      <div class="section-head center">
+        <span class="eyebrow">設備孔位示意</span>
+        <h2>常見設備孔位，做成像實機照片的示意</h2>
+        <p>每台設備外觀不一定完全相同，但孔位邏輯大致一致：光纖進 ONT、ONT 的 LAN 接分享器 WAN、分享器 LAN 再分給電腦。</p>
+      </div>
+      <div class="device-real-grid">
+        <div class="device-real-card">
+          <div class="photo-device">
+            <div class="device-face-title">ONT 正面燈號</div>
+            <div class="device-light-row"><span class="light-dot light-green"></span><span class="light-dot light-green"></span><span class="light-dot light-gray"></span><span class="light-dot light-orange"></span></div>
+            <div class="port-caption">POWER / PON / LOS / LAN</div>
+          </div>
+          <h4>ONT 正面燈號</h4><p>重點看 PON、LOS、LAN。PON 正常且 LOS 沒亮，通常代表光纖訊號正常；LAN 燈不亮則要檢查網路線與孔位。</p>
+        </div>
+        <div class="device-real-card">
+          <div class="photo-device">
+            <div class="device-face-title">ONT 背面孔位</div>
+            <div class="device-port-row"><div><span class="real-port green"></span><div class="port-caption">PON</div></div><div><span class="real-port blue"></span><div class="port-caption">LAN1</div></div><div><span class="real-port"></span><div class="port-caption">LAN2</div></div><div><span class="real-port"></span><div class="port-caption">TEL</div></div></div>
+          </div>
+          <h4>ONT 背面孔位</h4><p>光纖線接 PON / OPTICAL；一般網路線從 LAN1 接出。若不確定哪個 LAN 孔有開通，依工程師現場指定為準。</p>
+        </div>
+        <div class="device-real-card">
+          <div class="photo-device">
+            <div class="device-face-title">Wi‑Fi 分享器背面</div>
+            <div class="device-port-row"><div><span class="real-port orange"></span><div class="port-caption">WAN</div></div><div><span class="real-port blue"></span><div class="port-caption">LAN1</div></div><div><span class="real-port blue"></span><div class="port-caption">LAN2</div></div><div><span class="real-port blue"></span><div class="port-caption">LAN3</div></div></div>
+          </div>
+          <h4>分享器背面孔位</h4><p>WAN / Internet 接 ONT；LAN1-4 接電腦、電視盒、監視器。手機、平板與筆電通常直接連分享器 Wi‑Fi。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="local-seo" class="section-alt">
+    <div class="wrap">
+      <div class="section-head center">
+        <span class="eyebrow">服務區域 SEO</span>
+        <h2>新北各區光纖到府服務說明</h2>
+        <p>以下文案可增加在地搜尋關鍵字覆蓋，讓「板橋光纖到府」「中和大大寬頻」「土城網路申辦」這類搜尋更容易對應到頁面內容。</p>
+      </div>
+      <div class="local-grid">
+        <div class="local-card"><h4>板橋光纖到府</h4><p>板橋區住宅、社區與小型辦公室可洽詢大大寬頻光纖到府服務，適合追劇、遊戲、遠距上班與多裝置家庭使用。</p><div class="local-tags"><span>板橋光纖</span><span>板橋網路</span><span>板橋第四台</span></div></div>
+        <div class="local-card"><h4>中和光纖網路</h4><p>中和區用戶若遇到晚上尖峰不穩、多人同時上網卡頓，可評估光纖到府方案，並依地址確認管線可行性。</p><div class="local-tags"><span>中和光纖</span><span>中和網路</span><span>中和寬頻</span></div></div>
+        <div class="local-card"><h4>永和網路申辦</h4><p>永和區住宅密集，多人家庭與租屋族常需要穩定 Wi‑Fi 與有線網路配置，申辦前可先詢問合適速率與安裝方式。</p><div class="local-tags"><span>永和光纖</span><span>永和網路</span><span>永和第四台</span></div></div>
+        <div class="local-card"><h4>土城大大寬頻</h4><p>土城區住家、店面與工作室可依使用需求選擇 120M、500M 或 1.2G 等方案，安裝前可安排會勘確認走線。</p><div class="local-tags"><span>土城寬頻</span><span>土城光纖</span><span>土城網路</span></div></div>
+        <div class="local-card"><h4>樹林光纖到府</h4><p>樹林區部分里別可洽詢光纖到府服務，若地址位於服務範圍邊界，建議先提供完整地址確認可否施工。</p><div class="local-tags"><span>樹林光纖</span><span>樹林網路</span><span>樹林寬頻</span></div></div>
+        <div class="local-card"><h4>三峽寬頻網路</h4><p>三峽市區與北大生活圈周邊用戶，可依家庭人數、遊戲需求、外送店面或辦公需求選擇合適光纖方案。</p><div class="local-tags"><span>三峽光纖</span><span>三峽網路</span><span>北大寬頻</span></div></div>
+        <div class="local-card"><h4>鶯歌網路申裝</h4><p>鶯歌市區周邊可洽詢大大寬頻與大豐有線電視服務，實際安裝仍需依管線與地址判定。</p><div class="local-tags"><span>鶯歌光纖</span><span>鶯歌網路</span><span>鶯歌寬頻</span></div></div>
+        <div class="local-card"><h4>高雄服務區域</h4><p>高雄部分行政區也有有線電視與光纖網路服務，可依實際地址確認是否能安裝與可申辦方案。</p><div class="local-tags"><span>高雄光纖</span><span>高雄第四台</span><span>高雄寬頻</span></div></div>
+      </div>
+      <p class="local-seo-note">提醒：區域文案可幫助搜尋引擎理解服務範圍，但實際能否安裝仍應以完整地址、管線狀況與業務人員確認為準。</p>
+    </div>
+  </section>
 
   <section id="news">
     <div class="wrap">
@@ -987,33 +1366,52 @@
           <p>月租費用與安裝相關費用會在簽約前由業務當面說明並確認，正式報價以合約書為準。若對帳單金額有疑問，可直接撥打客服電話查詢帳務明細。</p>
         </details>
 
+        <details class="faq-item">
+          <summary>報修前我可以先做哪些檢查？</summary>
+          <p>可以先確認 ONT 的 PON、LOS、LAN 燈號，重開 ONT 與分享器，確認 ONT LAN 有接到分享器 WAN，電腦有接到分享器 LAN。若仍無法上網，可用 ONT LAN1 直接接電腦測試。</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>LOS 紅燈亮代表什麼？</summary>
+          <p>LOS 紅燈亮或閃通常代表光纖訊號異常、光纖線鬆脫或線路中斷。請不要自行拆光纖頭，建議直接撥打故障報修專線 02-8253-8999。</p>
+        </details>
+
+
+        <details class="faq-item"><summary>大大寬頻可以只辦網路嗎？</summary><p>可以。可單辦網路，不一定要綁第四台；也可以依需求搭配大豐有線電視數位頻道，實際方案與優惠以業務報價為準。</p></details>
+        <details class="faq-item"><summary>大豐有線電視和大大寬頻是什麼關係？</summary><p>大大寬頻是大豐有線電視相關服務品牌，主要提供光纖到府網路、寬頻與有線電視相關方案。新申辦與報修建議依頁面電話分流，避免打錯專線。</p></details>
+        <details class="faq-item"><summary>板橋、中和、土城可以裝光纖到府嗎？</summary><p>板橋、中和、永和、土城為主要服務範圍之一，但實際仍需用完整地址確認管線與可施工狀況。建議先來電或 LINE 傳地址查詢。</p></details>
+        <details class="faq-item"><summary>中和或板橋申辦網路多久可以安裝？</summary><p>確認地址與方案後，多數地區可安排近期到府會勘與安裝；實際時間仍會依管線、工程排程、住戶可配合時段而定。</p></details>
+        <details class="faq-item"><summary>土城大大寬頻報修電話是多少？</summary><p>已裝機用戶如果是網路斷線、訊號異常或設備燈號問題，請撥故障報修專線 <strong>02-8253-8999</strong>，也可撥免付費 <strong>0800-360-999</strong>。</p></details>
+        <details class="faq-item"><summary>分享器 WAN 和 LAN 差在哪？</summary><p>WAN／Internet 是分享器「接收外部網路」的孔，應該接 ONT 光纖數據機的 LAN；LAN 1–4 是分享器「分給家中設備」的孔，電腦、電視盒、監視器通常接 LAN。</p></details>
       </div>
     </div>
   </section>
 
   <section id="reviews">
     <div class="wrap">
-      <div class="section-head">
-        <span class="eyebrow">用戶怎麼說</span>
-        <h2>板橋、中和用戶的真實回饋</h2>
-      </div>
-      <div class="quotes">
-        <div class="quote">
-          <p class="text">「原本用的網路每到晚上就掉速，換過來之後打線上遊戲終於不會突然延遲。」</p>
-          <div class="who"><span>板橋・住宅用戶</span><span>2025 年安裝</span></div>
-        </div>
-        <div class="quote">
-          <p class="text">「打報修電話當天就有工程師來處理，沒有推說要改天，這點比之前用的業者好很多。」</p>
-          <div class="who"><span>中和・住宅用戶</span><span>2025 年安裝</span></div>
-        </div>
-        <div class="quote">
-          <p class="text">「陳先生講方案很直接，沒有一直推銷用不到的東西，簽約內容也講得很清楚。」</p>
-          <div class="who"><span>土城・小型辦公室</span><span>2024 年安裝</span></div>
-        </div>
+      <div class="section-head center"><span class="eyebrow">安裝案例 / 使用情境</span><h2>不同用戶，適合的網路需求不一樣</h2><p>把評論區升級成案例式說明，讓客人更容易對號入座，也能提升板橋、中和、土城、三峽等區域搜尋相關性。</p></div>
+      <div class="case-grid">
+        <div class="case-card"><span class="area">板橋住宅</span><h3>晚上追劇、打遊戲不想卡</h3><p>適合多人家庭，同時看 4K、滑手機、打線上遊戲，建議從 500M 評估。</p><ul><li>多人同時連線</li><li>客廳電視＋房間手機</li><li>重視尖峰穩定度</li></ul></div>
+        <div class="case-card"><span class="area">中和店面</span><h3>POS、監視器、外送平台穩定上線</h3><p>店面網路最怕斷線影響收單，可依設備數量評估 500M 或 1.2G。</p><ul><li>POS 與刷卡機</li><li>監視器遠端觀看</li><li>UberEats / 外送平台</li></ul></div>
+        <div class="case-card"><span class="area">土城小辦公室</span><h3>多人視訊與雲端檔案需求</h3><p>公司戶常有上傳下載、雲端備份、視訊會議，建議不要只看最低價。</p><ul><li>多人電腦共用</li><li>Google Drive / NAS</li><li>視訊會議穩定</li></ul></div>
+        <div class="case-card"><span class="area">三峽北大生活圈</span><h3>新社區先查地址與管線</h3><p>新社區、社區大樓、透天厝狀況不同，提供完整地址後可先確認可否安裝。</p><ul><li>先查可裝區域</li><li>確認管線可行</li><li>安排到府會勘</li></ul></div>
       </div>
     </div>
   </section>
 
+
+  <section id="quick-route" class="section-alt">
+    <div class="wrap">
+      <div class="section-head center">
+        <span class="eyebrow">快速分流</span><h2>你是要新申辦，還是已裝機要報修？</h2>
+        <p>很多客人會打錯電話，這裡再幫你分一次。新申辦找業務，已經是用戶斷線或訊號異常請打客服報修。</p>
+      </div>
+      <div class="mega-route">
+        <div class="mega-card sales"><span class="route-tag">還沒安裝・想辦網路</span><h3>我要新申辦 / 查詢可否安裝</h3><p>適合想辦大大寬頻、大豐有線電視、光纖到府、網路＋第四台組合方案的客人。</p><a href="tel:0988232247"><svg class="icon"><use href="#i-phone"/></svg> 0988-232-247</a><a href="https://lin.ee/TD36TlR" target="_blank" rel="noopener"><svg class="icon"><use href="#i-chat"/></svg> LINE 詢問</a></div>
+        <div class="mega-card repair"><span class="route-tag">已經是用戶・網路異常</span><h3>我要故障報修 / 網路不能用</h3><p>適合已裝機用戶，遇到斷線、LOS 紅燈、速度異常、第四台訊號問題、設備燈號異常。</p><a href="tel:0282538999"><svg class="icon"><use href="#i-wrench"/></svg> 02-8253-8999</a><a href="tel:0800360999">0800-360-999</a></div>
+      </div>
+    </div>
+  </section>
   <section id="apply">
     <div class="wrap">
       <div class="cta-band">
@@ -1069,6 +1467,28 @@
   <a class="sales" href="tel:0988232247"><svg class="icon"><use href="#i-phone"/></svg>新申辦</a>
   <a class="repair" href="tel:0282538999"><svg class="icon"><use href="#i-wrench"/></svg>故障報修</a>
 </div>
+
+
+<script>
+(function(){
+  const box = document.getElementById('speedChooser');
+  const result = document.getElementById('chooserResult');
+  if(!box || !result) return;
+  const render = () => {
+    const checked = [...box.querySelectorAll('input:checked')];
+    const score = checked.reduce((sum, input) => sum + Number(input.value || 0), 0);
+    let title = '先從 500M 評估';
+    let desc = '一般家庭最容易落在 500M，兼顧多人上網、4K 追劇與視訊會議。若只有 1–2 人輕度使用，可往 120M；若有直播、遊戲、公司店面需求，再看 1.2G。';
+    if(score <= 1 && checked.length > 0){ title = '推薦 120M 起'; desc = '1–2 人輕度使用、追劇、滑手機、一般上網，120M 通常就能先評估；想更穩或有多人連線再看 360M / 500M。'; }
+    else if(score >= 6){ title = '建議評估 1.2G'; desc = '你勾選了遊戲、直播、店面或多人重度使用情境，建議直接詢問 1.2G 或高階方案，避免尖峰與上傳需求不足。'; }
+    else if(score >= 2){ title = '推薦 500M'; desc = '多數 3–4 人家庭、4K 追劇、多裝置同時使用，500M 是比較均衡的選擇，也是最多人會先問的方案。'; }
+    result.querySelector('h3').textContent = title;
+    result.querySelector('p').textContent = desc;
+  };
+  box.addEventListener('change', render);
+  render();
+})();
+</script>
 
 </body>
 </html>
