@@ -744,7 +744,7 @@
     .setup-head p{ font-size:15px; }
     .teach-intro{ text-align:left; }
   }
-  /* ---------- repair checklist / device visual / local SEO ---------- */
+  /* ---------- repair checklist / device visual / local area ---------- */
   .check-hero{ background:linear-gradient(135deg, rgba(37,99,235,.08), rgba(14,165,233,.04)); border:1px solid rgba(37,99,235,.16); border-radius:22px; padding:24px; margin-bottom:22px; }
   .check-hero h3{ margin:0 0 8px; font-size:22px; }
   .check-hero p{ margin:0; color:var(--paper-dim); font-size:14px; }
@@ -919,8 +919,7 @@
   }
 
 
-  /* SEO-only local area text: kept in HTML for local keyword relevance, hidden from normal front-end layout.
-     Avoid display:none so the section remains semantic in the document. */
+  /* Local area text kept visually hidden from normal front-end layout. */
   .seo-only-content{
     position:absolute !important;
     width:1px !important;
@@ -980,7 +979,7 @@
 <span class="eyebrow">新北板橋・中和・永和・土城・樹林・三峽・鶯歌</span>
 <h1>真正 <span class="accent">FTTH 光纖到府</span><br/>網路＋第四台一次搞定</h1>
 <p class="lead">大豐有線電視旗下大大寬頻，提供 1.2G／500M、888M／500M 高速組合，支援大豐第四台、Wi‑Fi 6 分享器租借。新申辦、查地址、方案費用與家中接線方式一次看懂。</p>
-<!-- 分流：新申辦 vs 故障維修，避免客人打錯電話 -->
+<!-- 分流：新申辦 vs 故障維修 -->
 <div class="route-bar">
 <div class="route-card sales">
 <span class="route-tag">還沒申裝・想安裝新網路</span>
@@ -1031,7 +1030,7 @@
 <div class="section-head center">
 <span class="eyebrow">光纖到府圖解比較</span>
 <h2>為什麼選 FTTH 光纖到府？用圖直接看差異</h2>
-<p>這區改成「左邊一般網路、右邊 FTTH 光纖到府」的直白對比圖，直接放設備與使用情境，讓客人不用猜圖在講什麼。</p>
+<p>透過左右對照，快速看懂一般網路與 FTTH 光纖到府在穩定度、傳輸方式、Wi‑Fi 覆蓋與第四台整合上的差異。</p>
 </div>
 <div class="ftth-compare-wrap">
 <div class="ftth-compare-card">
@@ -1064,7 +1063,7 @@
 <text x="540" y="252" text-anchor="middle" class="compare-caption">多人上網更穩，適合追劇、遊戲、視訊</text>
 </svg>
 <h3>1. 尖峰時段穩定度</h3>
-<p>客人最在意的是晚上多人使用會不會卡。圖上直接說明：FTTH 光纖到府是光纖進家中，再由 ONT 與分享器分給手機、電腦使用。</p>
+<p>尖峰時段多人同時上網、追劇、遊戲時，FTTH 光纖到府可讓家中設備透過 ONT 與分享器穩定連線。</p>
 </div>
 
 <div class="ftth-compare-card">
@@ -1089,7 +1088,7 @@
 <text x="540" y="252" text-anchor="middle" class="compare-caption">重點：光纖不是只到社區，是拉到家中設備</text>
 </svg>
 <h3>2. 線路傳輸方式</h3>
-<p>這張用「線路路徑」解釋 FTTH：光纖線進家中接 ONT，再往分享器與設備分配，降低客人對名詞的疑惑。</p>
+<p>FTTH 光纖訊號進入住家後接到 ONT，再分配給分享器與設備，傳輸路徑更清楚。</p>
 </div>
 
 <div class="ftth-compare-card">
@@ -1115,7 +1114,7 @@
 <text x="540" y="268" text-anchor="middle" class="compare-caption">網路速度 ≠ 每間房 Wi‑Fi 都滿格</text>
 </svg>
 <h3>3. Wi‑Fi 跟網路速度分開看</h3>
-<p>客人常把「線路速度」和「Wi‑Fi 訊號」混在一起。這張圖直接說明：線路正常，但分享器位置不對，房間還是可能不穩。</p>
+<p>線路速度與 Wi‑Fi 覆蓋要分開看；分享器位置不佳時，房間訊號仍可能變弱。</p>
 </div>
 
 <div class="ftth-compare-card">
@@ -1140,10 +1139,10 @@
 <text x="540" y="248" text-anchor="middle" class="compare-caption">新申辦、升速、第四台組合一次確認</text>
 </svg>
 <h3>4. 網路＋第四台一次處理</h3>
-<p>把第四台機上盒、ONT、分享器畫出來，讓客人知道不是只有網路，也能一次問組合方案與設備安排。</p>
+<p>網路、Wi‑Fi 分享器與第四台機上盒可一起評估，一次確認方案與設備安排。</p>
 </div>
 </div>
-<div class="ftth-compare-note"><b>這一區改成教學圖卡，不再只用抽象插圖。</b> 客人可以先看懂「一般網路 vs FTTH 光纖到府」差異，再往下看方案與地址查詢。</div>
+<div class="ftth-compare-note"><b>以左右對照方式呈現。</b> 先看懂「一般網路 vs FTTH 光纖到府」差異，再依地址與使用需求選擇合適方案。</div>
 </div>
 </section>
 
@@ -1175,10 +1174,10 @@
 <div class="wrap">
 <div class="section-head center">
 <span class="eyebrow">快速分流</span><h2>你是要新申辦，還是已裝機要報修？</h2>
-<p>很多客人會打錯電話，這裡再幫你分一次。新申辦找業務，已經是用戶斷線或訊號異常請打客服報修。</p>
+<p>新申辦與故障報修分開處理更快。還沒申辦請找業務；已是用戶且遇到斷線、紅燈或訊號異常，請撥客服報修。</p>
 </div>
 <div class="mega-route">
-<div class="mega-card sales"><span class="route-tag">還沒安裝・想辦網路</span><h3>我要新申辦 / 查詢可否安裝</h3><p>適合想辦大大寬頻、大豐有線電視、光纖到府、網路＋第四台組合方案的客人。</p><a href="tel:0988232247"><svg class="icon"><use href="#i-phone"></use></svg> 0988-232-247</a><a href="https://lin.ee/TD36TlR" rel="noopener" target="_blank"><svg class="icon"><use href="#i-chat"></use></svg> LINE 詢問</a></div>
+<div class="mega-card sales"><span class="route-tag">還沒安裝・想辦網路</span><h3>我要新申辦 / 查詢可否安裝</h3><p>適合想辦大大寬頻、大豐有線電視、光纖到府、網路＋第四台組合方案的用戶。</p><a href="tel:0988232247"><svg class="icon"><use href="#i-phone"></use></svg> 0988-232-247</a><a href="https://lin.ee/TD36TlR" rel="noopener" target="_blank"><svg class="icon"><use href="#i-chat"></use></svg> LINE 詢問</a></div>
 <div class="mega-card repair"><span class="route-tag">已經是用戶・網路異常</span><h3>我要故障報修 / 網路不能用</h3><p>適合已裝機用戶，遇到斷線、LOS 紅燈、速度異常、第四台訊號問題、設備燈號異常。</p><a href="tel:0282538999"><svg class="icon"><use href="#i-wrench"></use></svg> 02-8253-8999</a><a href="tel:0800360999">0800-360-999</a></div>
 </div>
 </div>
@@ -1356,13 +1355,13 @@
 <div class="section-head center">
 <span class="eyebrow">FTTH 方案特色</span>
 <h2>不只看幾 M，更要看晚上多人使用時穩不穩</h2>
-<p>把官方頁面常講的重點改成手機好讀的卡片，讓客人不用讀一大段文字，也能理解光纖到府、第四台與 Wi‑Fi 6 的差異。</p>
+<p>將光纖到府、第四台與 Wi‑Fi 6 分享器重點整理成手機好讀的卡片，快速了解方案差異。</p>
 </div>
 <div class="ftth-feature-grid">
 <div class="ftth-feature-card"><span class="badge">光</span><h3>真正光纖到府</h3><p>光纖訊號拉到住家內，降低傳統線路干擾，尖峰時段更適合多人同時使用。</p></div>
 <div class="ftth-feature-card"><span class="badge">1G</span><h3>下載 1.2G／上傳 500M</h3><p>適合 4K 追劇、線上遊戲、直播、雲端備份與多裝置家庭。</p></div>
 <div class="ftth-feature-card"><span class="badge">TV</span><h3>網路＋第四台組合</h3><p>大豐第四台與光纖網路可一起評估，家裡追劇、新聞、電視盒一次處理。</p></div>
-<div class="ftth-feature-card"><span class="badge">Wi</span><h3>Wi‑Fi 6 分享器租借</h3><p>申辦時可詢問分享器租借與押金條件，避免客人一開始就不知道要買哪台設備。</p></div>
+<div class="ftth-feature-card"><span class="badge">Wi</span><h3>Wi‑Fi 6 分享器租借</h3><p>申辦時可詢問分享器租借與押金條件，先確認是否需要另購設備。</p></div>
 </div>
 <div class="compare-copy"><b>真正光纖，不怕比較。</b> 光纖不是只看數字，而是看晚上多人上網、追劇、遊戲、監視器同時使用時是否穩定。實際可裝方案仍需依完整地址與線路狀況確認。</div>
 </div>
@@ -1384,7 +1383,7 @@
 </div>
 </div>
 <div class="preapply-quick">
-<div class="preapply-pill"><b>能不能裝</b>先用完整地址查管線與服務區</div>
+<div class="preapply-pill"><b>能不能裝</b>提供完整地址查管線與服務區</div>
 <div class="preapply-pill"><b>費用怕不清楚</b>月租、裝機、設備與特殊施工先講明</div>
 <div class="preapply-pill"><b>Wi‑Fi 怕不穩</b>申辦前先看坪數、隔間與分享器位置</div>
 <div class="preapply-pill"><b>施工怕麻煩</b>先確認弱電箱、牽線位置與家中是否有人</div>
@@ -1393,7 +1392,7 @@
 <div class="pre-grid">
 <div class="pre-card">
 <h3>我家能不能裝？先看這張表</h3>
-<p>實際仍以完整地址查詢為準，但可以先用住宅情況粗略判斷。</p>
+<p>實際仍以完整地址查詢為準，也可先依住宅情況初步判斷。</p>
 <table class="pre-table">
 <tr><th>情況</th><th>可裝機率</th></tr>
 <tr><td>同社區有人裝過大豐／大大寬頻</td><td><span class="pre-badge good">高</span></td></tr>
@@ -1405,7 +1404,7 @@
 </div>
 <div class="pre-card">
 <h3>費用會不會臨時加價？</h3>
-<p>建議申辦前先確認月租、裝機、設備與特殊施工。若現場條件需要額外施工，應先說明再施工，不要讓客人到現場才措手不及。</p>
+<p>建議申辦前先確認月租、裝機、設備與特殊施工。若現場條件需要額外施工，會先說明再施工，讓費用更清楚。</p>
 <table class="pre-table">
 <tr><th>項目</th><th>說明</th></tr>
 <tr><td>月租費</td><td>依選擇速率與方案</td></tr>
@@ -1453,7 +1452,7 @@
 </div>
 <div class="faq-list">
 <details class="faq-item"><summary>我不知道家裡能不能裝，可以先查嗎？</summary><p>可以。建議直接提供完整地址，先查詢服務範圍、管線與社區狀況，再決定是否安排到府安裝。</p></details>
-<details class="faq-item"><summary>裝機會不會鑽牆？</summary><p>一般會依現場線路與屋內配置判斷，不一定需要鑽牆。若有特殊施工需求，應先與客人確認位置與施工方式。</p></details>
+<details class="faq-item"><summary>裝機會不會鑽牆？</summary><p>一般會依現場線路與屋內配置判斷，不一定需要鑽牆。若有特殊施工需求，會先確認位置與施工方式。</p></details>
 <details class="faq-item"><summary>可以只辦網路不辦第四台嗎？</summary><p>可以。可單辦網路，也可依需求搭配第四台或組合方案，實際優惠以申辦時業務說明為準。</p></details>
 <details class="faq-item"><summary>可以用自己的分享器嗎？</summary><p>可以。常見接法是 ONT 的 LAN 接到自己分享器的 WAN／Internet，再由分享器分配 Wi‑Fi 與有線網路。</p></details>
 <details class="faq-item"><summary>分享器要放哪裡比較好？</summary><p>建議放在客廳或家中中央、開放的位置。弱電箱、櫃子內、地上角落通常會影響 Wi‑Fi 覆蓋。</p></details>
@@ -1517,7 +1516,7 @@
 <div class="setup-head">
 <span class="eyebrow">接線教學專區</span>
 <h2>光纖數據機、分享器、電腦到底怎麼接？<br/>一次看懂正確接法與燈號異常判斷</h2>
-<p>這一區改成更大、更醒目的教學版面。就算你不懂網路設備，只要照著「光纖盒 → ONT → 分享器 WAN → 分享器 LAN → 電腦」這個順序，就比較不容易插錯。</p>
+<p>光纖數據機、分享器與電腦的接線順序很重要。照著「光纖盒 → ONT → 分享器 WAN → 分享器 LAN → 電腦」接線，就比較不容易插錯。</p>
 </div>
 <div class="teach-intro">
 <b>最重要先記住：</b> <b>ONT 的 LAN 孔</b> 是把網路送出來；<b>分享器的 WAN／Internet 孔</b> 是把網路接進去；<b>分享器的 LAN 孔</b> 才是分給電腦、電視盒、監視器或其他設備使用。
@@ -1671,7 +1670,7 @@
 </svg>
 </div>
 <div class="teach-list" style="margin-top:0;">
-<div class="teach-item"><b>測試目的</b><span>如果你懷疑是分享器設定有問題，可以先把分享器拔掉，改成 <b>ONT LAN1 → 電腦網路孔</b> 直接測試。</span></div>
+<div class="teach-item"><b>測試目的</b><span>若懷疑是分享器設定有問題，可以先拔掉分享器，使用 <b>ONT LAN1 → 電腦網路孔</b> 直接測試。</span></div>
 <div class="teach-item"><b>如果直接接電腦正常</b><span>通常代表問題更可能在分享器的 <b>WAN 孔、設定、DHCP、重開機</b>，或分享器與 ONT 之間的線材。</span></div>
 <div class="teach-item"><b>如果直接接電腦也不行</b><span>就回頭看 ONT 的 <b>PON / LOS / LAN</b> 燈號，再聯絡客服報修，較可能是光纖訊號或主設備異常。</span></div>
 </div>
@@ -1718,12 +1717,12 @@
 <div class="section-head center">
 <span class="eyebrow">安裝情境圖解</span>
 <h2>用 Q 版示意圖先看懂安裝會遇到哪些設備</h2>
-<p>用簡單圖解讓客人先理解數據機、分享器、電腦與店面設備的連接方式，降低申辦前的不安。</p>
+<p>用簡單圖解說明數據機、分享器、電腦與店面設備的連接方式，降低申辦前的不安。</p>
 </div>
 <div class="photo-grid">
 <div class="photo-card">
 <div class="photo-visual"><div class="q-scene"><div class="q-panel">📦</div><div class="q-line"></div><div class="q-box">ONT</div></div><div class="q-label">弱電箱／光纖設備</div></div>
-<h3>弱電箱接線</h3><p>先讓客人知道光纖、數據機與家中網路線會集中在哪裡，申辦前比較安心。</p></div>
+<h3>弱電箱接線</h3><p>先了解光纖、數據機與家中網路線會集中在哪裡，申辦前比較安心。</p></div>
 <div class="photo-card">
 <div class="photo-visual"><div class="q-scene"><div class="q-worker">👷</div><div class="q-line"></div><div class="q-box">PON</div></div><div class="q-label">ONT 放置與散熱</div></div>
 <h3>ONT 放置位置</h3><p>提醒光纖數據機需要電源、通風與穩定擺放位置，不建議被雜物壓住或悶在角落。</p></div>
@@ -1852,7 +1851,7 @@
 </section>
 <section id="reviews">
 <div class="wrap">
-<div class="section-head center"><span class="eyebrow">安裝案例 / 使用情境</span><h2>不同用戶，適合的網路需求不一樣</h2><p>把評論區升級成案例式說明，讓客人更容易對號入座，也能提升板橋、中和、土城、三峽等區域搜尋相關性。</p></div>
+<div class="section-head center"><span class="eyebrow">安裝案例 / 使用情境</span><h2>不同用戶，適合的網路需求不一樣</h2><p>以下以常見使用情境整理，方便依住家、店面、辦公室與社區需求選擇合適網路。</p></div>
 <div class="case-grid">
 <div class="case-card"><span class="area">板橋住宅</span><h3>晚上追劇、打遊戲不想卡</h3><p>適合多人家庭，同時看 4K、滑手機、打線上遊戲，建議從 500M 評估。</p><ul><li>多人同時連線</li><li>客廳電視＋房間手機</li><li>重視尖峰穩定度</li></ul></div>
 <div class="case-card"><span class="area">中和店面</span><h3>POS、監視器、外送平台穩定上線</h3><p>店面網路最怕斷線影響收單，可依設備數量評估 500M 或 1.2G。</p><ul><li>POS 與刷卡機</li><li>監視器遠端觀看</li><li>UberEats / 外送平台</li></ul></div>
@@ -1883,7 +1882,7 @@
 <div class="section-head center">
 <span class="eyebrow">最新消息</span>
 <h2>官網公告即時同步</h2>
-<p>以下內容直接來自官方網站，如有線路維護或優惠公告會即時顯示。若下方畫面空白，代表官網目前不開放嵌入，請點下方連結前往查看。</p>
+<p>可查看官方公告與 LINE 最新消息。若下方畫面未顯示，可點下方連結前往查看。</p>
 </div>
 <div class="news-frame-wrap">
 <iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.iframe-custom-content.com/versions/2/wizard/modules/customIframePlugin/iframeScriptLoad_V3.php?id=app_iframe_protect_script_671f8fd227617&amp;customHeight=&amp;itemID=2264950723&amp;uniqueID=671f8fd4236a2&amp;moduleID=671f8fd227617&amp;moduleTypeNUM=80&amp;websiteID=3882418&amp;status=1" title="大大寬頻 LINE 官方帳號最新消息"></iframe>
@@ -1928,7 +1927,7 @@
 <section class="section-alt seo-only-content" id="local-seo" aria-label="新北各區光纖到府服務說明">
 <div class="wrap">
 <div class="section-head center">
-<span class="eyebrow">服務區域 SEO</span>
+<span class="eyebrow">服務區域</span>
 <h2>新北各區光纖到府服務說明</h2>
 <p>大大寬頻與大豐有線電視服務區域包含新北板橋、中和、永和、土城、樹林、三峽、鶯歌等地，實際能否安裝需依完整地址與現場管線確認。</p>
 </div>
@@ -1942,14 +1941,14 @@
 <div class="local-card"><h4>鶯歌網路申裝</h4><p>鶯歌市區周邊可洽詢大大寬頻與大豐有線電視服務，實際安裝仍需依管線與地址判定。</p><div class="local-tags"><span>鶯歌光纖</span><span>鶯歌網路</span><span>鶯歌寬頻</span></div></div>
 <div class="local-card"><h4>高雄服務區域</h4><p>高雄部分行政區也有有線電視與光纖網路服務，可依實際地址確認是否能安裝與可申辦方案。</p><div class="local-tags"><span>高雄光纖</span><span>高雄第四台</span><span>高雄寬頻</span></div></div>
 </div>
-<p class="local-seo-note">提醒：區域文案可幫助搜尋引擎理解服務範圍，但實際能否安裝仍應以完整地址、管線狀況與業務人員確認為準。</p>
+<p class="local-seo-note">實際能否安裝仍以完整地址、管線狀況與業務人員確認為準。</p>
 </div>
 </section>
 <section id="search-keywords" class="seo-only-content" aria-label="常見搜尋關鍵字">
 <div class="wrap">
 <div class="section-head center">
-<span class="eyebrow">客人最常搜尋問題</span>
-<h2>你可能正在找這些關鍵字</h2>
+<span class="eyebrow">常見搜尋關鍵字</span>
+<h2>常見搜尋關鍵字整理</h2>
 </div>
 <div class="search-tags">
 <a href="#coverage">板橋網路推薦</a><a href="#coverage">中和光纖到府</a><a href="#coverage">土城寬頻申辦</a><a href="#repair-check">大大寬頻報修</a><a href="#repair-check">大豐有線電視客服</a><a href="#coverage">永和網路申辦</a><a href="#coverage">三峽光纖網路</a><a href="#coverage">鶯歌寬頻安裝</a><a href="#setup">分享器 WAN LAN 怎麼接</a><a href="#repair-check">LOS 紅燈怎麼辦</a>
