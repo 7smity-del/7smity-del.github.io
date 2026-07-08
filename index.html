@@ -1009,9 +1009,130 @@
     body{ padding-bottom:74px; }
   }
   @media (prefers-reduced-motion: reduce){ *,*::before,*::after{ animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; scroll-behavior:auto !important; } }
+
+
+  /* ---------- v20 homepage recolor / single action banner / no-copy polish ---------- */
+  :root{
+    --ink:#0B1220;
+    --cyan:#1D4ED8;
+    --amber:#FF6B00;
+    --red:#DC2626;
+    --paper:#F6F8FC;
+    --paper-dim:#334155;
+    --fog:#64748B;
+    --fog-dim:#D8E0EC;
+  }
+  .no-copy, .no-copy *:not(input):not(textarea):not(select){
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    user-select:none;
+    -webkit-touch-callout:none;
+  }
+  input, textarea, select{ -webkit-user-select:text; user-select:text; }
+  img{ -webkit-user-drag:none; user-drag:none; }
+  body{ background:linear-gradient(180deg,#F7FAFF 0%,#EEF5FF 45%,#F8FAFC 100%); }
+  header{
+    background:rgba(255,255,255,.92);
+    border-bottom:1px solid rgba(216,224,236,.9);
+    box-shadow:0 12px 28px -26px rgba(15,23,42,.38);
+  }
+  .logo-mark{ background:linear-gradient(135deg,#FF6B00,#1D4ED8); box-shadow:0 8px 18px -10px rgba(29,78,216,.75); }
+  .nav-cta{ background:linear-gradient(135deg,#FF7A18,#EA580C); box-shadow:0 12px 26px -20px rgba(249,115,22,.9); }
+  .nav-cta.repair{ background:#fff; color:#DC2626; border:1.5px solid rgba(220,38,38,.55); box-shadow:none; }
+  .hero{
+    padding:54px 0 42px;
+    background:
+      radial-gradient(720px 360px at 14% 0%, rgba(255,107,0,.12), transparent 62%),
+      radial-gradient(760px 390px at 85% 0%, rgba(29,78,216,.16), transparent 66%),
+      linear-gradient(180deg,#FFFFFF 0%,#F5F8FF 100%);
+  }
+  .hero::before{ opacity:.9; }
+  .hero h1{ letter-spacing:.005em; }
+  .hero h1 .accent{ color:#1D4ED8; text-shadow:0 8px 24px rgba(29,78,216,.12); }
+  .hero p.lead{ color:#334155; max-width:58ch; }
+  .eyebrow{ background:rgba(29,78,216,.08); border-color:rgba(29,78,216,.24); color:#1D4ED8; }
+
+  .home-action-banner{
+    margin:30px auto 0;
+    max-width:980px;
+    display:grid;
+    grid-template-columns:minmax(0,.92fr) minmax(420px,1.08fr);
+    gap:18px;
+    align-items:center;
+    text-align:left;
+    padding:18px;
+    border-radius:24px;
+    background:linear-gradient(135deg,#0B1220 0%,#14306B 56%,#1D4ED8 100%);
+    color:#fff;
+    box-shadow:0 28px 70px -38px rgba(15,23,42,.65), inset 0 1px 0 rgba(255,255,255,.16);
+    border:1px solid rgba(255,255,255,.18);
+    position:relative;
+    overflow:hidden;
+  }
+  .home-action-banner::before{
+    content:""; position:absolute; right:-90px; top:-100px; width:240px; height:240px; border-radius:999px;
+    background:rgba(255,107,0,.28); filter:blur(2px);
+  }
+  .home-action-banner::after{
+    content:""; position:absolute; left:-80px; bottom:-90px; width:220px; height:220px; border-radius:999px;
+    background:rgba(255,255,255,.08);
+  }
+  .home-action-copy,.home-action-buttons{ position:relative; z-index:1; }
+  .home-action-kicker{ display:inline-flex; background:rgba(255,255,255,.13); border:1px solid rgba(255,255,255,.18); color:#BFDBFE; border-radius:999px; padding:4px 10px; font-size:12px; font-weight:900; margin-bottom:10px; }
+  .home-action-copy h2{ color:#fff; font-size:clamp(19px,2.4vw,28px); line-height:1.25; margin:0 0 8px; }
+  .home-action-copy p{ color:rgba(255,255,255,.82); margin:0; font-size:13.5px; line-height:1.75; }
+  .home-action-buttons{ display:grid; grid-template-columns:1fr; gap:10px; }
+  .home-action-btn{
+    display:flex; align-items:center; gap:12px;
+    padding:13px 14px;
+    border-radius:17px;
+    text-decoration:none;
+    background:rgba(255,255,255,.96);
+    color:#0B1220;
+    border:1px solid rgba(255,255,255,.72);
+    box-shadow:0 14px 32px -24px rgba(0,0,0,.55);
+    transition:transform .18s ease, box-shadow .18s ease, filter .18s ease;
+  }
+  .home-action-btn:hover{ transform:translateY(-2px); box-shadow:0 18px 36px -26px rgba(0,0,0,.62); }
+  .home-action-btn .icon{ width:21px; height:21px; flex:0 0 auto; }
+  .home-action-btn b{ display:block; font-size:15px; line-height:1.2; }
+  .home-action-btn small{ display:block; color:#64748B; font-size:12px; margin-top:2px; }
+  .home-action-btn.sales{ border-left:5px solid #FF6B00; }
+  .home-action-btn.line{ border-left:5px solid #06C755; }
+  .home-action-btn.repair{ border-left:5px solid #DC2626; }
+  .home-action-btn.sales .icon{ color:#FF6B00; }
+  .home-action-btn.line .icon{ color:#06C755; }
+  .home-action-btn.repair .icon{ color:#DC2626; }
+
+  .trust-strip{ box-shadow:0 20px 48px -34px rgba(15,23,42,.38); }
+  .trust-item{ background:rgba(255,255,255,.96); }
+  .visual-card,.plan,.feature,.faq-item,.lead-box,.official-price,.ftth-compare-card,.device-real-card{
+    border-color:rgba(216,224,236,.9) !important;
+    box-shadow:0 20px 44px -34px rgba(15,23,42,.26);
+  }
+  .section-head h2{ color:#0B1220; }
+
+  @media (max-width:900px){
+    .home-action-banner{ grid-template-columns:1fr; max-width:720px; }
+    .nav-ctas{ display:none; }
+  }
+  @media (max-width:640px){
+    .hero{ padding:34px 0 28px; }
+    .hero h1{ font-size:28px; line-height:1.26; }
+    .home-action-banner{ margin-top:24px; padding:15px; border-radius:21px; }
+    .home-action-copy h2{ font-size:19px; }
+    .home-action-copy p{ font-size:13px; }
+    .home-action-btn{ padding:12px 13px; border-radius:15px; }
+    .home-action-btn b{ font-size:14px; }
+    .home-action-btn small{ font-size:11.5px; }
+    .trust-strip{ margin-top:24px; border-radius:16px; }
+    .sticky-call{ height:58px; }
+    .sticky-call a{ font-size:14px; gap:8px; }
+    .line-float{ bottom:68px; }
+  }
 </style>
 </head>
-<body>
+<body class="no-copy" oncontextmenu="return false">
 <svg aria-hidden="true" height="0" style="position:absolute" width="0">
 <symbol id="i-phone" viewbox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path></symbol>
 <symbol id="i-wrench" viewbox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94z"></path></symbol>
@@ -1055,26 +1176,18 @@
 <div class="wrap hero-inner">
 <span class="eyebrow">新北板橋・中和・永和・土城・樹林・三峽・鶯歌</span>
 <h1>真正 <span class="accent">FTTH 光纖到府</span><br/>網路＋第四台一次搞定</h1>
-<p class="lead">大豐有線電視旗下大大寬頻，提供 1.2G／500M、888M／500M 高速組合，支援大豐第四台、Wi‑Fi 6 分享器租借。新申辦、查地址、方案費用與家中接線方式一次看懂。</p>
+<p class="lead">大豐有線電視旗下大大寬頻，提供 FTTH 光纖到府、網路＋第四台組合與 Wi‑Fi 6 分享器租借。輸入地址前，先看懂方案、安裝流程與報修方式，申辦更放心。</p>
 <!-- 分流：新申辦 vs 故障維修 -->
-<div class="route-bar">
-<div class="route-card sales">
-<span class="route-tag">還沒申裝・想安裝新網路</span>
-<h3>新申辦／方案諮詢</h3>
-<p>陳先生為您服務，免費到府會勘報價</p>
-<a class="route-phone" href="tel:0988232247"><svg class="icon"><use href="#i-phone"></use></svg> 0988-232-247</a>
-<div class="route-sub">
-<a href="https://www.ftth.com.tw/%E7%B7%9A%E4%B8%8A%E9%A0%90%E7%B4%84%E5%AE%89%E8%A3%9D%E6%9C%8D%E5%8B%99" rel="noopener" target="_blank">或線上預約安裝 →</a>
-            ・
-            <a href="https://lin.ee/TD36TlR" rel="noopener" target="_blank">加 LINE 詢問</a>
+<div aria-label="新申辦與故障報修快速選擇" class="home-action-banner">
+<div class="home-action-copy">
+<span class="home-action-kicker">先選需求，直接找到正確窗口</span>
+<h2>新申辦找陳先生，已裝機故障請打報修專線</h2>
+<p>想安裝、查地址、問方案走新申辦；已經裝機遇到斷線、LOS 紅燈、第四台訊號異常，請走故障報修。</p>
 </div>
-</div>
-<div class="route-card repair">
-<span class="route-tag">已經是用戶・網路或訊號有問題</span>
-<h3>故障報修專線</h3>
-<p>已裝機用戶斷線、訊號異常請撥打</p>
-<a class="route-phone" href="tel:0282538999"><svg class="icon"><use href="#i-wrench"></use></svg> 02-8253-8999</a>
-<div class="route-note">或免付費專線 <a href="tel:0800360999">0800-360-999</a>・客服中心服務時間內即時受理</div>
+<div class="home-action-buttons">
+<a class="home-action-btn sales" href="tel:0988232247"><svg class="icon"><use href="#i-phone"></use></svg><span><b>新申辦</b><small>0988-232-247</small></span></a>
+<a class="home-action-btn line" href="https://lin.ee/TD36TlR" rel="noopener" target="_blank"><svg class="icon"><use href="#i-chat"></use></svg><span><b>LINE 查地址</b><small>傳地址確認可否安裝</small></span></a>
+<a class="home-action-btn repair" href="tel:0282538999"><svg class="icon"><use href="#i-wrench"></use></svg><span><b>故障報修</b><small>02-8253-8999</small></span></a>
 </div>
 </div>
 <div class="trust-strip">
@@ -1112,19 +1225,18 @@
 <figure class="visual-card featured-img">
 <h3>大大寬頻 500M 活動主視覺</h3>
 <p>適合放在首頁或方案區，讓客人第一眼看到主打速度、優惠與可選方案。</p>
-<img src="assets/images/dada-500m-promo.webp" alt="大大寬頻 500M 馬上省錢超優惠活動，含 360M、500M、888M、1.2G 方案參考價格" loading="lazy" decoding="async">
+<img alt="大大寬頻 500M 馬上省錢超優惠活動，含 360M、500M、888M、1.2G 方案參考價格" decoding="async" draggable="false" loading="lazy" src="assets/images/dada-500m-promo.webp"/>
 <figcaption class="visual-caption"><span class="dot"></span><span><b>提醒：</b>圖片上的價格與贈品活動請依當期公告與業務確認，網站表格會保留「起」與「電洽確認」避免誤會。</span></figcaption>
 </figure>
 <figure class="visual-card">
 <h3>FTTH 光纖到府網路架構</h3>
 <p>從主頭端、光分配中心、分光器到家中的光終端機，讓客人看懂光纖不是只有到社區，而是接到住家端設備。</p>
-<img src="assets/images/ftth-network-architecture.png" alt="FTTH 寬頻網路架構圖，光纖從主頭端、光分配中心、分光器連接到住家的光終端機，並連接電視機上盒、Wi-Fi 與個人電腦" loading="lazy" decoding="async">
+<img alt="FTTH 寬頻網路架構圖，光纖從主頭端、光分配中心、分光器連接到住家的光終端機，並連接電視機上盒、Wi-Fi 與個人電腦" decoding="async" draggable="false" loading="lazy" src="assets/images/ftth-network-architecture.png"/>
 <figcaption class="visual-caption"><span class="dot"></span><span><b>看圖重點：</b>家中會看到光終端機 ONT，再連接 Wi‑Fi 分享器、電腦或第四台機上盒。</span></figcaption>
 </figure>
 </div>
 </div>
 </section>
-
 <section id="ftth-compare">
 <div class="wrap">
 <div class="section-head center">
@@ -1297,18 +1409,6 @@
 </div>
 </section>
 
-<section class="section-alt" id="quick-route">
-<div class="wrap">
-<div class="section-head center">
-<span class="eyebrow">快速分流</span><h2>你是要新申辦，還是已裝機要報修？</h2>
-<p>新申辦與故障報修分開處理更快。還沒申辦請找業務；已是用戶且遇到斷線、紅燈或訊號異常，請撥客服報修。</p>
-</div>
-<div class="mega-route">
-<div class="mega-card sales"><span class="route-tag">還沒安裝・想辦網路</span><h3>我要新申辦 / 查詢可否安裝</h3><p>適合想辦大大寬頻、大豐有線電視、光纖到府、網路＋第四台組合方案的用戶。</p><a href="tel:0988232247"><svg class="icon"><use href="#i-phone"></use></svg> 0988-232-247</a><a href="https://lin.ee/TD36TlR" rel="noopener" target="_blank"><svg class="icon"><use href="#i-chat"></use></svg> LINE 詢問</a></div>
-<div class="mega-card repair"><span class="route-tag">已經是用戶・網路異常</span><h3>我要故障報修 / 網路不能用</h3><p>適合已裝機用戶，遇到斷線、LOS 紅燈、速度異常、第四台訊號問題、設備燈號異常。</p><a href="tel:0282538999"><svg class="icon"><use href="#i-wrench"></use></svg> 02-8253-8999</a><a href="tel:0800360999">0800-360-999</a></div>
-</div>
-</div>
-</section>
 <section class="section-alt" id="address-check">
 <div class="wrap">
 <div class="section-head center">
@@ -2239,5 +2339,25 @@ document.addEventListener('DOMContentLoaded', function(){
   });
 });
 </script>
-</body>
+<script>
+(function(){
+  const isEditable = (el) => {
+    if(!el) return false;
+    const tag = el.tagName;
+    return tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT' || el.isContentEditable;
+  };
+  document.addEventListener('copy', function(e){
+    if(!isEditable(document.activeElement)) e.preventDefault();
+  });
+  document.addEventListener('cut', function(e){
+    if(!isEditable(document.activeElement)) e.preventDefault();
+  });
+  document.addEventListener('contextmenu', function(e){
+    if(!isEditable(e.target)) e.preventDefault();
+  });
+  document.addEventListener('dragstart', function(e){
+    if(e.target && e.target.tagName === 'IMG') e.preventDefault();
+  });
+})();
+</script></body>
 </html>
