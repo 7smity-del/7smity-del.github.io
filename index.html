@@ -374,6 +374,24 @@
   }
   .chip strong{ color:var(--ink); font-weight:500; }
 
+
+  /* ---------- real promo / diagram images ---------- */
+  .visual-proof{ padding:48px 0 22px; background:linear-gradient(180deg,#FFFFFF 0%,#F8FAFC 100%); }
+  .visual-proof-grid{ display:grid; grid-template-columns:0.92fr 1.08fr; gap:22px; align-items:stretch; }
+  .visual-card{ background:#fff; border:1px solid rgba(148,163,184,.34); border-radius:24px; padding:18px; box-shadow:0 22px 48px -34px rgba(15,23,42,.32); overflow:hidden; }
+  .visual-card.featured-img{ border-color:rgba(249,115,22,.28); background:linear-gradient(180deg,#FFF7ED 0%,#FFFFFF 42%); }
+  .visual-card h3{ margin:0 0 8px; font-size:20px; color:var(--ink); }
+  .visual-card p{ margin:0 0 14px; color:var(--paper-dim); font-size:14px; line-height:1.75; }
+  .visual-card img{ width:100%; height:auto; display:block; border-radius:18px; border:1px solid rgba(148,163,184,.28); background:#fff; }
+  .visual-caption{ display:flex; gap:8px; align-items:flex-start; margin-top:12px; color:var(--paper-dim); font-size:12.8px; line-height:1.65; }
+  .visual-caption b{ color:var(--ink); }
+  .visual-caption .dot{ width:9px; height:9px; margin-top:6px; border-radius:50%; background:linear-gradient(135deg,#F97316,#2563EB); flex:0 0 auto; }
+  .diagram-image-card{ margin:0 0 22px; padding:18px; border-radius:24px; background:#fff; border:1px solid rgba(37,99,235,.16); box-shadow:0 20px 44px -34px rgba(15,23,42,.28); }
+  .diagram-image-card img{ width:100%; height:auto; display:block; border-radius:18px; border:1px solid rgba(148,163,184,.24); background:#fff; }
+  .diagram-image-card .visual-caption{ margin-top:12px; }
+  @media (max-width:900px){ .visual-proof-grid{ grid-template-columns:1fr; } .visual-proof{ padding-top:34px; } }
+  @media (max-width:640px){ .visual-card,.diagram-image-card{ padding:12px; border-radius:20px; } .visual-card img,.diagram-image-card img{ border-radius:14px; } .visual-card h3{ font-size:18px; } }
+
   /* ---------- pricing ---------- */
   .plans{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
   .plan{
@@ -1015,6 +1033,7 @@
 </div>
 <div class="navlinks">
 <a href="#site-guide">快速導覽</a><a href="#trust-flow">安心流程</a>
+<a href="#promo-visuals">活動圖片</a>
 <a href="#ftth-compare">光纖比較</a>
 <a href="#address-check">查詢安裝</a>
 <a href="#plans">資費方案</a>
@@ -1082,6 +1101,30 @@
 </div>
 </div>
 </section>
+<section class="visual-proof" id="promo-visuals">
+<div class="wrap">
+<div class="section-head center">
+<span class="eyebrow">活動方案與架構圖</span>
+<h2>先看活動重點，再看光纖怎麼接到家</h2>
+<p>將優惠方案與 FTTH 光纖到府架構用圖片呈現，讓客人快速理解可辦方案、設備連接與家中使用情境。</p>
+</div>
+<div class="visual-proof-grid">
+<figure class="visual-card featured-img">
+<h3>大大寬頻 500M 活動主視覺</h3>
+<p>適合放在首頁或方案區，讓客人第一眼看到主打速度、優惠與可選方案。</p>
+<img src="assets/images/dada-500m-promo.webp" alt="大大寬頻 500M 馬上省錢超優惠活動，含 360M、500M、888M、1.2G 方案參考價格" loading="lazy" decoding="async">
+<figcaption class="visual-caption"><span class="dot"></span><span><b>提醒：</b>圖片上的價格與贈品活動請依當期公告與業務確認，網站表格會保留「起」與「電洽確認」避免誤會。</span></figcaption>
+</figure>
+<figure class="visual-card">
+<h3>FTTH 光纖到府網路架構</h3>
+<p>從主頭端、光分配中心、分光器到家中的光終端機，讓客人看懂光纖不是只有到社區，而是接到住家端設備。</p>
+<img src="assets/images/ftth-network-architecture.png" alt="FTTH 寬頻網路架構圖，光纖從主頭端、光分配中心、分光器連接到住家的光終端機，並連接電視機上盒、Wi-Fi 與個人電腦" loading="lazy" decoding="async">
+<figcaption class="visual-caption"><span class="dot"></span><span><b>看圖重點：</b>家中會看到光終端機 ONT，再連接 Wi‑Fi 分享器、電腦或第四台機上盒。</span></figcaption>
+</figure>
+</div>
+</div>
+</section>
+
 <section id="ftth-compare">
 <div class="wrap">
 <div class="section-head center">
@@ -1200,6 +1243,7 @@
 </div>
 <div class="guide-chips">
 <a class="primary" href="#address-check">我要查可否安裝</a><a href="#trust-flow">安心申辦流程</a>
+<a href="#promo-visuals">活動方案圖片</a>
 <a href="#ftth-compare">光纖到府圖解比較</a>
 <a href="#hot-plans">先看熱門方案</a>
 <a href="#ftth-features">FTTH 特色</a>
