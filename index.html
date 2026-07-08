@@ -1227,6 +1227,137 @@
   .guide-mini-links a{ white-space:nowrap; flex:0 0 auto; }
   .visual-proof{ padding-top:38px; }
 }
+
+
+/* ---------- v23 mobile sales landing layout fix ---------- */
+/* 手機優先：首頁主申辦橫幅一律單欄，避免右側卡片被擠成直排文字 */
+.sales-first-banner,
+.home-action-banner.sales-first-banner{
+  display:grid !important;
+  grid-template-columns:1fr !important;
+  max-width:1040px;
+  width:100%;
+  gap:16px;
+}
+.sales-first-actions,
+.home-action-buttons.sales-first-actions{
+  display:grid !important;
+  grid-template-columns:1fr !important;
+  gap:10px;
+}
+.sales-first-actions .home-action-btn,
+.home-action-buttons.sales-first-actions .home-action-btn{
+  min-width:0;
+  width:100%;
+}
+.sales-first-actions .home-action-btn span{
+  min-width:0;
+}
+.sales-first-actions .home-action-btn b,
+.sales-first-actions .home-action-btn small{
+  white-space:normal;
+  word-break:normal;
+  overflow-wrap:break-word;
+}
+
+/* 快速選單手機版改成清楚卡片，不讓文字變成一字一行 */
+.sales-guide{
+  display:grid !important;
+  grid-template-columns:1fr !important;
+  gap:14px;
+}
+.guide-card,
+.guide-card-main{
+  min-width:0;
+}
+.guide-card b,
+.guide-card small{
+  white-space:normal;
+  word-break:normal;
+  overflow-wrap:break-word;
+}
+
+@media (min-width:980px){
+  .home-action-banner.sales-first-banner{
+    grid-template-columns:minmax(0,1.08fr) minmax(360px,.92fr) !important;
+    align-items:center;
+  }
+  .sales-guide{
+    grid-template-columns:minmax(300px,.82fr) minmax(0,1.38fr) !important;
+  }
+  .guide-card-main{ grid-column:span 2; }
+}
+
+@media (max-width:640px){
+  .hero-inner{ text-align:left; }
+  .hero .eyebrow{ margin-left:0; margin-right:0; }
+  .home-action-banner.sales-first-banner{
+    margin-top:20px;
+    padding:18px;
+    border-radius:24px;
+  }
+  .home-action-copy h2{
+    font-size:24px;
+    line-height:1.28;
+  }
+  .home-action-copy p{
+    font-size:14px;
+    line-height:1.8;
+  }
+  .sales-first-actions .home-action-btn{
+    display:grid;
+    grid-template-columns:34px 1fr;
+    align-items:center;
+    gap:12px;
+    padding:13px 14px;
+  }
+  .sales-first-actions .home-action-btn .icon{
+    width:24px;
+    height:24px;
+  }
+  .sales-first-actions .home-action-btn b{
+    font-size:15px;
+    line-height:1.35;
+  }
+  .sales-first-actions .home-action-btn small{
+    font-size:12px;
+    line-height:1.45;
+  }
+  .sales-first-actions .home-action-btn.repair{
+    opacity:.86;
+  }
+  .sales-first-actions .home-action-btn.repair b::before{
+    content:"次要｜";
+    color:#FCA5A5;
+  }
+  .guide-section .section-head{
+    text-align:left;
+  }
+  .sales-guide-main{
+    padding:22px;
+  }
+  .sales-guide-main h3{
+    font-size:24px;
+  }
+  .guide-card{
+    display:grid;
+    grid-template-columns:42px 1fr;
+    gap:12px;
+    padding:16px;
+    border-radius:20px;
+  }
+  .guide-card b{ font-size:15px; line-height:1.35; }
+  .guide-card small{ font-size:12.5px; line-height:1.55; }
+  .line-float{
+    right:12px;
+    bottom:74px;
+    padding:10px 14px;
+    font-size:13px;
+  }
+  .line-float b{ font-size:13px; }
+  body{ padding-bottom:72px; }
+}
+
 </style>
 </head>
 <body class="no-copy" oncontextmenu="return false">
@@ -1276,7 +1407,7 @@
 <div class="home-action-copy">
 <span class="home-action-kicker">主推新申辦｜先查可不可裝</span>
 <h2>留下地址或直接 LINE，先幫你確認可裝速率與方案</h2>
-<p>新家、搬家、換業者、升速、第四台一起辦，都先走這裡。已裝機故障報修保留入口，但不影響新申辦動線。</p>
+<p>新家、搬家、換業者、升速、第四台一起辦，都可以先留下地址或直接加 LINE。專人協助確認可裝速率、費用與最快安裝時間。</p>
 </div>
 <div class="home-action-buttons sales-first-actions">
 <a class="home-action-btn line primary" href="https://lin.ee/TD36TlR" rel="noopener" target="_blank"><svg class="icon"><use href="#i-chat"></use></svg><span><b>LINE 查地址可否安裝</b><small>傳地址、社區名、需求最快</small></span></a>
@@ -1313,7 +1444,7 @@
 <div class="section-head center">
 <span class="eyebrow">快速選單</span>
 <h2>你想先看哪一項？</h2>
-<p>主要目標是新申辦網路，所以選單以「查地址、看方案、理解光纖、預約安裝」為主；報修放在最後，已裝機用戶也能快速找到入口。</p>
+<p>想申辦網路可以先查地址、看方案、了解光纖到府與安裝流程；已裝機用戶也能在最後找到報修入口。</p>
 </div>
 <div class="sales-guide">
 <div class="sales-guide-main">
