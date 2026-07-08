@@ -1740,6 +1740,139 @@ nav.wrap{ min-height:78px; }
 .official-table .muted{ color:#64748B; font-size:12px; font-weight:800; }
 @media (max-width:640px){ .bandwidth-spec span{ font-size:11.5px; padding:5px 8px; } .plan-speed-sub{ font-size:12.5px; } }
 
+
+
+/* v27 mobile viewport and sales first-screen polish */
+html,body{
+  width:100%;
+  max-width:100%;
+  overflow-x:hidden;
+}
+body{ position:relative; }
+main,header,footer,section,.hero,.wrap{
+  max-width:100%;
+}
+.hero{
+  overflow:hidden;
+}
+.hero-inner{
+  width:100%;
+}
+@supports (overflow: clip){
+  html,body,main,.hero,section{ overflow-x:clip; }
+}
+
+@media (max-width:700px){
+  .wrap{
+    width:100% !important;
+    max-width:100% !important;
+    padding-left:18px !important;
+    padding-right:18px !important;
+  }
+  .hero-inner{
+    display:flex;
+    flex-direction:column;
+    min-width:0;
+  }
+  .home-action-banner.sales-first-banner{
+    order:4;
+    width:100% !important;
+    max-width:100% !important;
+    margin-left:0 !important;
+    margin-right:0 !important;
+    margin-top:18px !important;
+  }
+  .fiber-signature-panel{
+    order:5;
+    width:100% !important;
+    max-width:100% !important;
+    min-width:0 !important;
+    margin-top:16px !important;
+  }
+  .trust-strip{
+    order:6;
+    width:100% !important;
+    max-width:100% !important;
+    min-width:0 !important;
+  }
+  .fiber-map-card,.speed-ticket,.home-action-buttons,.sales-first-actions,.sales-guide,.guide-menu-grid,
+  .conversion-grid,.family-value-grid,.lead-wrap,.plans,.pre-grid,.store-grid,.photo-grid,.check-grid,.biz-grid{
+    width:100% !important;
+    max-width:100% !important;
+    min-width:0 !important;
+  }
+  .fiber-map-card{
+    overflow:hidden;
+  }
+  .speed-ticket{
+    overflow:hidden;
+  }
+  .hero h1,.hero p.lead,.home-action-copy h2,.home-action-copy p,.map-node b,.map-node small,
+  .guide-card b,.guide-card small,.conversion-card h3,.conversion-card p{
+    max-width:100%;
+    overflow-wrap:break-word;
+    word-break:normal;
+  }
+  .hero{
+    padding-top:24px !important;
+    padding-bottom:28px !important;
+  }
+  .hero h1{
+    font-size:30px !important;
+    line-height:1.12 !important;
+  }
+  .hero p.lead{
+    font-size:14px !important;
+    line-height:1.72 !important;
+  }
+  .home-action-copy h2{
+    font-size:20px !important;
+    line-height:1.32 !important;
+  }
+  .home-action-copy p{
+    font-size:13px !important;
+    line-height:1.65 !important;
+  }
+  .home-action-banner.sales-first-banner{
+    padding:14px !important;
+    border-radius:20px !important;
+  }
+  .fiber-map-card{
+    padding:10px !important;
+    border-radius:18px !important;
+  }
+  .speed-ticket{
+    border-radius:18px !important;
+  }
+  .speed-ticket span{
+    padding:10px 6px !important;
+  }
+  .speed-ticket b{
+    font-size:17px !important;
+    letter-spacing:-.04em !important;
+  }
+  .speed-ticket small{
+    font-size:10px !important;
+  }
+  .line-float{
+    max-width:calc(100vw - 24px);
+    right:12px !important;
+    bottom:72px !important;
+  }
+  .sticky-call{
+    width:100%;
+    left:0;
+    right:0;
+  }
+}
+
+@media (max-width:390px){
+  .wrap{ padding-left:14px !important; padding-right:14px !important; }
+  .hero h1{ font-size:28px !important; }
+  .home-action-copy h2{ font-size:19px !important; }
+  .speed-ticket b{ font-size:16px !important; }
+  .sales-first-actions .home-action-btn{ grid-template-columns:30px 1fr !important; padding:11px 12px !important; }
+}
 </style>
 </head>
 <body class="no-copy" oncontextmenu="return false">
