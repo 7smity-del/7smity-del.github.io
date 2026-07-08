@@ -919,7 +919,7 @@
   }
 
 
-  /* Local area text kept visually hidden from normal front-end layout. */
+  
   .seo-only-content{
     position:absolute !important;
     width:1px !important;
@@ -933,6 +933,64 @@
     border:0 !important;
   }
 
+
+
+  /* ---------- v18 UX / RWD / trust polish ---------- */
+  html{ scroll-padding-top:92px; }
+  body{ background:linear-gradient(180deg,#F8FAFC 0%,#EEF4FF 46%,#F8FAFC 100%); }
+  section[id]{ scroll-margin-top:92px; }
+  .wrap{ width:min(100%, var(--maxw)); }
+  .navlinks a{ position:relative; padding:7px 0; }
+  .navlinks a::after{ content:""; position:absolute; left:0; right:0; bottom:1px; height:2px; border-radius:99px; background:linear-gradient(90deg,var(--cyan),var(--amber)); transform:scaleX(0); transform-origin:left; transition:transform .18s ease; }
+  .navlinks a:hover::after{ transform:scaleX(1); }
+  .hero{ background:linear-gradient(180deg,#FFFFFF 0%,#F8FAFC 100%); }
+  .hero-inner{ max-width:880px; }
+  .route-card,.trust-item,.ftth-compare-card,.trust-flow-card,.lead-box,.plan,.feature,.faq-item,.store-card,.biz-card,.photo-card,.check-card,.device-real-card{ transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease; }
+  .route-card:hover,.ftth-compare-card:hover,.trust-flow-card:hover,.lead-box:hover,.plan:hover,.feature:hover,.store-card:hover,.biz-card:hover,.photo-card:hover,.check-card:hover,.device-real-card:hover{ transform:translateY(-2px); box-shadow:0 24px 48px -34px rgba(15,23,42,.30); }
+  .btn-primary,.btn-ghost,.nav-cta,.mega-card a,.guide-chips a,.line-float,.sticky-call a{ min-height:44px; }
+  .guide-chips a{ padding:12px 16px; }
+  .diagram-points{ display:grid; gap:7px; margin:4px 0 0; padding:0; list-style:none; }
+  .diagram-points li{ display:flex; gap:8px; align-items:flex-start; color:var(--paper-dim); font-size:12.8px; line-height:1.55; background:#fff; border:1px solid rgba(203,213,225,.72); border-radius:12px; padding:8px 10px; }
+  .diagram-points li::before{ content:"✓"; color:#16A34A; font-weight:900; flex-shrink:0; }
+  .trust-flow-section{ background:linear-gradient(135deg,#0F172A,#1E3A8A); color:#fff; position:relative; overflow:hidden; }
+  .trust-flow-section::before{ content:""; position:absolute; inset:-20% -10% auto auto; width:460px; height:460px; border-radius:50%; background:rgba(249,115,22,.18); filter:blur(4px); }
+  .trust-flow-section .wrap{ position:relative; z-index:1; }
+  .trust-flow-section .section-head h2{ color:#fff; }
+  .trust-flow-section .section-head p{ color:rgba(255,255,255,.78); }
+  .trust-flow-section .eyebrow{ color:#BFDBFE; background:rgba(255,255,255,.10); border-color:rgba(255,255,255,.20); }
+  .trust-flow-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
+  .trust-flow-card{ background:rgba(255,255,255,.96); color:var(--ink); border:1px solid rgba(255,255,255,.32); border-radius:22px; padding:22px; box-shadow:0 20px 44px -28px rgba(0,0,0,.45); }
+  .flow-num{ display:inline-flex; align-items:center; justify-content:center; width:42px; height:42px; border-radius:14px; background:linear-gradient(135deg,var(--cyan),#60A5FA); color:#fff; font-family:"IBM Plex Mono",monospace; font-weight:900; margin-bottom:14px; }
+  .trust-flow-card h3{ font-size:18px; margin:0 0 8px; }
+  .trust-flow-card p{ margin:0 0 14px; color:var(--paper-dim); font-size:13.5px; line-height:1.75; }
+  .trust-flow-card a{ color:var(--cyan); font-weight:900; text-decoration:none; font-size:13.5px; }
+  .assurance-panel{ margin-top:18px; background:rgba(255,255,255,.10); border:1px solid rgba(255,255,255,.18); border-radius:18px; padding:16px 18px; color:rgba(255,255,255,.86); line-height:1.8; font-size:14px; }
+  .assurance-panel b{ color:#fff; }
+  .official-table strong{ white-space:nowrap; }
+  .line-float{ box-shadow:0 18px 34px -16px rgba(6,199,85,.85), 0 0 0 6px rgba(6,199,85,.08); }
+  .sticky-call{ backdrop-filter:blur(10px); }
+  @media (max-width:1100px){ .trust-flow-grid{ grid-template-columns:1fr 1fr; } }
+  @media (max-width:900px){
+    header{ position:sticky; }
+    nav.wrap{ min-height:64px; }
+    .nav-ctas{ margin-left:auto; }
+    .hero{ padding-top:46px; }
+  }
+  @media (max-width:640px){
+    html{ scroll-padding-top:78px; }
+    section[id]{ scroll-margin-top:78px; }
+    .wrap{ padding-left:18px; padding-right:18px; }
+    .hero p.lead{ font-size:15px; }
+    .trust-flow-grid{ grid-template-columns:1fr; }
+    .trust-flow-card{ padding:20px; }
+    .compare-art{ min-height:260px; }
+    .ftth-compare-card h3{ font-size:16px; }
+    .official-price{ padding:16px; }
+    .lead-actions a{ width:100%; justify-content:center; }
+    .line-float{ bottom:74px; right:10px; padding:10px 12px; }
+    body{ padding-bottom:74px; }
+  }
+  @media (prefers-reduced-motion: reduce){ *,*::before,*::after{ animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; scroll-behavior:auto !important; } }
 </style>
 </head>
 <body>
@@ -956,7 +1014,7 @@
 <span>大大寬頻<small>大豐有線電視・板橋中和光纖到府</small></span>
 </div>
 <div class="navlinks">
-<a href="#site-guide">快速導覽</a>
+<a href="#site-guide">快速導覽</a><a href="#trust-flow">安心流程</a>
 <a href="#ftth-compare">光纖比較</a>
 <a href="#address-check">查詢安裝</a>
 <a href="#plans">資費方案</a>
@@ -1024,7 +1082,6 @@
 </div>
 </div>
 </section>
-
 <section id="ftth-compare">
 <div class="wrap">
 <div class="section-head center">
@@ -1034,118 +1091,106 @@
 </div>
 <div class="ftth-compare-wrap">
 <div class="ftth-compare-card">
-<svg class="compare-art" viewBox="0 0 720 300" role="img" aria-label="一般網路與 FTTH 光纖到府在尖峰時段穩定度的比較">
-<rect x="0" y="0" width="720" height="300" fill="#F8FAFC"/>
-<line x1="360" y1="34" x2="360" y2="246" stroke="#CBD5E1" stroke-width="2" stroke-dasharray="8 8"/>
-<rect x="24" y="24" width="312" height="36" rx="18" class="compare-bad"/>
-<text x="180" y="48" text-anchor="middle" class="compare-side-title">一般網路：多人共用，晚上容易塞車</text>
-<rect x="384" y="24" width="312" height="36" rx="18" class="compare-pill-blue"/>
-<text x="540" y="48" text-anchor="middle" class="compare-side-title">FTTH 光纖到府：光纖直接到家</text>
-
-<rect x="54" y="86" width="78" height="52" rx="10" fill="#fff" stroke="#94A3B8" stroke-width="3"/>
-<text x="93" y="116" text-anchor="middle" class="compare-small">社區設備</text>
-<path d="M132 112 C180 90,214 134,260 112" fill="none" stroke="#EF4444" stroke-width="8" stroke-linecap="round" stroke-dasharray="14 10"/>
-<circle cx="170" cy="156" r="18" fill="#FFEDD5" stroke="#F97316" stroke-width="3"/><circle cx="218" cy="156" r="18" fill="#FFEDD5" stroke="#F97316" stroke-width="3"/><circle cx="266" cy="156" r="18" fill="#FFEDD5" stroke="#F97316" stroke-width="3"/>
-<text x="218" y="198" text-anchor="middle" class="compare-caption">多人同時追劇、遊戲</text>
-<text x="218" y="222" text-anchor="middle" class="compare-small">尖峰時段體感可能變慢</text>
-
-<rect x="420" y="90" width="82" height="44" rx="8" fill="#fff" stroke="#2563EB" stroke-width="3"/>
-<text x="461" y="116" text-anchor="middle" class="compare-small">光纖盒</text>
-<path d="M502 112 H590" stroke="#2563EB" stroke-width="9" stroke-linecap="round"/>
-<rect x="590" y="84" width="72" height="58" rx="12" fill="#fff" stroke="#2563EB" stroke-width="3"/>
-<text x="626" y="110" text-anchor="middle" class="compare-small">ONT</text>
-<circle cx="612" cy="126" r="4" fill="#22C55E"/><circle cx="626" cy="126" r="4" fill="#22C55E"/><circle cx="640" cy="126" r="4" fill="#CBD5E1"/>
-<path d="M626 142 V176" stroke="#2563EB" stroke-width="6" stroke-linecap="round"/>
-<rect x="492" y="176" width="92" height="42" rx="10" fill="#fff" stroke="#22C55E" stroke-width="3"/>
-<text x="538" y="202" text-anchor="middle" class="compare-small">Wi‑Fi 分享器</text>
-<path d="M518 164 q20 -18 40 0 M508 154 q30 -28 60 0" fill="none" stroke="#22C55E" stroke-width="4" stroke-linecap="round"/>
-<rect x="612" y="176" width="42" height="42" rx="8" fill="#DBEAFE" stroke="#2563EB" stroke-width="2"/><text x="633" y="203" text-anchor="middle" class="compare-small">PC</text>
-<text x="540" y="252" text-anchor="middle" class="compare-caption">多人上網更穩，適合追劇、遊戲、視訊</text>
+<svg aria-label="一般網路與 FTTH 光纖到府在尖峰時段穩定度的比較" class="compare-art" role="img" viewbox="0 0 720 300">
+<rect fill="#F8FAFC" height="300" width="720" x="0" y="0"></rect>
+<line stroke="#CBD5E1" stroke-dasharray="8 8" stroke-width="2" x1="360" x2="360" y1="34" y2="246"></line>
+<rect class="compare-bad" height="36" rx="18" width="312" x="24" y="24"></rect>
+<text class="compare-side-title" text-anchor="middle" x="180" y="48">一般網路：多人共用，晚上容易塞車</text>
+<rect class="compare-pill-blue" height="36" rx="18" width="312" x="384" y="24"></rect>
+<text class="compare-side-title" text-anchor="middle" x="540" y="48">FTTH 光纖到府：光纖直接到家</text>
+<rect fill="#fff" height="52" rx="10" stroke="#94A3B8" stroke-width="3" width="78" x="54" y="86"></rect>
+<text class="compare-small" text-anchor="middle" x="93" y="116">社區設備</text>
+<path d="M132 112 C180 90,214 134,260 112" fill="none" stroke="#EF4444" stroke-dasharray="14 10" stroke-linecap="round" stroke-width="8"></path>
+<circle cx="170" cy="156" fill="#FFEDD5" r="18" stroke="#F97316" stroke-width="3"></circle><circle cx="218" cy="156" fill="#FFEDD5" r="18" stroke="#F97316" stroke-width="3"></circle><circle cx="266" cy="156" fill="#FFEDD5" r="18" stroke="#F97316" stroke-width="3"></circle>
+<text class="compare-caption" text-anchor="middle" x="218" y="198">多人同時追劇、遊戲</text>
+<text class="compare-small" text-anchor="middle" x="218" y="222">尖峰時段體感可能變慢</text>
+<rect fill="#fff" height="44" rx="8" stroke="#2563EB" stroke-width="3" width="82" x="420" y="90"></rect>
+<text class="compare-small" text-anchor="middle" x="461" y="116">光纖盒</text>
+<path d="M502 112 H590" stroke="#2563EB" stroke-linecap="round" stroke-width="9"></path>
+<rect fill="#fff" height="58" rx="12" stroke="#2563EB" stroke-width="3" width="72" x="590" y="84"></rect>
+<text class="compare-small" text-anchor="middle" x="626" y="110">ONT</text>
+<circle cx="612" cy="126" fill="#22C55E" r="4"></circle><circle cx="626" cy="126" fill="#22C55E" r="4"></circle><circle cx="640" cy="126" fill="#CBD5E1" r="4"></circle>
+<path d="M626 142 V176" stroke="#2563EB" stroke-linecap="round" stroke-width="6"></path>
+<rect fill="#fff" height="42" rx="10" stroke="#22C55E" stroke-width="3" width="92" x="492" y="176"></rect>
+<text class="compare-small" text-anchor="middle" x="538" y="202">Wi‑Fi 分享器</text>
+<path d="M518 164 q20 -18 40 0 M508 154 q30 -28 60 0" fill="none" stroke="#22C55E" stroke-linecap="round" stroke-width="4"></path>
+<rect fill="#DBEAFE" height="42" rx="8" stroke="#2563EB" stroke-width="2" width="42" x="612" y="176"></rect><text class="compare-small" text-anchor="middle" x="633" y="203">PC</text>
+<text class="compare-caption" text-anchor="middle" x="540" y="252">多人上網更穩，適合追劇、遊戲、視訊</text>
 </svg>
 <h3>1. 尖峰時段穩定度</h3>
-<p>尖峰時段多人同時上網、追劇、遊戲時，FTTH 光纖到府可讓家中設備透過 ONT 與分享器穩定連線。</p>
+<p>尖峰時段多人同時上網、追劇、遊戲時，FTTH 光纖到府可讓家中設備透過 ONT 與分享器穩定連線。</p><ul class="diagram-points"><li>左邊看「多人共用、晚上塞車」</li><li>右邊看「光纖盒 → ONT → 分享器」</li><li>重點：多人同時用網路時，穩定度更重要</li></ul>
 </div>
-
 <div class="ftth-compare-card">
-<svg class="compare-art" viewBox="0 0 720 300" role="img" aria-label="一般線路與 FTTH 光纖到府在線路傳輸方式的比較">
-<rect x="0" y="0" width="720" height="300" fill="#FFFFFF"/>
-<line x1="360" y1="34" x2="360" y2="246" stroke="#CBD5E1" stroke-width="2" stroke-dasharray="8 8"/>
-<rect x="24" y="24" width="312" height="36" rx="18" class="compare-bad"/>
-<text x="180" y="48" text-anchor="middle" class="compare-side-title">一般線路：線材與距離影響較多</text>
-<rect x="384" y="24" width="312" height="36" rx="18" class="compare-pill-blue"/>
-<text x="540" y="48" text-anchor="middle" class="compare-side-title">FTTH：光纖訊號拉到家中</text>
-
-<rect x="54" y="88" width="72" height="50" rx="10" fill="#fff" stroke="#94A3B8" stroke-width="3"/><text x="90" y="118" text-anchor="middle" class="compare-small">外部線路</text>
-<path d="M126 112 C168 84,196 142,230 112 C260 86,286 134,316 112" fill="none" stroke="#94A3B8" stroke-width="7" stroke-linecap="round" stroke-dasharray="10 9"/>
-<text x="222" y="162" text-anchor="middle" class="compare-caption">訊號路徑較複雜</text>
-<text x="222" y="188" text-anchor="middle" class="compare-small">距離、老舊線材、分接都可能影響體感</text>
-
-<rect x="408" y="90" width="70" height="48" rx="10" fill="#fff" stroke="#2563EB" stroke-width="3"/><text x="443" y="118" text-anchor="middle" class="compare-small">光纖線</text>
-<path d="M478 114 H648" stroke="#2563EB" stroke-width="10" stroke-linecap="round"/>
-<circle cx="506" cy="114" r="5" fill="#22C55E"/><circle cx="540" cy="114" r="5" fill="#22C55E"/><circle cx="574" cy="114" r="5" fill="#22C55E"/><circle cx="608" cy="114" r="5" fill="#22C55E"/>
-<rect x="590" y="158" width="76" height="54" rx="12" fill="#fff" stroke="#2563EB" stroke-width="3"/><text x="628" y="187" text-anchor="middle" class="compare-small">住家 ONT</text>
-<path d="M628 138 V158" stroke="#2563EB" stroke-width="6" stroke-linecap="round"/>
-<text x="540" y="252" text-anchor="middle" class="compare-caption">重點：光纖不是只到社區，是拉到家中設備</text>
+<svg aria-label="一般線路與 FTTH 光纖到府在線路傳輸方式的比較" class="compare-art" role="img" viewbox="0 0 720 300">
+<rect fill="#FFFFFF" height="300" width="720" x="0" y="0"></rect>
+<line stroke="#CBD5E1" stroke-dasharray="8 8" stroke-width="2" x1="360" x2="360" y1="34" y2="246"></line>
+<rect class="compare-bad" height="36" rx="18" width="312" x="24" y="24"></rect>
+<text class="compare-side-title" text-anchor="middle" x="180" y="48">一般線路：線材與距離影響較多</text>
+<rect class="compare-pill-blue" height="36" rx="18" width="312" x="384" y="24"></rect>
+<text class="compare-side-title" text-anchor="middle" x="540" y="48">FTTH：光纖訊號拉到家中</text>
+<rect fill="#fff" height="50" rx="10" stroke="#94A3B8" stroke-width="3" width="72" x="54" y="88"></rect><text class="compare-small" text-anchor="middle" x="90" y="118">外部線路</text>
+<path d="M126 112 C168 84,196 142,230 112 C260 86,286 134,316 112" fill="none" stroke="#94A3B8" stroke-dasharray="10 9" stroke-linecap="round" stroke-width="7"></path>
+<text class="compare-caption" text-anchor="middle" x="222" y="162">訊號路徑較複雜</text>
+<text class="compare-small" text-anchor="middle" x="222" y="188">距離、老舊線材、分接都可能影響體感</text>
+<rect fill="#fff" height="48" rx="10" stroke="#2563EB" stroke-width="3" width="70" x="408" y="90"></rect><text class="compare-small" text-anchor="middle" x="443" y="118">光纖線</text>
+<path d="M478 114 H648" stroke="#2563EB" stroke-linecap="round" stroke-width="10"></path>
+<circle cx="506" cy="114" fill="#22C55E" r="5"></circle><circle cx="540" cy="114" fill="#22C55E" r="5"></circle><circle cx="574" cy="114" fill="#22C55E" r="5"></circle><circle cx="608" cy="114" fill="#22C55E" r="5"></circle>
+<rect fill="#fff" height="54" rx="12" stroke="#2563EB" stroke-width="3" width="76" x="590" y="158"></rect><text class="compare-small" text-anchor="middle" x="628" y="187">住家 ONT</text>
+<path d="M628 138 V158" stroke="#2563EB" stroke-linecap="round" stroke-width="6"></path>
+<text class="compare-caption" text-anchor="middle" x="540" y="252">重點：光纖不是只到社區，是拉到家中設備</text>
 </svg>
 <h3>2. 線路傳輸方式</h3>
-<p>FTTH 光纖訊號進入住家後接到 ONT，再分配給分享器與設備，傳輸路徑更清楚。</p>
+<p>FTTH 光纖訊號進入住家後接到 ONT，再分配給分享器與設備，傳輸路徑更清楚。</p><ul class="diagram-points"><li>左邊看「外部線路較複雜」</li><li>右邊看「光纖進家中接 ONT」</li><li>重點：FTTH 是光纖拉到住家端設備</li></ul>
 </div>
-
 <div class="ftth-compare-card">
-<svg class="compare-art" viewBox="0 0 720 300" role="img" aria-label="網路速度與 Wi-Fi 覆蓋不是同一件事的比較">
-<rect x="0" y="0" width="720" height="300" fill="#F8FAFC"/>
-<line x1="360" y1="34" x2="360" y2="246" stroke="#CBD5E1" stroke-width="2" stroke-dasharray="8 8"/>
-<rect x="24" y="24" width="312" height="36" rx="18" class="compare-bad"/>
-<text x="180" y="48" text-anchor="middle" class="compare-side-title">放弱電箱：網路正常，但 Wi‑Fi 弱</text>
-<rect x="384" y="24" width="312" height="36" rx="18" class="compare-pill-green"/>
-<text x="540" y="48" text-anchor="middle" class="compare-side-title">放客廳：Wi‑Fi 覆蓋比較好</text>
-
-<rect x="62" y="88" width="94" height="116" rx="12" fill="#E2E8F0" stroke="#94A3B8" stroke-width="3"/>
-<text x="109" y="116" text-anchor="middle" class="compare-small">弱電箱</text>
-<rect x="88" y="136" width="42" height="28" rx="6" fill="#fff" stroke="#64748B" stroke-width="2"/>
-<path d="M130 150 q42 -22 78 10 q34 30 76 12" fill="none" stroke="#EF4444" stroke-width="5" stroke-linecap="round" stroke-dasharray="8 8"/>
-<rect x="242" y="118" width="42" height="72" rx="10" fill="#fff" stroke="#EF4444" stroke-width="3"/><text x="263" y="208" text-anchor="middle" class="compare-small">房間手機</text>
-<text x="180" y="248" text-anchor="middle" class="compare-caption">速度有到，但房間訊號可能弱</text>
-
-<rect x="430" y="128" width="118" height="70" rx="14" fill="#fff" stroke="#22C55E" stroke-width="3"/><text x="489" y="168" text-anchor="middle" class="compare-small">客廳分享器</text>
-<path d="M463 112 q26 -24 52 0 M452 98 q37 -36 74 0" fill="none" stroke="#22C55E" stroke-width="5" stroke-linecap="round"/>
-<rect x="590" y="112" width="48" height="82" rx="10" fill="#DBEAFE" stroke="#2563EB" stroke-width="3"/><text x="614" y="212" text-anchor="middle" class="compare-small">手機</text>
-<rect x="420" y="210" width="68" height="32" rx="8" fill="#fff" stroke="#2563EB" stroke-width="2"/><text x="454" y="232" text-anchor="middle" class="compare-small">電視盒</text>
-<text x="540" y="268" text-anchor="middle" class="compare-caption">網路速度 ≠ 每間房 Wi‑Fi 都滿格</text>
+<svg aria-label="網路速度與 Wi-Fi 覆蓋不是同一件事的比較" class="compare-art" role="img" viewbox="0 0 720 300">
+<rect fill="#F8FAFC" height="300" width="720" x="0" y="0"></rect>
+<line stroke="#CBD5E1" stroke-dasharray="8 8" stroke-width="2" x1="360" x2="360" y1="34" y2="246"></line>
+<rect class="compare-bad" height="36" rx="18" width="312" x="24" y="24"></rect>
+<text class="compare-side-title" text-anchor="middle" x="180" y="48">放弱電箱：網路正常，但 Wi‑Fi 弱</text>
+<rect class="compare-pill-green" height="36" rx="18" width="312" x="384" y="24"></rect>
+<text class="compare-side-title" text-anchor="middle" x="540" y="48">放客廳：Wi‑Fi 覆蓋比較好</text>
+<rect fill="#E2E8F0" height="116" rx="12" stroke="#94A3B8" stroke-width="3" width="94" x="62" y="88"></rect>
+<text class="compare-small" text-anchor="middle" x="109" y="116">弱電箱</text>
+<rect fill="#fff" height="28" rx="6" stroke="#64748B" stroke-width="2" width="42" x="88" y="136"></rect>
+<path d="M130 150 q42 -22 78 10 q34 30 76 12" fill="none" stroke="#EF4444" stroke-dasharray="8 8" stroke-linecap="round" stroke-width="5"></path>
+<rect fill="#fff" height="72" rx="10" stroke="#EF4444" stroke-width="3" width="42" x="242" y="118"></rect><text class="compare-small" text-anchor="middle" x="263" y="208">房間手機</text>
+<text class="compare-caption" text-anchor="middle" x="180" y="248">速度有到，但房間訊號可能弱</text>
+<rect fill="#fff" height="70" rx="14" stroke="#22C55E" stroke-width="3" width="118" x="430" y="128"></rect><text class="compare-small" text-anchor="middle" x="489" y="168">客廳分享器</text>
+<path d="M463 112 q26 -24 52 0 M452 98 q37 -36 74 0" fill="none" stroke="#22C55E" stroke-linecap="round" stroke-width="5"></path>
+<rect fill="#DBEAFE" height="82" rx="10" stroke="#2563EB" stroke-width="3" width="48" x="590" y="112"></rect><text class="compare-small" text-anchor="middle" x="614" y="212">手機</text>
+<rect fill="#fff" height="32" rx="8" stroke="#2563EB" stroke-width="2" width="68" x="420" y="210"></rect><text class="compare-small" text-anchor="middle" x="454" y="232">電視盒</text>
+<text class="compare-caption" text-anchor="middle" x="540" y="268">網路速度 ≠ 每間房 Wi‑Fi 都滿格</text>
 </svg>
 <h3>3. Wi‑Fi 跟網路速度分開看</h3>
-<p>線路速度與 Wi‑Fi 覆蓋要分開看；分享器位置不佳時，房間訊號仍可能變弱。</p>
+<p>線路速度與 Wi‑Fi 覆蓋要分開看；分享器位置不佳時，房間訊號仍可能變弱。</p><ul class="diagram-points"><li>左邊看「分享器放弱電箱」</li><li>右邊看「分享器放客廳」</li><li>重點：網路速度正常，不代表每間房 Wi‑Fi 都滿格</li></ul>
 </div>
-
 <div class="ftth-compare-card">
-<svg class="compare-art" viewBox="0 0 720 300" role="img" aria-label="網路和第四台分開處理與一次申辦整合的比較">
-<rect x="0" y="0" width="720" height="300" fill="#FFFFFF"/>
-<line x1="360" y1="34" x2="360" y2="246" stroke="#CBD5E1" stroke-width="2" stroke-dasharray="8 8"/>
-<rect x="24" y="24" width="312" height="36" rx="18" class="compare-bad"/>
-<text x="180" y="48" text-anchor="middle" class="compare-side-title">分開問：網路、第四台、設備都要重複確認</text>
-<rect x="384" y="24" width="312" height="36" rx="18" class="compare-pill-orange"/>
-<text x="540" y="48" text-anchor="middle" class="compare-side-title">一次問：網路＋第四台一起安排</text>
-
-<rect x="58" y="92" width="88" height="54" rx="10" fill="#fff" stroke="#94A3B8" stroke-width="3"/><text x="102" y="124" text-anchor="middle" class="compare-small">網路</text>
-<rect x="206" y="92" width="88" height="54" rx="10" fill="#fff" stroke="#94A3B8" stroke-width="3"/><text x="250" y="124" text-anchor="middle" class="compare-small">第四台</text>
-<path d="M148 120 C166 96,188 144,204 120" fill="none" stroke="#EF4444" stroke-width="6" stroke-linecap="round" stroke-dasharray="8 8"/>
-<text x="180" y="188" text-anchor="middle" class="compare-caption">窗口不同、問題重複問</text>
-<text x="180" y="214" text-anchor="middle" class="compare-small">搬家、新家落成、換業者時容易混亂</text>
-
-<rect x="410" y="100" width="92" height="66" rx="12" fill="#fff" stroke="#2563EB" stroke-width="3"/><text x="456" y="134" text-anchor="middle" class="compare-small">ONT</text>
-<rect x="530" y="88" width="118" height="48" rx="12" fill="#fff" stroke="#22C55E" stroke-width="3"/><text x="589" y="118" text-anchor="middle" class="compare-small">Wi‑Fi 分享器</text>
-<rect x="530" y="158" width="118" height="48" rx="12" fill="#fff" stroke="#F97316" stroke-width="3"/><text x="589" y="188" text-anchor="middle" class="compare-small">第四台機上盒</text>
-<path d="M502 132 H530 M502 132 C520 142,520 168,530 182" fill="none" stroke="#2563EB" stroke-width="5" stroke-linecap="round"/>
-<text x="540" y="248" text-anchor="middle" class="compare-caption">新申辦、升速、第四台組合一次確認</text>
+<svg aria-label="網路和第四台分開處理與一次申辦整合的比較" class="compare-art" role="img" viewbox="0 0 720 300">
+<rect fill="#FFFFFF" height="300" width="720" x="0" y="0"></rect>
+<line stroke="#CBD5E1" stroke-dasharray="8 8" stroke-width="2" x1="360" x2="360" y1="34" y2="246"></line>
+<rect class="compare-bad" height="36" rx="18" width="312" x="24" y="24"></rect>
+<text class="compare-side-title" text-anchor="middle" x="180" y="48">分開問：網路、第四台、設備都要重複確認</text>
+<rect class="compare-pill-orange" height="36" rx="18" width="312" x="384" y="24"></rect>
+<text class="compare-side-title" text-anchor="middle" x="540" y="48">一次問：網路＋第四台一起安排</text>
+<rect fill="#fff" height="54" rx="10" stroke="#94A3B8" stroke-width="3" width="88" x="58" y="92"></rect><text class="compare-small" text-anchor="middle" x="102" y="124">網路</text>
+<rect fill="#fff" height="54" rx="10" stroke="#94A3B8" stroke-width="3" width="88" x="206" y="92"></rect><text class="compare-small" text-anchor="middle" x="250" y="124">第四台</text>
+<path d="M148 120 C166 96,188 144,204 120" fill="none" stroke="#EF4444" stroke-dasharray="8 8" stroke-linecap="round" stroke-width="6"></path>
+<text class="compare-caption" text-anchor="middle" x="180" y="188">窗口不同、問題重複問</text>
+<text class="compare-small" text-anchor="middle" x="180" y="214">搬家、新家落成、換業者時容易混亂</text>
+<rect fill="#fff" height="66" rx="12" stroke="#2563EB" stroke-width="3" width="92" x="410" y="100"></rect><text class="compare-small" text-anchor="middle" x="456" y="134">ONT</text>
+<rect fill="#fff" height="48" rx="12" stroke="#22C55E" stroke-width="3" width="118" x="530" y="88"></rect><text class="compare-small" text-anchor="middle" x="589" y="118">Wi‑Fi 分享器</text>
+<rect fill="#fff" height="48" rx="12" stroke="#F97316" stroke-width="3" width="118" x="530" y="158"></rect><text class="compare-small" text-anchor="middle" x="589" y="188">第四台機上盒</text>
+<path d="M502 132 H530 M502 132 C520 142,520 168,530 182" fill="none" stroke="#2563EB" stroke-linecap="round" stroke-width="5"></path>
+<text class="compare-caption" text-anchor="middle" x="540" y="248">新申辦、升速、第四台組合一次確認</text>
 </svg>
 <h3>4. 網路＋第四台一次處理</h3>
-<p>網路、Wi‑Fi 分享器與第四台機上盒可一起評估，一次確認方案與設備安排。</p>
+<p>網路、Wi‑Fi 分享器與第四台機上盒可一起評估，一次確認方案與設備安排。</p><ul class="diagram-points"><li>左邊看「網路與第四台分開問」</li><li>右邊看「ONT、分享器、機上盒一起規劃」</li><li>重點：新申辦或搬家時可以一次確認</li></ul>
 </div>
 </div>
 <div class="ftth-compare-note"><b>以左右對照方式呈現。</b> 先看懂「一般網路 vs FTTH 光纖到府」差異，再依地址與使用需求選擇合適方案。</div>
 </div>
 </section>
-
 <section class="section-alt guide-section" id="site-guide">
 <div class="wrap">
 <div class="section-head center">
@@ -1154,7 +1199,7 @@
 <p>還沒申辦先看「查地址、方案、費用與安裝前疑問」；已經裝機遇到斷線或紅燈，再看「故障報修」。</p>
 </div>
 <div class="guide-chips">
-<a class="primary" href="#address-check">我要查可否安裝</a>
+<a class="primary" href="#address-check">我要查可否安裝</a><a href="#trust-flow">安心申辦流程</a>
 <a href="#ftth-compare">光纖到府圖解比較</a>
 <a href="#hot-plans">先看熱門方案</a>
 <a href="#ftth-features">FTTH 特色</a>
@@ -1167,6 +1212,44 @@
 <a class="repair" href="#repair-check">已裝機故障報修</a>
 <a href="#faq">常見問題</a>
 </div>
+</div>
+</section>
+<section class="trust-flow-section" id="trust-flow">
+<div class="wrap">
+<div class="section-head center">
+<span class="eyebrow">安心申辦流程</span>
+<h2>從看到網站到完成安裝，每一步都知道下一步要做什麼</h2>
+<p>網站內容依照客人的決策順序重新排列：先確認能不能裝，再看方案與費用，最後才看接線、Wi‑Fi 與報修。</p>
+</div>
+<div class="trust-flow-grid">
+<article class="trust-flow-card">
+<span class="flow-num">01</span>
+<h3>先查地址</h3>
+<p>提供完整地址、社區名稱與樓層，先確認該地址是否可申辦光纖到府與第四台組合。</p>
+<a href="#address-check">前往地址查詢</a>
+</article>
+<article class="trust-flow-card">
+<span class="flow-num">02</span>
+<h3>再選方案</h3>
+<p>依照家庭人數、追劇、遊戲、直播、店面或監視器需求，推薦合適速率，不用自己猜。</p>
+<a href="#hot-plans">查看熱門方案</a>
+</article>
+<article class="trust-flow-card">
+<span class="flow-num">03</span>
+<h3>確認費用與安裝</h3>
+<p>安裝前先確認月租、設備租借、第四台需求與施工時間，降低現場溝通落差。</p>
+<a href="#steps">查看安裝流程</a>
+</article>
+<article class="trust-flow-card">
+<span class="flow-num">04</span>
+<h3>裝好後知道怎麼求助</h3>
+<p>網站保留接線、燈號與報修檢查區，日後遇到斷線或紅燈也知道先看哪裡。</p>
+<a href="#repair-check">查看報修檢查</a>
+</article>
+</div>
+<div class="assurance-panel">
+<b>安心提醒：</b>實際可申辦速率、費用、設備與安裝時間，仍以完整地址查詢、當期活動與業務確認為準。網站先幫你快速理解流程，避免一開始就被大量技術資訊淹沒。
+    </div>
 </div>
 </section>
 
@@ -1297,8 +1380,8 @@
 <p>實際月費依當期優惠與方案內容為準，正確報價請電洽業務或使用線上預約，我們會依您的用量給最合適的建議。</p>
 </div>
 <div class="official-price">
-<h3>官方感方案重點整理</h3>
-<p>把最常被問到的組合方案整理成一張表，方便先抓預算；實際可辦內容仍需依地址、當期活動與業務確認。</p>
+<h3>資費重點整理</h3>
+<p>常見組合方案整理成一張表，方便先抓預算；實際可辦內容仍需依地址、當期活動與業務確認。</p>
 <table class="official-table">
 <tr><th>方案</th><th>內容</th><th>月費參考</th></tr>
 <tr><td><strong>熱門組合</strong></td><td>888M／500M 光纖寬頻＋大豐第四台</td><td><strong>NT$999</strong> 起</td></tr>
@@ -1370,13 +1453,13 @@
 <div class="wrap">
 <div class="section-head center">
 <span class="eyebrow">申辦前疑問解除</span>
-<h2>還沒申辦前，先把你最擔心的問題講清楚</h2>
+<h2>還沒申辦前，先確認你最在意的問題</h2>
 <p>多數人不是不想辦，而是卡在「我家能不能裝、會不會加價、Wi‑Fi 會不會不穩、裝機要準備什麼」。這一區專門解決申辦前的猶豫。</p>
 </div>
 <div class="preapply-hero">
 <div>
 <h3>先不用急著選方案，先確認這 4 件事</h3>
-<p>地址是否可裝、家裡格局適合怎麼放設備、費用是否清楚、舊網路要不要先退。把這些先問完，安裝時比較不會遇到「到了現場才發現不能裝」或「裝完 Wi‑Fi 還是不滿意」的問題。</p>
+<p>地址是否可裝、家裡格局適合怎麼放設備、費用是否清楚、舊網路要不要先退。這些先確認好，安裝時比較不會遇到「到了現場才發現不能裝」或「裝完 Wi‑Fi 還是不滿意」的問題。</p>
 <div class="pre-cta">
 <a class="btn-primary" href="#address-check">傳地址查可否安裝</a>
 <a class="btn-ghost" href="tel:0988232247">直接問業務</a>
@@ -1683,7 +1766,7 @@
 <div class="wrap">
 <div class="section-head center">
 <span class="eyebrow">設備孔位示意</span>
-<h2>常見設備孔位，做成像實機照片的示意</h2>
+<h2>常見設備孔位圖解</h2>
 <p>每台設備外觀不一定完全相同，但孔位邏輯大致一致：光纖進 ONT、ONT 的 LAN 接分享器 WAN、分享器 LAN 再分給電腦。</p>
 </div>
 <div class="device-real-grid">
@@ -1716,8 +1799,8 @@
 <div class="wrap">
 <div class="section-head center">
 <span class="eyebrow">安裝情境圖解</span>
-<h2>用 Q 版示意圖先看懂安裝會遇到哪些設備</h2>
-<p>用簡單圖解說明數據機、分享器、電腦與店面設備的連接方式，降低申辦前的不安。</p>
+<h2>安裝會遇到哪些設備？用圖先看懂</h2>
+<p>用設備圖解讓客人先理解弱電箱、ONT、分享器、電腦與店面設備的連接方式，申辦前更安心。</p>
 </div>
 <div class="photo-grid">
 <div class="photo-card">
@@ -1809,7 +1892,7 @@
 </details>
 <details class="faq-item">
 <summary>申請後多久可以裝好？</summary>
-<p>確認安裝需求後，通常最快一個工作天內就能安排工程師到府施工，平日、假日、晚上時段都可預約，不需要苦等好幾週。</p>
+<p>確認安裝需求與地址可行後，會協助安排工程師到府施工，平日、假日或晚上時段可再依排程確認。</p>
 </details>
 <details class="faq-item">
 <summary>數據機燈號正常，卻不能上網，是故障嗎？</summary>
@@ -1837,7 +1920,6 @@
 <details class="faq-item"><summary>中和或板橋申辦網路多久可以安裝？</summary><p>確認地址與方案後，多數地區可安排近期到府會勘與安裝；實際時間仍會依管線、工程排程、住戶可配合時段而定。</p></details>
 <details class="faq-item"><summary>土城大大寬頻報修電話是多少？</summary><p>已裝機用戶如果是網路斷線、訊號異常或設備燈號問題，請撥故障報修專線 <strong>02-8253-8999</strong>，也可撥免付費 <strong>0800-360-999</strong>。</p></details>
 <details class="faq-item"><summary>分享器 WAN 和 LAN 差在哪？</summary><p>WAN／Internet 是分享器「接收外部網路」的孔，應該接 ONT 光纖數據機的 LAN；LAN 1–4 是分享器「分給家中設備」的孔，電腦、電視盒、監視器通常接 LAN。</p></details>
-
 <details class="faq-item"><summary>大大寬頻是 FTTH 光纖到府嗎？</summary><p>是，主打 FTTH 光纖到府服務；不過實際線路形式與可安裝方案仍需依完整地址查詢與現場管線確認。建議先傳地址給業務確認。</p></details>
 <details class="faq-item"><summary>1.2G／500M 是什麼意思？</summary><p>通常代表下載最高 1.2G、上傳最高 500M 的速率規格。下載影響追劇、遊戲更新、大檔案下載；上傳則影響直播、雲端備份、監視器遠端觀看與傳檔。</p></details>
 <details class="faq-item"><summary>888M／500M 適合什麼家庭？</summary><p>適合多人同時上網、4K 影音、遊戲、視訊會議、手機與電視盒很多的家庭。若有直播、NAS、大量上傳或店面監視器需求，可再評估 1.2G／500M。</p></details>
@@ -1894,7 +1976,7 @@
 <div class="wrap">
 <div class="section-head">
 <span class="eyebrow">為什麼選大大寬頻</span>
-<h2>比起業配話術，我們更在意接電話的速度</h2>
+<h2>比起只看價格，更重視服務回應速度</h2>
 </div>
 <div class="features">
 <div class="feature">
@@ -1906,25 +1988,25 @@
 <p>新申辦撥 0988-232-247 陳先生，已裝機用戶故障撥 02-8253-8999，不用猜該找誰。</p>
 </div>
 <div class="feature">
-<h3>光纖到府，非共享頻寬</h3>
-<p>每戶獨立光纖線路，尖峰時段網速不因鄰居使用而被拖慢。</p>
+<h3>FTTH 光纖到府</h3>
+<p>光纖訊號拉到住家端，適合多人追劇、遊戲、視訊與店面設備使用；實際速度仍依地址、設備與現場環境為準。</p>
 </div>
 <div class="feature">
-<h3>最快隔天到府安裝</h3>
-<p>多數地區申請確認後，最快隔天即可安排工程師到府，不必苦等好幾週。</p>
+<h3>可協助安排到府安裝</h3>
+<p>完成地址與管線確認後，會協助安排工程師到府施工，實際時間依地區與排程為準。</p>
 </div>
 <div class="feature">
-<h3>免費設備租用</h3>
-<p>WiFi 分享器與路由設備簽約期間免費提供，故障免費更換。</p>
+<h3>設備租借與設定協助</h3>
+<p>可依方案與活動租借 Wi‑Fi 分享器，安裝時協助確認基本連線與擺放建議。</p>
 </div>
 <div class="feature">
 <h3>可單辦網路</h3>
-<p>不想裝第四台也沒關係，網路可單獨申辦，不強制綁約有線電視。</p>
+<p>不想裝第四台也沒關係，網路可單獨申辦，可依需求選擇網路或電視組合。</p>
 </div>
 </div>
 </div>
 </section>
-<section class="section-alt seo-only-content" id="local-seo" aria-label="新北各區光纖到府服務說明">
+<section aria-label="新北各區光纖到府服務說明" class="section-alt seo-only-content" id="local-seo">
 <div class="wrap">
 <div class="section-head center">
 <span class="eyebrow">服務區域</span>
@@ -1944,7 +2026,7 @@
 <p class="local-seo-note">實際能否安裝仍以完整地址、管線狀況與業務人員確認為準。</p>
 </div>
 </section>
-<section id="search-keywords" class="seo-only-content" aria-label="常見搜尋關鍵字">
+<section aria-label="常見搜尋關鍵字" class="seo-only-content" id="search-keywords">
 <div class="wrap">
 <div class="section-head center">
 <span class="eyebrow">常見搜尋關鍵字</span>
