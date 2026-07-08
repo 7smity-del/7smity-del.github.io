@@ -1176,6 +1176,57 @@
     .guide-section .section-head p{ font-size:13.5px; }
   }
 
+
+
+/* ---------- v22 Google Ads sales landing focus ---------- */
+.logo{ gap:12px; }
+.logo .brand-copy{ display:flex; flex-direction:column; line-height:1.15; min-width:0; }
+.logo .brand-copy b{ font-size:20px; letter-spacing:-.02em; color:#0B1220; }
+.logo .brand-copy small{ display:block; margin-top:4px; font-size:11.5px; font-weight:800; color:#64748B; white-space:nowrap; }
+.header-pill{ display:inline-flex; align-items:center; height:28px; padding:0 10px; border-radius:999px; background:#EFF6FF; color:#1D4ED8; border:1px solid rgba(29,78,216,.16); font-size:12px; font-weight:900; }
+.nav-cta.ghost-phone{ background:#fff; color:#1D4ED8; border:1px solid rgba(29,78,216,.25); box-shadow:none; }
+.hero{ padding-top:44px; }
+.hero-inner{ max-width:1040px; }
+.hero h1{ font-size:clamp(30px,5vw,54px); line-height:1.13; }
+.hero p.lead{ font-size:17px; line-height:1.85; }
+.sales-first-banner{ grid-template-columns:minmax(0,1.05fr) minmax(380px,.95fr); margin-top:28px; }
+.sales-first-actions .home-action-btn.primary{ background:linear-gradient(135deg,#06C755,#16A34A); color:#fff; border-left:0; border-color:rgba(255,255,255,.32); }
+.sales-first-actions .home-action-btn.primary small{ color:rgba(255,255,255,.86); }
+.sales-first-actions .home-action-btn.soft{ background:rgba(255,255,255,.14); color:#fff; border-color:rgba(255,255,255,.18); border-left:1px solid rgba(255,255,255,.18); }
+.sales-first-actions .home-action-btn.soft small{ color:rgba(255,255,255,.74); }
+.trust-strip{ max-width:1040px; }
+.guide-section{ background:linear-gradient(180deg,#FFFFFF 0%,#F8FAFC 100%); }
+.sales-guide{ grid-template-columns:minmax(300px,.82fr) minmax(0,1.38fr); }
+.guide-card-main{ grid-column:span 2; min-height:128px; }
+.guide-card-main b{ font-size:19px; }
+.guide-card-main small{ font-size:13.5px; }
+.plan-badge{ display:inline-flex; align-items:center; padding:5px 10px; border-radius:999px; background:#EFF6FF; color:#1D4ED8; font-size:12px; font-weight:950; margin-bottom:10px; }
+.plan-badge.hot{ background:#FFF7ED; color:#EA580C; }
+.conversion-price span{ font-size:16px; color:#64748B; margin-left:2px; }
+.plan-quick-cta{ margin-top:14px; display:inline-flex; align-items:center; justify-content:center; min-height:42px; padding:10px 14px; border-radius:12px; background:#FF6B00; color:#fff; text-decoration:none; font-weight:950; font-size:13px; box-shadow:0 14px 28px -22px rgba(249,115,22,.9); }
+.conversion-card.featured .plan-quick-cta{ background:#1D4ED8; box-shadow:0 14px 28px -22px rgba(29,78,216,.9); }
+.sales-check-list .teach-item b{ color:#0B1220; }
+.sales-safe-note{ margin-top:14px; padding:12px 14px; border-radius:14px; background:#F8FAFC; border:1px solid rgba(148,163,184,.22); color:#64748B; font-size:13px; line-height:1.65; font-weight:800; }
+#repair-check{ scroll-margin-top:92px; }
+@media (max-width:900px){
+  .header-pill{ display:none; }
+  .logo .brand-copy small{ white-space:normal; max-width:230px; }
+  .sales-first-banner{ grid-template-columns:1fr; }
+}
+@media (max-width:640px){
+  header .wrap{ min-height:74px; }
+  .logo{ align-items:center; }
+  .logo-mark{ width:38px; height:38px; border-radius:12px; }
+  .logo .brand-copy b{ font-size:21px; }
+  .logo .brand-copy small{ font-size:11px; max-width:220px; }
+  .hero{ padding-top:30px; }
+  .hero h1{ font-size:31px; }
+  .hero p.lead{ font-size:15px; line-height:1.75; }
+  .guide-card-main{ grid-column:span 1; }
+  .guide-mini-links{ overflow-x:auto; flex-wrap:nowrap; justify-content:flex-start; padding-bottom:4px; -webkit-overflow-scrolling:touch; }
+  .guide-mini-links a{ white-space:nowrap; flex:0 0 auto; }
+  .visual-proof{ padding-top:38px; }
+}
 </style>
 </head>
 <body class="no-copy" oncontextmenu="return false">
@@ -1196,41 +1247,44 @@
 <nav class="wrap">
 <div class="logo">
 <span aria-hidden="true" class="logo-mark"></span>
-<span>大大寬頻<small>大豐有線電視・板橋中和光纖到府</small></span>
+<span class="brand-copy"><b>大大寬頻</b><small>新北光纖到府申辦｜大豐有線電視方案諮詢</small></span>
+<span class="header-pill">FTTH 光纖</span>
+<span class="header-pill hide-sm">網路＋第四台</span>
 </div>
 <div class="navlinks">
-<a href="#site-guide">申辦選單</a>
-<a href="#address-check">查地址</a>
+<a href="#site-guide">快速選單</a>
 <a href="#hot-plans">熱門方案</a>
-<a href="#plans">資費方案</a>
+<a href="#address-check">查地址</a>
 <a href="#ftth-compare">光纖優勢</a>
 <a href="#steps">安裝流程</a>
 <a href="#faq">常見問題</a>
 </div>
 <div class="nav-ctas">
-<a class="nav-cta" href="tel:0988232247">新申辦</a>
-<a class="nav-cta repair" href="tel:0282538999">故障報修</a>
+<a class="nav-cta" href="https://lin.ee/TD36TlR" rel="noopener" target="_blank">LINE 查地址</a>
+<a class="nav-cta ghost-phone" href="tel:0988232247">電話申辦</a>
 </div>
 </nav>
 </header>
 <div aria-hidden="true" class="pulse-rail"></div>
 <main><section class="hero">
 <div class="wrap hero-inner">
-<span class="eyebrow">新北板橋・中和・永和・土城・樹林・三峽・鶯歌</span>
-<h1>真正 <span class="accent">FTTH 光纖到府</span><br/>網路＋第四台一次搞定</h1>
-<p class="lead">大豐有線電視旗下大大寬頻，提供 FTTH 光纖到府、網路＋第四台組合與 Wi‑Fi 6 分享器租借。輸入地址前，先看懂方案、安裝流程與報修方式，申辦更放心。</p>
-<div aria-label="新申辦與故障報修快速選擇" class="home-action-banner">
+<span class="eyebrow">新申辦光纖網路｜先查地址可否安裝</span>
+<h1>新北 <span class="accent">FTTH 光纖到府</span><br/>先查地址，再推薦方案</h1>
+<p class="lead">想辦大大寬頻／大豐有線電視，先確認你家能不能裝。主打 500M、888M、1.2G 光纖上網與網路＋第四台組合，專人協助查地址、說明費用與安排安裝。</p>
+
+<div aria-label="新申辦主要行動區" class="home-action-banner sales-first-banner">
 <div class="home-action-copy">
-<span class="home-action-kicker">先選需求，直接找到正確窗口</span>
-<h2>新申辦找陳先生，已裝機故障請打報修專線</h2>
-<p>想安裝、查地址、問方案走新申辦；已經裝機遇到斷線、LOS 紅燈、第四台訊號異常，請走故障報修。</p>
+<span class="home-action-kicker">主推新申辦｜先查可不可裝</span>
+<h2>留下地址或直接 LINE，先幫你確認可裝速率與方案</h2>
+<p>新家、搬家、換業者、升速、第四台一起辦，都先走這裡。已裝機故障報修保留入口，但不影響新申辦動線。</p>
 </div>
-<div class="home-action-buttons">
-<a class="home-action-btn sales" href="tel:0988232247"><svg class="icon"><use href="#i-phone"></use></svg><span><b>新申辦</b><small>0988-232-247</small></span></a>
-<a class="home-action-btn line" href="https://lin.ee/TD36TlR" rel="noopener" target="_blank"><svg class="icon"><use href="#i-chat"></use></svg><span><b>LINE 查地址</b><small>傳地址確認可否安裝</small></span></a>
-<a class="home-action-btn repair" href="tel:0282538999"><svg class="icon"><use href="#i-wrench"></use></svg><span><b>故障報修</b><small>02-8253-8999</small></span></a>
+<div class="home-action-buttons sales-first-actions">
+<a class="home-action-btn line primary" href="https://lin.ee/TD36TlR" rel="noopener" target="_blank"><svg class="icon"><use href="#i-chat"></use></svg><span><b>LINE 查地址可否安裝</b><small>傳地址、社區名、需求最快</small></span></a>
+<a class="home-action-btn sales" href="tel:0988232247"><svg class="icon"><use href="#i-phone"></use></svg><span><b>電話新申辦</b><small>0988-232-247 陳先生</small></span></a>
+<a class="home-action-btn repair soft" href="#repair-check"><svg class="icon"><use href="#i-wrench"></use></svg><span><b>已裝機故障報修</b><small>點我看報修檢查與客服電話</small></span></a>
 </div>
 </div>
+
 <div class="trust-strip">
 <div class="trust-item">
 <svg class="icon"><use href="#i-shield"></use></svg>
@@ -1254,35 +1308,34 @@
 </div>
 </div>
 </div>
-</section>
-<section class="section-alt guide-section" id="site-guide">
+</section><section class="section-alt guide-section" id="site-guide">
 <div class="wrap">
 <div class="section-head center">
-<span class="eyebrow">申辦快速選單</span>
-<h2>想辦網路，先從這裡選</h2>
-<p>想申辦網路先看這裡：查地址、看方案、了解光纖到府與安裝流程。已裝機故障報修放在最後，避免一開始看太多資訊。</p>
+<span class="eyebrow">快速選單</span>
+<h2>你想先看哪一項？</h2>
+<p>主要目標是新申辦網路，所以選單以「查地址、看方案、理解光纖、預約安裝」為主；報修放在最後，已裝機用戶也能快速找到入口。</p>
 </div>
 <div class="sales-guide">
 <div class="sales-guide-main">
-<span class="badge">主推新申辦｜快速查地址</span>
-<h3>先查地址可不可裝，再推薦合適方案</h3>
-<p>提供完整地址、社區名稱與需求，先確認是否可申辦 FTTH 光纖到府、第四台組合與可用速率，節省來回詢問時間。</p>
+<span class="badge">新申辦建議先做這一步</span>
+<h3>先確認地址可不可裝，比先比價格更重要</h3>
+<p>每個地址可申辦速率、第四台組合、設備與施工時間可能不同。先提供完整地址，我們協助確認後，再推薦最適合的方案。</p>
 <div class="sales-guide-actions">
-<a class="main" href="#address-check">立即查地址</a>
-<a class="sub" href="https://lin.ee/TD36TlR" rel="noopener" target="_blank">LINE 詢問</a>
+<a class="main" href="#address-check">填地址查詢</a>
+<a class="sub" href="tel:0988232247">直接電話申辦</a>
 </div>
 <div class="sales-guide-note">
-<span>適合：新家、搬家、換業者、升速</span>
-<span>重點：先查可裝，再談方案與施工</span>
+<span>新家／搬家／換業者</span>
+<span>住家／店面／公司戶</span>
 </div>
 </div>
-<div class="guide-menu-grid" aria-label="網站快速選單">
-<a class="guide-card sales" href="#address-check"><span class="guide-ico">📍</span><span><b>我要新申辦</b><small>先填地址與需求，確認可裝區域、可辦速率與第四台組合。</small></span></a>
-<a class="guide-card sales" href="#hot-plans"><span class="guide-ico">💰</span><span><b>先看方案價格</b><small>快速看 360M、500M、888M、1.2G 與熱門組合。</small></span></a>
-<a class="guide-card" href="#ftth-compare"><span class="guide-ico">⚡</span><span><b>看懂光纖到府</b><small>用圖片理解 FTTH、ONT、分享器與家中設備怎麼連。</small></span></a>
-<a class="guide-card" href="#bundle-tv-net"><span class="guide-ico">📺</span><span><b>網路＋第四台</b><small>需要大豐有線電視、機上盒或追劇方案，先看這裡。</small></span></a>
-<a class="guide-card" href="#business-internet"><span class="guide-ico">🏢</span><span><b>店面／公司戶</b><small>POS、監視器、辦公室、店面網路需要穩定線路。</small></span></a>
-<a class="guide-card repair" href="#repair-check"><span class="guide-ico">🛠️</span><span><b>已裝機要報修</b><small>斷線、LOS 紅燈、PON 異常、分享器接線先快速判斷。</small></span></a>
+<div aria-label="網站快速選單" class="guide-menu-grid">
+<a class="guide-card sales guide-card-main" href="#address-check"><span class="guide-ico">📍</span><span><b>我要新申辦／查地址</b><small>輸入地址、社區名稱與需求，先確認可否安裝、可辦速率與第四台組合。</small></span></a>
+<a class="guide-card sales" href="#hot-plans"><span class="guide-ico">💰</span><span><b>看熱門方案</b><small>500M、888M、1.2G 三種常見需求，一眼比較。</small></span></a>
+<a class="guide-card" href="#ftth-compare"><span class="guide-ico">⚡</span><span><b>為什麼選光纖到府</b><small>用圖片看懂 FTTH、ONT、Wi‑Fi 分享器與家中設備。</small></span></a>
+<a class="guide-card" href="#steps"><span class="guide-ico">🧰</span><span><b>安裝流程怎麼走</b><small>從查地址、確認費用到工程到府，流程透明比較放心。</small></span></a>
+<a class="guide-card" href="#bundle-tv-net"><span class="guide-ico">📺</span><span><b>網路＋第四台一起辦</b><small>大豐有線電視、機上盒、網路組合一次詢問。</small></span></a>
+<a class="guide-card repair" href="#repair-check"><span class="guide-ico">🛠️</span><span><b>已裝機故障報修</b><small>LOS 紅燈、斷線、第四台訊號異常，先看報修檢查。</small></span></a>
 </div>
 </div>
 <div class="guide-mini-links">
@@ -1296,32 +1349,114 @@
 <a href="#faq">常見問題</a>
 </div>
 </div>
-</section>
-
-<section class="visual-proof" id="promo-visuals">
+</section><section class="section-alt" id="hot-plans">
 <div class="wrap">
 <div class="section-head center">
-<span class="eyebrow">活動方案與架構圖</span>
-<h2>先看活動重點，再看光纖怎麼接到家</h2>
-<p>將優惠方案與 FTTH 光纖到府架構用圖片呈現，讓客人快速理解可辦方案、設備連接與家中使用情境。</p>
+<span class="eyebrow">熱門方案</span>
+<h2>廣告進來先看這 3 種，最快知道大概怎麼選</h2>
+<p>價格與活動以當期公告、地址查詢與業務確認為準；這裡先用常見需求幫你快速判斷。</p>
 </div>
-<div class="visual-proof-grid">
-<figure class="visual-card featured-img">
-<h3>大大寬頻 500M 活動主視覺</h3>
-<p>適合放在首頁或方案區，讓客人第一眼看到主打速度、優惠與可選方案。</p>
-<img alt="大大寬頻 500M 馬上省錢超優惠活動，含 360M、500M、888M、1.2G 方案參考價格" decoding="async" draggable="false" loading="lazy" src="assets/images/dada-500m-promo.webp"/>
-<figcaption class="visual-caption"><span class="dot"></span><span><b>提醒：</b>圖片上的價格與贈品活動請依當期公告與業務確認，網站表格會保留「起」與「電洽確認」避免誤會。</span></figcaption>
-</figure>
-<figure class="visual-card">
-<h3>FTTH 光纖到府網路架構</h3>
-<p>從主頭端、光分配中心、分光器到家中的光終端機，讓客人看懂光纖不是只有到社區，而是接到住家端設備。</p>
-<img alt="FTTH 寬頻網路架構圖，光纖從主頭端、光分配中心、分光器連接到住家的光終端機，並連接電視機上盒、Wi-Fi 與個人電腦" decoding="async" draggable="false" loading="lazy" src="assets/images/ftth-network-architecture.png"/>
-<figcaption class="visual-caption"><span class="dot"></span><span><b>看圖重點：</b>家中會看到光終端機 ONT，再連接 Wi‑Fi 分享器、電腦或第四台機上盒。</span></figcaption>
-</figure>
+<div class="conversion-grid">
+<div class="conversion-card">
+<span class="plan-badge">小資入門</span>
+<h3>500M 光纖上網</h3>
+<div class="conversion-price">$600<span>/月起</span></div>
+<p>適合一般家庭、租屋族、追劇、手機、筆電與日常上網。</p>
+<ul><li>比低速方案更耐用</li><li>適合 2–4 人常見需求</li><li>先查地址確認可辦</li></ul>
+<a class="plan-quick-cta" href="#address-check">查我家可否安裝</a>
+</div>
+<div class="conversion-card featured">
+<span class="plan-badge hot">最多人問</span>
+<h3>888M 光纖上網</h3>
+<div class="conversion-price">$750<span>/月起</span></div>
+<p>適合多人同時追劇、遊戲、遠距工作與多設備連線。</p>
+<ul><li>多人家庭熱門選擇</li><li>4K 影音與遊戲更穩</li><li>可詢問第四台組合</li></ul>
+<a class="plan-quick-cta" href="#address-check">查地址拿方案</a>
+</div>
+<div class="conversion-card">
+<span class="plan-badge">高速首選</span>
+<h3>1.2G 光纖上網</h3>
+<div class="conversion-price">$999<span>/月起</span></div>
+<p>適合重度使用、直播、電競、監視器、NAS 或店面公司戶。</p>
+<ul><li>重視速度與穩定</li><li>多設備同時使用</li><li>可搭配現場需求評估</li></ul>
+<a class="plan-quick-cta" href="#address-check">詢問可辦速率</a>
 </div>
 </div>
-</section>
-<section id="ftth-compare">
+</div>
+</section><section class="section-alt" id="address-check">
+<div class="wrap">
+<div class="section-head center">
+<span class="eyebrow">查地址可否安裝</span>
+<h2>先傳地址，最快確認可辦方案</h2>
+<p>填好資料後一鍵複製到 LINE，專人協助確認可安裝速率、費用與施工時間。</p>
+</div>
+<div class="lead-wrap">
+<div class="lead-box">
+<h3>為什麼先查地址？</h3>
+<p>同一個行政區，不同社區或門牌可申辦的速率、第四台組合與施工條件可能不同。先查地址，才不會看到價格後又發現不能裝。</p>
+<div class="teach-list sales-check-list">
+<div class="teach-item"><b>1. 確認可否安裝</b><span>查 FTTH 光纖到府、第四台與可辦速率。</span></div>
+<div class="teach-item"><b>2. 推薦合適方案</b><span>依家庭人數、追劇、遊戲、店面或公司需求建議。</span></div>
+<div class="teach-item"><b>3. 費用先說清楚</b><span>月租、設備押金、施工與活動內容先確認。</span></div>
+<div class="teach-item"><b>4. 安排安裝時間</b><span>確認資料後，再協助預約工程到府。</span></div>
+</div>
+<div class="sales-safe-note">已裝機故障報修請至下方報修區或撥 02-8253-8999；新申辦請優先填地址或 LINE 詢問。</div>
+</div>
+<div class="lead-box">
+<form class="lead-form" id="addressForm">
+<label>姓名<input name="name" placeholder="例如：陳先生"/></label>
+<label>電話<input name="phone" placeholder="例如：09xx-xxx-xxx"/></label>
+<label class="full">安裝地址<input name="address" placeholder="例如：新北市板橋區○○路○號○樓"/></label>
+<label>想辦方案<select name="plan"><option>還不確定，請協助推薦</option><option>120M 起</option><option>500M</option><option>888M</option><option>1.2G</option><option>第四台＋網路組合</option></select></label>
+<label>使用需求<select name="need"><option>一般家庭上網</option><option>遊戲／直播</option><option>店面／公司戶</option><option>監視器／遠端觀看</option><option>只想查可否安裝</option></select></label>
+<label class="full">備註<textarea name="note" placeholder="例如：社區名稱、希望安裝時間、是否要接自己的分享器"></textarea></label>
+</form>
+<div class="lead-actions">
+<a class="btn-primary" href="https://lin.ee/TD36TlR" id="sendLineLead" rel="noopener" target="_blank">一鍵複製詢問內容</a>
+<a class="btn-ghost" href="tel:0988232247">直接打電話</a>
+</div>
+<div class="mini-help" id="lineCopyHint">提醒：按下後會先複製完整詢問內容，再開啟 LINE；請進聊天室長按貼上送出。表單不會在網站上儲存個資。</div>
+</div>
+</div>
+</div>
+</section><section class="trust-flow-section" id="trust-flow">
+<div class="wrap">
+<div class="section-head center">
+<span class="eyebrow">安心申辦流程</span>
+<h2>從看到網站到完成安裝，每一步都知道下一步要做什麼</h2>
+<p>網站內容依照客人的決策順序重新排列：先確認能不能裝，再看方案與費用，最後才看接線、Wi‑Fi 與報修。</p>
+</div>
+<div class="trust-flow-grid">
+<article class="trust-flow-card">
+<span class="flow-num">01</span>
+<h3>先查地址</h3>
+<p>提供完整地址、社區名稱與樓層，先確認該地址是否可申辦光纖到府與第四台組合。</p>
+<a href="#address-check">前往地址查詢</a>
+</article>
+<article class="trust-flow-card">
+<span class="flow-num">02</span>
+<h3>再選方案</h3>
+<p>依照家庭人數、追劇、遊戲、直播、店面或監視器需求，推薦合適速率，不用自己猜。</p>
+<a href="#hot-plans">查看熱門方案</a>
+</article>
+<article class="trust-flow-card">
+<span class="flow-num">03</span>
+<h3>確認費用與安裝</h3>
+<p>安裝前先確認月租、設備租借、第四台需求與施工時間，降低現場溝通落差。</p>
+<a href="#steps">查看安裝流程</a>
+</article>
+<article class="trust-flow-card">
+<span class="flow-num">04</span>
+<h3>裝好後知道怎麼求助</h3>
+<p>網站保留接線、燈號與報修檢查區，日後遇到斷線或紅燈也知道先看哪裡。</p>
+<a href="#repair-check">查看報修檢查</a>
+</article>
+</div>
+<div class="assurance-panel">
+<b>安心提醒：</b>實際可申辦速率、費用、設備與安裝時間，仍以完整地址查詢、當期活動與業務確認為準。網站先幫你快速理解流程，避免一開始就被大量技術資訊淹沒。
+    </div>
+</div>
+</section><section id="ftth-compare">
 <div class="wrap">
 <div class="section-head center">
 <span class="eyebrow">光纖到府圖解比較</span>
@@ -1429,80 +1564,34 @@
 </div>
 <div class="ftth-compare-note"><b>以左右對照方式呈現。</b> 先看懂「一般網路 vs FTTH 光纖到府」差異，再依地址與使用需求選擇合適方案。</div>
 </div>
-</section>
-<section class="trust-flow-section" id="trust-flow">
+</section><section class="visual-proof" id="promo-visuals">
 <div class="wrap">
 <div class="section-head center">
-<span class="eyebrow">安心申辦流程</span>
-<h2>從看到網站到完成安裝，每一步都知道下一步要做什麼</h2>
-<p>網站內容依照客人的決策順序重新排列：先確認能不能裝，再看方案與費用，最後才看接線、Wi‑Fi 與報修。</p>
+<span class="eyebrow">活動方案與架構圖</span>
+<h2>先看活動重點，再看光纖怎麼接到家</h2>
+<p>將優惠方案與 FTTH 光纖到府架構用圖片呈現，讓客人快速理解可辦方案、設備連接與家中使用情境。</p>
 </div>
-<div class="trust-flow-grid">
-<article class="trust-flow-card">
-<span class="flow-num">01</span>
-<h3>先查地址</h3>
-<p>提供完整地址、社區名稱與樓層，先確認該地址是否可申辦光纖到府與第四台組合。</p>
-<a href="#address-check">前往地址查詢</a>
-</article>
-<article class="trust-flow-card">
-<span class="flow-num">02</span>
-<h3>再選方案</h3>
-<p>依照家庭人數、追劇、遊戲、直播、店面或監視器需求，推薦合適速率，不用自己猜。</p>
-<a href="#hot-plans">查看熱門方案</a>
-</article>
-<article class="trust-flow-card">
-<span class="flow-num">03</span>
-<h3>確認費用與安裝</h3>
-<p>安裝前先確認月租、設備租借、第四台需求與施工時間，降低現場溝通落差。</p>
-<a href="#steps">查看安裝流程</a>
-</article>
-<article class="trust-flow-card">
-<span class="flow-num">04</span>
-<h3>裝好後知道怎麼求助</h3>
-<p>網站保留接線、燈號與報修檢查區，日後遇到斷線或紅燈也知道先看哪裡。</p>
-<a href="#repair-check">查看報修檢查</a>
-</article>
+<div class="visual-proof-grid">
+<figure class="visual-card featured-img">
+<h3>大大寬頻 500M 活動主視覺</h3>
+<p>適合放在首頁或方案區，讓客人第一眼看到主打速度、優惠與可選方案。</p>
+<img alt="大大寬頻 500M 馬上省錢超優惠活動，含 360M、500M、888M、1.2G 方案參考價格" decoding="async" draggable="false" loading="lazy" src="assets/images/dada-500m-promo.webp"/>
+<figcaption class="visual-caption"><span class="dot"></span><span><b>提醒：</b>圖片上的價格與贈品活動請依當期公告與業務確認，網站表格會保留「起」與「電洽確認」避免誤會。</span></figcaption>
+</figure>
+<figure class="visual-card">
+<h3>FTTH 光纖到府網路架構</h3>
+<p>從主頭端、光分配中心、分光器到家中的光終端機，讓客人看懂光纖不是只有到社區，而是接到住家端設備。</p>
+<img alt="FTTH 寬頻網路架構圖，光纖從主頭端、光分配中心、分光器連接到住家的光終端機，並連接電視機上盒、Wi-Fi 與個人電腦" decoding="async" draggable="false" loading="lazy" src="assets/images/ftth-network-architecture.png"/>
+<figcaption class="visual-caption"><span class="dot"></span><span><b>看圖重點：</b>家中會看到光終端機 ONT，再連接 Wi‑Fi 分享器、電腦或第四台機上盒。</span></figcaption>
+</figure>
 </div>
-<div class="assurance-panel">
-<b>安心提醒：</b>實際可申辦速率、費用、設備與安裝時間，仍以完整地址查詢、當期活動與業務確認為準。網站先幫你快速理解流程，避免一開始就被大量技術資訊淹沒。
-    </div>
 </div>
 </section>
 
-<section class="section-alt" id="address-check">
-<div class="wrap">
-<div class="section-head center">
-<span class="eyebrow">地址查詢表單</span>
-<h2>免費查詢是否可安裝</h2>
-<p>填好後按下方按鈕，會一鍵複製完整詢問內容，再開啟 LINE；進聊天室後長按貼上送出。</p>
-</div>
-<div class="lead-wrap">
-<div class="lead-box">
-<h3>最快的詢問方式</h3>
-<p>傳「地址＋想辦速率＋聯絡電話」最有效率。若是社區大樓，也可以補上社區名稱、樓層、是否有弱電箱。</p>
-<div class="teach-list">
-<div class="teach-item"><b>新申辦</b><span>0988-232-247 陳先生，先查地址可不可裝，再確認方案與安裝時間。</span></div>
-<div class="teach-item"><b>故障報修</b><span>已裝機用戶請打 02-8253-8999，並先看 PON / LOS / LAN 燈號。</span></div>
-</div>
-</div>
-<div class="lead-box">
-<form class="lead-form" id="addressForm">
-<label>姓名<input name="name" placeholder="例如：陳先生"/></label>
-<label>電話<input name="phone" placeholder="例如：09xx-xxx-xxx"/></label>
-<label class="full">安裝地址<input name="address" placeholder="例如：新北市板橋區○○路○號○樓"/></label>
-<label>想辦方案<select name="plan"><option>還不確定，請協助推薦</option><option>120M 起</option><option>500M</option><option>888M</option><option>1.2G</option><option>第四台＋網路組合</option></select></label>
-<label>使用需求<select name="need"><option>一般家庭上網</option><option>遊戲／直播</option><option>店面／公司戶</option><option>監視器／遠端觀看</option><option>只想查可否安裝</option></select></label>
-<label class="full">備註<textarea name="note" placeholder="例如：社區名稱、希望安裝時間、是否要接自己的分享器"></textarea></label>
-</form>
-<div class="lead-actions">
-<a class="btn-primary" href="https://lin.ee/TD36TlR" id="sendLineLead" rel="noopener" target="_blank">一鍵複製詢問內容</a>
-<a class="btn-ghost" href="tel:0988232247">直接打電話</a>
-</div>
-<div class="mini-help" id="lineCopyHint">提醒：按下後會先複製完整詢問內容，再開啟 LINE；請進聊天室長按貼上送出。表單不會在網站上儲存個資。</div>
-</div>
-</div>
-</div>
-</section>
+
+
+
+
 <section id="coverage">
 <div class="wrap">
 <div class="section-head">
@@ -1522,35 +1611,7 @@
 <p style="font-size:13px;color:var(--fog);margin-top:16px;">高雄地區服務：苓雅區、前鎮區、左營區、三民區（有線電視＋光纖網路）；楠梓區、鼓山區、小港區、新興區、前金區、鹽埕區（光纖到府網路服務）</p>
 </div>
 </section>
-<section class="section-alt" id="hot-plans">
-<div class="wrap">
-<div class="section-head center">
-<span class="eyebrow">熱門方案推薦</span>
-<h2>不知道怎麼選？先看這 3 種最常見需求</h2>
-<p>用人數與用途來選，比只看速度更準。實際可安裝方案仍以地址查詢與業務報價為準。</p>
-</div>
-<div class="conversion-grid">
-<div class="conversion-card">
-<h3>小家庭／租屋族</h3>
-<div class="conversion-price">120M 起</div>
-<p>適合 1–2 人，一般上網、追劇、滑手機。</p>
-<ul><li>小資預算優先</li><li>不常打遊戲或直播</li><li>可先詢問是否可升速</li></ul>
-</div>
-<div class="conversion-card featured">
-<h3>一般家庭最多人問</h3>
-<div class="conversion-price">500M</div>
-<p>適合 3–4 人、多台手機、電視、筆電同時使用。</p>
-<ul><li>多人同時追劇、視訊</li><li>4K 影音更穩</li><li>家庭用戶優先推薦</li></ul>
-</div>
-<div class="conversion-card">
-<h3>電競／直播／店面</h3>
-<div class="conversion-price">1.2G</div>
-<p>適合高需求用戶、直播、監視器、NAS、公司店面。</p>
-<ul><li>重視上傳與穩定</li><li>多設備同時連線</li><li>可搭配現場會勘</li></ul>
-</div>
-</div>
-</div>
-</section>
+
 <section class="section-alt" id="speed-chooser">
 <div class="wrap">
 <div class="section-head center">
