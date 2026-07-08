@@ -8,7 +8,7 @@
 <meta content="telephone=yes" name="format-detection"/>
 <meta content="#2563EB" name="theme-color"/>
 <title>大大寬頻｜大豐有線電視新北光纖到府申辦｜板橋中和土城 0988-232-247</title>
-<meta content="大大寬頻／大豐有線電視提供新北板橋、中和、永和、土城、樹林、三峽、鶯歌光纖到府。120M月租400元起、500M月租600元起。新申辦0988-232-247陳先生，故障報修02-8253-8999。" name="description"/>
+<meta content="大大寬頻／大豐有線電視提供新北板橋、中和、永和、土城、樹林、三峽、鶯歌FTTH光纖到府。1.2G/500M與888M/500M可搭配第四台，120M月租400元起。新申辦0988-232-247陳先生，故障報修02-8253-8999。" name="description"/>
 <meta content="大大寬頻,大豐有線電視,大大寬頻申辦,大豐有線電視客服,板橋光纖,中和光纖到府,永和光纖,土城網路,樹林光纖,三峽光纖,鶯歌光纖,光纖到府,新北光纖網路" name="keywords"/>
 <link href="https://www.ftth.com.tw/" rel="canonical"/>
 <link href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%232563EB'/%3E%3Cstop offset='1' stop-color='%23F97316'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='8' fill='url(%23g)'/%3E%3C/svg%3E" rel="icon"/>
@@ -405,6 +405,53 @@
   .plan .btn-ghost, .plan .btn-primary{ text-align:center; width:100%; justify-content:center; }
   .plan-note{ text-align:center; font-size:13px; color:var(--fog); margin-top:20px; }
   .plan-note a{ color:var(--cyan); text-decoration:underline; }
+
+
+  /* ---------- FTTH illustrated comparison ---------- */
+  .ftth-compare-wrap{ display:grid; grid-template-columns:repeat(4,1fr); gap:18px; }
+  .ftth-compare-card{
+    background:var(--paper); border:1px solid var(--fog-dim); border-radius:22px; padding:18px;
+    box-shadow:0 18px 34px -30px rgba(15,23,42,.22); display:flex; flex-direction:column; gap:12px;
+  }
+  .ftth-compare-card h3{ margin:0; font-size:16px; color:var(--ink); }
+  .ftth-compare-card p{ margin:0; color:var(--paper-dim); font-size:13.4px; line-height:1.7; }
+  .q-compare-art{
+    background:linear-gradient(180deg,#EFF6FF,#FFF7ED); border:1px solid rgba(37,99,235,.14);
+    border-radius:18px; overflow:hidden; min-height:170px; display:block; width:100%;
+  }
+  .q-label{ font-family:"Noto Sans TC", sans-serif; font-size:13px; font-weight:800; fill:#0F172A; }
+  .q-small{ font-family:"Noto Sans TC", sans-serif; font-size:11px; fill:#64748B; }
+  .q-red{ fill:#EF4444; } .q-blue{ fill:#2563EB; } .q-orange{ fill:#F97316; } .q-green{ fill:#22C55E; }
+  .ftth-compare-note{
+    margin-top:18px; background:linear-gradient(135deg,rgba(37,99,235,.08),rgba(249,115,22,.08));
+    border:1px solid rgba(37,99,235,.16); border-radius:18px; padding:16px 18px;
+    color:var(--paper-dim); font-size:14px; line-height:1.8; text-align:center;
+  }
+  .ftth-compare-note b{ color:var(--ink); }
+  @media (max-width:1100px){ .ftth-compare-wrap{ grid-template-columns:repeat(2,1fr); } }
+  @media (max-width:640px){ .ftth-compare-wrap{ grid-template-columns:1fr; } .q-compare-art{ min-height:150px; } }
+
+  .official-price{
+    background:linear-gradient(135deg,#fff,#F8FAFC); border:1px solid rgba(37,99,235,.18);
+    border-radius:22px; padding:20px; margin:-10px 0 24px; box-shadow:0 18px 36px -30px rgba(15,23,42,.22);
+  }
+  .official-price h3{ margin:0 0 6px; font-size:18px; color:var(--ink); }
+  .official-price p{ margin:0 0 14px; color:var(--paper-dim); font-size:13.5px; line-height:1.7; }
+  .official-table{ width:100%; border-collapse:separate; border-spacing:0; overflow:hidden; border:1px solid var(--fog-dim); border-radius:16px; background:#fff; }
+  .official-table th,.official-table td{ padding:13px 14px; border-bottom:1px solid var(--fog-dim); font-size:13.5px; text-align:left; vertical-align:top; }
+  .official-table th{ background:#EFF6FF; color:#1D4ED8; font-weight:900; }
+  .official-table td{ color:var(--paper-dim); }
+  .official-table td strong{ color:var(--ink); font-size:16px; }
+  .official-table tr:last-child td{ border-bottom:none; }
+  .ftth-feature-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-top:22px; }
+  .ftth-feature-card{ background:var(--paper); border:1px solid var(--fog-dim); border-radius:18px; padding:20px; box-shadow:0 16px 32px -28px rgba(15,23,42,.18); }
+  .ftth-feature-card .badge{ display:inline-flex; align-items:center; justify-content:center; width:34px; height:34px; border-radius:12px; background:#EFF6FF; color:var(--cyan); font-weight:900; margin-bottom:12px; }
+  .ftth-feature-card h3{ margin:0 0 8px; font-size:16px; color:var(--ink); }
+  .ftth-feature-card p{ margin:0; color:var(--paper-dim); font-size:13.5px; line-height:1.75; }
+  .compare-copy{ margin-top:20px; background:linear-gradient(135deg,rgba(37,99,235,.08),rgba(249,115,22,.08)); border:1px solid rgba(37,99,235,.16); border-radius:18px; padding:18px 20px; color:var(--paper-dim); font-size:14px; line-height:1.8; }
+  .compare-copy b{ color:var(--ink); }
+  @media (max-width:900px){ .ftth-feature-grid{ grid-template-columns:1fr 1fr; } }
+  @media (max-width:640px){ .ftth-feature-grid{ grid-template-columns:1fr; } .official-table th,.official-table td{ padding:11px 10px; font-size:12.8px; } }
 
   @media (max-width:900px){ .plans{ grid-template-columns:1fr; } }
 
@@ -907,6 +954,7 @@
 </div>
 <div class="navlinks">
 <a href="#site-guide">快速導覽</a>
+<a href="#ftth-compare">光纖比較</a>
 <a href="#address-check">查詢安裝</a>
 <a href="#plans">資費方案</a>
 <a href="#preapply">申辦前疑問</a>
@@ -926,8 +974,8 @@
 <main><section class="hero">
 <div class="wrap hero-inner">
 <span class="eyebrow">新北板橋・中和・永和・土城・樹林・三峽・鶯歌</span>
-<h1>大大寬頻真光纖到府<br/>新申辦、報修、接線一次看懂<span class="accent">光纖</span></h1>
-<p class="lead">大豐有線電視旗下大大寬頻，深耕新北多年。新申辦找陳先生，已裝機報修打客服，光纖到府方案與家中接線方式一次看懂。</p>
+<h1>真正 <span class="accent">FTTH 光纖到府</span><br/>網路＋第四台一次搞定</h1>
+<p class="lead">大豐有線電視旗下大大寬頻，提供 1.2G／500M、888M／500M 高速組合，支援大豐第四台、Wi‑Fi 6 分享器租借。新申辦、查地址、方案費用與家中接線方式一次看懂。</p>
 <!-- 分流：新申辦 vs 故障維修，避免客人打錯電話 -->
 <div class="route-bar">
 <div class="route-card sales">
@@ -974,6 +1022,74 @@
 </div>
 </section>
 
+<section id="ftth-compare">
+<div class="wrap">
+<div class="section-head center">
+<span class="eyebrow">光纖到府圖解比較</span>
+<h2>為什麼選 FTTH 光纖到府？一張圖看懂差異</h2>
+<p>不直接使用他站圖片，改用 Q 版示意圖說明：客人不用讀一大段文字，也能快速理解光纖到府為什麼更適合多人、追劇、遊戲、店面與第四台。</p>
+</div>
+<div class="ftth-compare-wrap">
+<div class="ftth-compare-card">
+<svg class="q-compare-art" viewBox="0 0 320 190" role="img" aria-label="上傳下載更穩定示意圖">
+<rect x="0" y="0" width="320" height="190" fill="url(#qbg1)"></rect>
+<defs><linearGradient id="qbg1" x1="0" x2="1"><stop offset="0" stop-color="#EEF2FF"/><stop offset="1" stop-color="#FFF7ED"/></linearGradient></defs>
+<text x="80" y="25" text-anchor="middle" class="q-small">一般線路</text><text x="240" y="25" text-anchor="middle" class="q-small">光纖到府</text>
+<path d="M25 130 C55 85,110 165,145 108" fill="none" stroke="#CBD5E1" stroke-width="12" stroke-linecap="round"/>
+<circle cx="58" cy="124" r="13" fill="#F97316"/><circle cx="88" cy="137" r="13" fill="#F97316"/><circle cx="113" cy="122" r="13" fill="#F97316"/>
+<path d="M182 128 C210 108,248 100,292 82" fill="none" stroke="#2563EB" stroke-width="13" stroke-linecap="round"/>
+<path d="M195 128 C224 120,254 114,290 108" fill="none" stroke="#22C55E" stroke-width="6" stroke-linecap="round" opacity=".9"/>
+<circle cx="252" cy="92" r="20" fill="#DBEAFE" stroke="#2563EB" stroke-width="3"/><path d="M242 92 h20 M252 82 v20" stroke="#2563EB" stroke-width="4" stroke-linecap="round"/>
+<text x="160" y="168" text-anchor="middle" class="q-label">尖峰時段更穩</text>
+</svg>
+<h3>上傳下載更穩</h3>
+<p>光纖到府像專用快速道路，尖峰時段多人追劇、視訊、遊戲時，體感穩定度更重要。</p>
+</div>
+<div class="ftth-compare-card">
+<svg class="q-compare-art" viewBox="0 0 320 190" role="img" aria-label="訊號不容易衰減示意圖">
+<rect x="0" y="0" width="320" height="190" fill="#F8FAFC"></rect>
+<text x="82" y="25" text-anchor="middle" class="q-small">距離越遠越弱</text><text x="240" y="25" text-anchor="middle" class="q-small">光訊號直達</text>
+<path d="M25 95 h112" stroke="#94A3B8" stroke-width="8" stroke-dasharray="16 10" stroke-linecap="round"/>
+<circle cx="42" cy="95" r="22" fill="#FEE2E2"/><text x="42" y="102" text-anchor="middle" font-size="26">⚡</text>
+<path d="M192 95 h90" stroke="#2563EB" stroke-width="10" stroke-linecap="round"/>
+<path d="M188 95 q30 -38 62 0 q30 38 62 0" fill="none" stroke="#22C55E" stroke-width="5" stroke-linecap="round" opacity=".9"/>
+<rect x="242" y="110" width="48" height="34" rx="8" fill="#fff" stroke="#2563EB" stroke-width="3"/><circle cx="256" cy="127" r="4" fill="#22C55E"/><circle cx="270" cy="127" r="4" fill="#22C55E"/>
+<text x="160" y="168" text-anchor="middle" class="q-label">訊號傳輸更穩</text>
+</svg>
+<h3>訊號不容易衰減</h3>
+<p>FTTH 是光纖訊號拉到家中，降低傳統線材與距離造成的干擾，長時間使用更安心。</p>
+</div>
+<div class="ftth-compare-card">
+<svg class="q-compare-art" viewBox="0 0 320 190" role="img" aria-label="天候影響較小示意圖">
+<rect x="0" y="0" width="320" height="190" fill="#EFF6FF"></rect>
+<path d="M42 78 q28 -35 58 0 q38 -22 68 12 q-10 34 -58 34 h-52 q-40 0 -40 -24 q0 -20 24 -22" fill="#CBD5E1"/>
+<path d="M48 132 l-8 18 M82 132 l-8 18 M116 132 l-8 18 M150 132 l-8 18" stroke="#2563EB" stroke-width="4" stroke-linecap="round"/>
+<path d="M204 118 q36 -34 72 0" fill="none" stroke="#22C55E" stroke-width="9" stroke-linecap="round"/>
+<path d="M205 92 q36 -34 72 0" fill="none" stroke="#2563EB" stroke-width="9" stroke-linecap="round"/>
+<path d="M236 52 l10 22 h-20 l10 -22z" fill="#F97316"/><circle cx="236" cy="80" r="23" fill="#FDBA74" opacity=".85"/>
+<text x="160" y="168" text-anchor="middle" class="q-label">雨天使用也更安心</text>
+</svg>
+<h3>天候影響較小</h3>
+<p>遇到下雨、尖峰時段或多人使用，光纖傳輸的穩定特性，能降低客人對斷線卡頓的擔心。</p>
+</div>
+<div class="ftth-compare-card">
+<svg class="q-compare-art" viewBox="0 0 320 190" role="img" aria-label="網路第四台一次整合示意圖">
+<rect x="0" y="0" width="320" height="190" fill="#FFF7ED"></rect>
+<rect x="42" y="74" width="80" height="54" rx="10" fill="#fff" stroke="#CBD5E1" stroke-width="3"/><text x="82" y="107" text-anchor="middle" class="q-small">網路</text>
+<rect x="198" y="74" width="80" height="54" rx="10" fill="#fff" stroke="#CBD5E1" stroke-width="3"/><text x="238" y="107" text-anchor="middle" class="q-small">第四台</text>
+<circle cx="160" cy="100" r="30" fill="#DBEAFE" stroke="#2563EB" stroke-width="4"/><text x="160" y="108" text-anchor="middle" font-size="25">🏠</text>
+<path d="M122 100 h20 M178 100 h20" stroke="#F97316" stroke-width="7" stroke-linecap="round"/>
+<path d="M144 79 q16 -16 32 0 M139 69 q21 -22 42 0" fill="none" stroke="#22C55E" stroke-width="4" stroke-linecap="round"/>
+<text x="160" y="168" text-anchor="middle" class="q-label">新家換機一次規劃</text>
+</svg>
+<h3>網路＋第四台一次搞定</h3>
+<p>新家落成、舊業者換機、升速、第四台與網路組合，都可以一次確認可裝方案。</p>
+</div>
+</div>
+<div class="ftth-compare-note"><b>重點不是只看速度數字。</b> 真正影響體驗的是尖峰時段、多設備同時上網、Wi‑Fi 擺放位置與家中線路條件；申辦前傳完整地址，才能確認最適合的方案。</div>
+</div>
+</section>
+
 <section class="section-alt guide-section" id="site-guide">
 <div class="wrap">
 <div class="section-head center">
@@ -983,7 +1099,9 @@
 </div>
 <div class="guide-chips">
 <a class="primary" href="#address-check">我要查可否安裝</a>
+<a href="#ftth-compare">光纖到府圖解比較</a>
 <a href="#hot-plans">先看熱門方案</a>
+<a href="#ftth-features">FTTH 特色</a>
 <a href="#speed-chooser">我該選幾 M？</a>
 <a href="#plans">正式資費方案</a>
 <a href="#preapply">申辦前疑問</a>
@@ -1122,6 +1240,17 @@
 <h2>從輕度上網到重度飆網，都有對應方案</h2>
 <p>實際月費依當期優惠與方案內容為準，正確報價請電洽業務或使用線上預約，我們會依您的用量給最合適的建議。</p>
 </div>
+<div class="official-price">
+<h3>官方感方案重點整理</h3>
+<p>把最常被問到的組合方案整理成一張表，方便先抓預算；實際可辦內容仍需依地址、當期活動與業務確認。</p>
+<table class="official-table">
+<tr><th>方案</th><th>內容</th><th>月費參考</th></tr>
+<tr><td><strong>熱門組合</strong></td><td>888M／500M 光纖寬頻＋大豐第四台</td><td><strong>NT$999</strong> 起</td></tr>
+<tr><td><strong>高速組合</strong></td><td>1.2G／500M 光纖寬頻＋大豐第四台</td><td><strong>NT$1099</strong> 起</td></tr>
+<tr><td><strong>單辦網路</strong></td><td>120M、360M、500M、888M、1.2G 依地址可裝方案評估</td><td>電洽確認</td></tr>
+<tr><td><strong>Wi‑Fi 6 分享器</strong></td><td>依活動可租借使用，押金與設備條件以申辦時說明為準</td><td>押金約 NT$500</td></tr>
+</table>
+</div>
 <div class="plans">
 <div class="plan">
 <div class="plan-name">輕巧入門</div>
@@ -1148,13 +1277,13 @@
 <a class="btn-primary" href="tel:0988232247">來電洽詢</a>
 </div>
 <div class="plan">
-<div class="plan-name">電競旗艦</div>
-<div class="plan-speed">1200<span>M</span></div>
-<div class="plan-price"><b>NT$999</b>/月起</div>
+<div class="plan-name">高速組合</div>
+<div class="plan-speed">1.2<span>G</span></div>
+<div class="plan-price"><b>NT$1099</b>/月起</div>
 <ul class="plan-features">
-<li>1.2Gbps 超高速對稱頻寬</li>
-<li>低延遲，尖峰不降速</li>
-<li>適合線上遊戲、直播、多人上網</li>
+<li>1.2G／500M 高速光纖方案</li>
+<li>可搭配大豐第四台組合</li>
+<li>適合遊戲、直播、4K、多設備家庭</li>
 <li>店面／公司戶另有專屬方案</li>
 </ul>
 <a class="btn-ghost" href="tel:0988232247">來電洽詢</a>
@@ -1163,6 +1292,22 @@
 <p class="plan-note">另有 360M／888M／66M 方案可洽詢，也可加購大豐有線電視數位頻道，網路+第四台組合價每月700元起（依速率不同）。<br/>
       實際月費、裝機費(季繳制、約期一年)與優惠請以業務人員報價為準。<br/>
 <a href="https://www.ftth.com.tw/%E7%B7%9A%E4%B8%8A%E9%A0%90%E7%B4%84%E5%AE%89%E8%A3%9D%E6%9C%8D%E5%8B%99" rel="noopener" target="_blank">點此線上預約安裝</a>，或直接撥打 0988-232-247 陳先生</p>
+</div>
+</section>
+<section class="section-alt" id="ftth-features">
+<div class="wrap">
+<div class="section-head center">
+<span class="eyebrow">FTTH 方案特色</span>
+<h2>不只看幾 M，更要看晚上多人使用時穩不穩</h2>
+<p>把官方頁面常講的重點改成手機好讀的卡片，讓客人不用讀一大段文字，也能理解光纖到府、第四台與 Wi‑Fi 6 的差異。</p>
+</div>
+<div class="ftth-feature-grid">
+<div class="ftth-feature-card"><span class="badge">光</span><h3>真正光纖到府</h3><p>光纖訊號拉到住家內，降低傳統線路干擾，尖峰時段更適合多人同時使用。</p></div>
+<div class="ftth-feature-card"><span class="badge">1G</span><h3>下載 1.2G／上傳 500M</h3><p>適合 4K 追劇、線上遊戲、直播、雲端備份與多裝置家庭。</p></div>
+<div class="ftth-feature-card"><span class="badge">TV</span><h3>網路＋第四台組合</h3><p>大豐第四台與光纖網路可一起評估，家裡追劇、新聞、電視盒一次處理。</p></div>
+<div class="ftth-feature-card"><span class="badge">Wi</span><h3>Wi‑Fi 6 分享器租借</h3><p>申辦時可詢問分享器租借與押金條件，避免客人一開始就不知道要買哪台設備。</p></div>
+</div>
+<div class="compare-copy"><b>真正光纖，不怕比較。</b> 光纖不是只看數字，而是看晚上多人上網、追劇、遊戲、監視器同時使用時是否穩定。實際可裝方案仍需依完整地址與線路狀況確認。</div>
 </div>
 </section>
 <section class="section-alt" id="preapply">
@@ -1636,6 +1781,15 @@
 <details class="faq-item"><summary>中和或板橋申辦網路多久可以安裝？</summary><p>確認地址與方案後，多數地區可安排近期到府會勘與安裝；實際時間仍會依管線、工程排程、住戶可配合時段而定。</p></details>
 <details class="faq-item"><summary>土城大大寬頻報修電話是多少？</summary><p>已裝機用戶如果是網路斷線、訊號異常或設備燈號問題，請撥故障報修專線 <strong>02-8253-8999</strong>，也可撥免付費 <strong>0800-360-999</strong>。</p></details>
 <details class="faq-item"><summary>分享器 WAN 和 LAN 差在哪？</summary><p>WAN／Internet 是分享器「接收外部網路」的孔，應該接 ONT 光纖數據機的 LAN；LAN 1–4 是分享器「分給家中設備」的孔，電腦、電視盒、監視器通常接 LAN。</p></details>
+
+<details class="faq-item"><summary>大大寬頻是 FTTH 光纖到府嗎？</summary><p>是，主打 FTTH 光纖到府服務；不過實際線路形式與可安裝方案仍需依完整地址查詢與現場管線確認。建議先傳地址給業務確認。</p></details>
+<details class="faq-item"><summary>1.2G／500M 是什麼意思？</summary><p>通常代表下載最高 1.2G、上傳最高 500M 的速率規格。下載影響追劇、遊戲更新、大檔案下載；上傳則影響直播、雲端備份、監視器遠端觀看與傳檔。</p></details>
+<details class="faq-item"><summary>888M／500M 適合什麼家庭？</summary><p>適合多人同時上網、4K 影音、遊戲、視訊會議、手機與電視盒很多的家庭。若有直播、NAS、大量上傳或店面監視器需求，可再評估 1.2G／500M。</p></details>
+<details class="faq-item"><summary>第四台可以跟網路一起申辦嗎？</summary><p>可以，可詢問大豐第四台＋大大寬頻的組合方案，例如 888M／500M 或 1.2G／500M 搭配第四台。實際價格與活動以申辦當下報價為準。</p></details>
+<details class="faq-item"><summary>Wi‑Fi 6 分享器需要另外買嗎？</summary><p>不一定。申辦時可詢問是否有 Wi‑Fi 6 分享器租借或活動方案，部分方案可能需押金或依現場需求加裝。大坪數、透天或隔間多的房子，也可評估 Mesh。</p></details>
+<details class="faq-item"><summary>安卓機上盒是什麼？</summary><p>安卓機上盒可用來觀看影音與電視相關內容，實際功能、可用 App、遙控器操作與是否內建，需依當期第四台方案與設備規格確認。</p></details>
+<details class="faq-item"><summary>光纖到府跟一般網路差在哪？</summary><p>光纖到府是把光纖訊號拉到住家端，較適合多人同時使用、4K 影音、遊戲、直播、監視器與店面設備。一般網路可能受區域共享、線路品質或最後一段傳輸方式影響。</p></details>
+<details class="faq-item"><summary>怎麼確認我家能不能裝？</summary><p>最快方式是提供完整地址，讓業務查管線與服務範圍。大樓、社區、透天、老公寓、巷弄內都可能需要不同判斷，實際以地址查詢與必要時現場會勘為準。</p></details>
 </div>
 </div>
 </section>
