@@ -2542,6 +2542,179 @@ footer{ background:#FFFFFF !important; border-top-color:rgba(18,60,105,.10) !imp
   .mobile-scroll-tools a{ font-size:12px; padding-left:9px; padding-right:9px; }
 }
 
+
+
+/* v45: desktop/tablet/mobile responsive layout QA fix */
+/* Fix: desktop flow + speed cards were fighting for horizontal space and could be clipped. */
+.fiber-signature-panel{
+  grid-template-columns:1fr !important;
+  gap:14px !important;
+  width:100% !important;
+  max-width:1040px !important;
+  margin-left:auto !important;
+  margin-right:auto !important;
+  overflow:visible !important;
+}
+.fiber-map-card.clear-process,
+.speed-ticket{
+  width:100% !important;
+  max-width:100% !important;
+  min-width:0 !important;
+  box-sizing:border-box !important;
+}
+.fiber-map-card.clear-process{
+  grid-template-columns:repeat(4,minmax(0,1fr)) !important;
+  align-items:stretch !important;
+}
+.fiber-map-card.clear-process .map-node{
+  min-width:0 !important;
+  width:auto !important;
+  box-sizing:border-box !important;
+}
+.speed-ticket{
+  display:grid !important;
+  grid-template-columns:repeat(4,minmax(0,1fr)) !important;
+  overflow:hidden !important;
+}
+.speed-ticket span{
+  min-width:0 !important;
+  box-sizing:border-box !important;
+}
+.speed-ticket b,
+.speed-ticket small{
+  overflow-wrap:anywhere !important;
+}
+/* Desktop: keep the process readable and use the rate strip as a clean full-width row. */
+@media (min-width:1025px){
+  .hero .fiber-signature-panel{ padding:14px !important; }
+  .fiber-map-card.clear-process{ padding:16px !important; }
+  .fiber-map-card.clear-process .map-node{ min-height:108px !important; padding:15px 14px !important; }
+  .speed-ticket{ min-height:88px !important; }
+  .speed-ticket span{ padding:16px 14px !important; }
+  .speed-ticket b{ font-size:23px !important; }
+}
+/* Tablet: two-by-two process + two-by-two price cards, no horizontal crop. */
+@media (min-width:641px) and (max-width:1024px){
+  .fiber-signature-panel{ grid-template-columns:1fr !important; max-width:100% !important; }
+  .fiber-map-card.clear-process{ grid-template-columns:repeat(2,minmax(0,1fr)) !important; gap:12px !important; }
+  .fiber-map-card.clear-process .map-line{ display:none !important; }
+  .fiber-map-card.clear-process .map-node{ min-height:105px !important; }
+  .speed-ticket{ grid-template-columns:repeat(2,minmax(0,1fr)) !important; }
+}
+/* Mobile: compact vertical process and two-column rate summary. */
+@media (max-width:640px){
+  .fiber-signature-panel{ grid-template-columns:1fr !important; gap:10px !important; }
+  .fiber-map-card.clear-process{ grid-template-columns:1fr !important; padding:12px !important; gap:9px !important; overflow:hidden !important; }
+  .fiber-map-card.clear-process .map-line{ display:none !important; }
+  .fiber-map-card.clear-process .map-node{
+    display:grid !important;
+    grid-template-columns:40px minmax(0,1fr) !important;
+    align-items:center !important;
+    min-height:0 !important;
+    padding:12px 13px !important;
+    gap:10px !important;
+  }
+  .fiber-map-card.clear-process .map-node em{ width:38px !important; height:38px !important; margin:0 !important; }
+  .fiber-map-card.clear-process .node-copy{ min-width:0 !important; }
+  .speed-ticket{ grid-template-columns:repeat(2,minmax(0,1fr)) !important; }
+  .speed-ticket span{ padding:12px 8px !important; }
+}
+@media (max-width:380px){
+  .speed-ticket{ grid-template-columns:1fr !important; }
+  .speed-ticket span{ border-left:0 !important; border-top:1px solid rgba(18,60,105,.10) !important; }
+  .speed-ticket span:first-child{ border-top:0 !important; }
+}
+
+
+/* v46: mobile conversion compact QA */
+.mobile-ftth-summary,.mobile-preapply-summary,.mobile-section-cta,.mobile-legal-note{ display:none; }
+@media (max-width:760px){
+  /* make the mobile page behave like a conversion funnel, not a long brochure */
+  main{ display:flex; flex-direction:column; }
+  .hero{ order:1; }
+  #address-section{ order:2; }
+  #hot-plans{ order:3; }
+  #promo-value{ order:4; }
+  #family-value{ order:5; }
+  #faq{ order:6; }
+  #apply{ order:7; }
+  #bundle-tv-net{ order:8; }
+  #ftth-compare{ order:9; }
+  #coverage{ order:10; }
+  #preapply{ order:11; }
+  #site-guide{ display:none !important; }
+  #trust-flow{ display:none !important; }
+
+  section{ padding-top:42px !important; padding-bottom:42px !important; }
+  .section-head{ margin-bottom:18px !important; }
+  .section-head h2{ font-size:clamp(24px,6.8vw,31px) !important; line-height:1.28 !important; }
+  .section-head p{ font-size:14px !important; line-height:1.68 !important; }
+
+  /* quick nav should stay useful but not become another complex menu */
+  .mobile-quick-nav{ gap:7px !important; }
+  .mobile-quick-nav a{ min-height:34px !important; padding:7px 12px !important; font-size:12.8px !important; }
+  .mobile-scroll-tools a:first-child{ background:#06C755 !important; color:#fff !important; border-color:#06C755 !important; box-shadow:0 14px 28px -18px rgba(6,199,85,.75) !important; }
+
+  /* Address form: the primary target on mobile */
+  #address-section{ padding-top:34px !important; }
+  #address-section .lead-summary-box{ display:none !important; }
+  #address-check{ box-shadow:0 20px 42px -32px rgba(15,23,42,.40) !important; border-color:rgba(6,199,85,.35) !important; }
+  .lead-form{ gap:10px !important; }
+  .lead-form label span{ font-size:13px !important; }
+  .lead-form input,.lead-form select,.lead-form textarea{ min-height:46px !important; font-size:15px !important; }
+  .lead-actions{ grid-template-columns:1fr !important; gap:9px !important; }
+  .lead-actions .btn-primary{ min-height:50px !important; font-size:15px !important; }
+  .mini-help{ font-size:12.5px !important; line-height:1.65 !important; }
+
+  /* Price area: cards first; table hidden on mobile to avoid fatigue */
+  #hot-plans .conversion-grid{ gap:12px !important; }
+  #hot-plans .reference-price-wrap{ display:none !important; }
+  .conversion-card{ padding:18px !important; border-radius:20px !important; }
+  .conversion-card p{ font-size:13.5px !important; }
+  .conversion-card ul{ margin:10px 0 0 !important; }
+  .conversion-card li{ font-size:12.8px !important; }
+  .plan-price-line b{ font-size:30px !important; }
+  .price-caution{ font-size:12.8px !important; line-height:1.65 !important; }
+
+  /* Dense informational sections become compact on mobile */
+  .mobile-ftth-summary,.mobile-preapply-summary{ display:grid !important; gap:10px; }
+  .mobile-summary-card,.mobile-preapply-summary{ background:#fff; border:1px solid rgba(148,163,184,.26); border-radius:18px; padding:15px; box-shadow:0 14px 28px -26px rgba(15,23,42,.32); }
+  .mobile-summary-card b,.mobile-preapply-summary h3{ display:block; margin:0 0 5px; color:#123C69; font-size:15px; }
+  .mobile-summary-card p,.mobile-preapply-summary li{ margin:0; color:#475569; font-size:13px; line-height:1.65; }
+  .mobile-preapply-summary ul{ margin:8px 0 0; padding-left:20px; }
+  #ftth-compare .diagram-image-card,
+  #ftth-compare .ftth-compare-wrap,
+  #ftth-compare .ftth-compare-note{ display:none !important; }
+  #preapply .preapply-hero,
+  #preapply .pre-grid{ display:none !important; }
+
+  /* Fourth TV/channel/equipment blocks: keep value, avoid giant brochure feel */
+  .promo-value-grid,.family-value-grid,.biz-grid{ gap:12px !important; }
+  .promo-value-card,.family-value-card,.biz-card{ padding:17px !important; border-radius:20px !important; }
+  .bundle-price-grid{ grid-template-columns:1fr !important; }
+  .promo-value-note,.family-value-note{ font-size:12.8px !important; line-height:1.65 !important; }
+
+  /* Area tags only once and easy to scan */
+  #coverage .chips{ display:flex !important; gap:8px !important; overflow-x:auto; padding-bottom:4px; -webkit-overflow-scrolling:touch; scrollbar-width:none; }
+  #coverage .chips::-webkit-scrollbar{ display:none; }
+  #coverage .chip{ flex:0 0 auto; padding:8px 11px !important; font-size:12.5px !important; }
+
+  /* Bring users back to the form after each information block */
+  .mobile-section-cta{ display:block !important; margin-top:16px; }
+  .mobile-section-cta a{ display:flex; align-items:center; justify-content:center; min-height:46px; padding:11px 14px; border-radius:14px; text-decoration:none; color:#fff; background:linear-gradient(135deg,#06C755,#16A34A); font-weight:950; box-shadow:0 14px 28px -20px rgba(6,199,85,.75); }
+
+  /* FAQ should be the final information checkpoint, not another long article */
+  #faq .faq-list{ gap:9px !important; }
+  #faq .faq-item summary{ padding:15px 16px !important; font-size:14px !important; }
+  #faq .faq-item p{ padding:0 16px 15px !important; font-size:13px !important; line-height:1.65 !important; }
+
+  /* Footer legal text is necessary, but mobile should not feel endless */
+  footer{ padding-bottom:112px !important; }
+  .foot-legal{ display:none !important; }
+  .mobile-legal-note{ display:block !important; margin-top:20px; border:1px solid rgba(148,163,184,.24); border-radius:16px; background:rgba(255,255,255,.9); padding:12px 14px; }
+  .mobile-legal-note summary{ cursor:pointer; font-size:13px; font-weight:900; color:#123C69; }
+  .mobile-legal-note p{ margin:9px 0 0; color:#64748B; font-size:12px; line-height:1.65; }
+}
 </style>
 </head>
 <body class="no-copy" oncontextmenu="return false">
@@ -2573,14 +2746,7 @@ footer{ background:#FFFFFF !important; border-top-color:rgba(18,60,105,.10) !imp
 </div>
 </nav>
 </header>
-<nav class="mobile-quick-nav" aria-label="手機快速選單">
-  <a class="primary" href="#address-check">查地址</a>
-  <a href="#hot-plans">看方案</a>
-  <a href="#promo-value">第四台</a>
-  <a href="#family-value">怎麼選</a>
-  <a href="#ftth-compare">光纖優勢</a>
-  <a href="#faq">FAQ</a>
-</nav>
+<nav aria-label="手機快速選單" class="mobile-quick-nav"><a class="primary" href="#address-check">查地址</a><a href="#hot-plans">方案</a><a href="#promo-value">第四台</a><a href="#faq">FAQ</a><a href="#top">回頂部</a></nav>
 <div aria-hidden="true" class="pulse-rail"></div>
 <main><section class="hero">
 <div class="wrap hero-inner">
@@ -2608,7 +2774,6 @@ footer{ background:#FFFFFF !important; border-top-color:rgba(18,60,105,.10) !imp
 </div>
 <div aria-label="熱門速率與參考價格摘要" class="speed-ticket"><span class="recommended"><b>500/500M</b><small>$600/月起｜多數家庭</small></span><span><b>888/500M</b><small>$750/月起｜多人高速</small></span><span><b>360/360M</b><small>$500/月起｜省預算</small></span><span><b>1.2G/500M</b><small>$999/月起｜高速首選</small></span></div>
 </div>
-
 <div class="trust-strip">
 <div class="trust-item">
 <svg class="icon"><use href="#i-pin"></use></svg>
@@ -2711,7 +2876,7 @@ footer{ background:#FFFFFF !important; border-top-color:rgba(18,60,105,.10) !imp
 </div>
 <div class="reference-price-wrap"><table aria-label="常見方案參考月費" class="reference-price-table"><tr><th>方向</th><th>下載／上傳</th><th>參考月費起</th><th>適合情境</th></tr><tr><td>入門省錢</td><td>360M／360M</td><td class="money">$500/月起</td><td>租屋、小家庭、一般上網</td></tr><tr><td>多數家庭</td><td>500M／500M</td><td class="money">$600/月起</td><td>一家三口、追劇、視訊</td></tr><tr><td>多人高速</td><td>888M／500M</td><td class="money">$750/月起</td><td>多人、4K、遊戲</td></tr><tr><td>高速首選</td><td>1.2G／500M</td><td class="money">$999/月起</td><td>重度上傳、店面、公司</td></tr><tr><td>網路＋第四台</td><td>500M／888M／1.2G</td><td class="money">$899/月起</td><td>家庭影音、第四台一起辦</td></tr></table></div>
 <div class="price-caution"><b>價格標示說明：</b>以上為常見月費起參考，實際費用可能因地址、社區線路、設備、押金、裝機、網路＋第四台組合與當期活動而不同。建議先填地址，由業務回覆可辦方案與完整費用。</div>
-</div>
+<div class="mobile-section-cta"><a href="#address-check">回填地址查可裝</a></div></div>
 </section><section class="promo-value-section" id="promo-value">
 <div class="wrap">
 <div class="section-head center">
@@ -2726,7 +2891,7 @@ footer{ background:#FFFFFF !important; border-top-color:rgba(18,60,105,.10) !imp
 <div class="promo-value-card"><span>其他需求</span><h3>單辦第四台／套房店面</h3><p>只想辦第四台、房東套房、店面 POS、監視器或公司戶網路，也可先提供地址與使用情境一起評估。</p><a href="#address-check">傳地址先確認</a></div>
 </div>
 <div class="promo-value-note"><b>提醒：</b>本頁提供申辦諮詢與初步方案說明，實際月租、裝機費、設備、押金、優惠與加值內容，以完整地址查詢、當期活動、業務說明與正式合約為準。</div>
-</div>
+<div class="mobile-section-cta"><a href="#address-check">回填地址查可裝</a></div></div>
 </section><section class="family-value-section" id="family-value">
 <div class="wrap">
 <div class="section-head center">
@@ -2749,7 +2914,7 @@ footer{ background:#FFFFFF !important; border-top-color:rgba(18,60,105,.10) !imp
 </div>
 </div>
 <div class="family-value-note"><b>簡單說：</b>先用價格抓預算，再用人數與用途決定方向。若想網路＋第四台，常見組合可先看 $899／$999／$1099 月費起，再依地址與活動確認。</div>
-</div>
+<div class="mobile-section-cta"><a href="#address-check">回填地址查可裝</a></div></div>
 </section><section class="section-alt" id="address-section">
 <div class="wrap">
 <div class="section-head center">
@@ -2842,7 +3007,7 @@ footer{ background:#FFFFFF !important; border-top-color:rgba(18,60,105,.10) !imp
 <span class="eyebrow">光纖到府圖解比較</span>
 <h2>為什麼選 FTTH 光纖到府？用圖直接看差異</h2>
 <p>透過左右對照，快速看懂一般網路與 FTTH 光纖到府在穩定度、傳輸方式、Wi‑Fi 覆蓋與第四台整合上的差異。</p>
-</div>
+</div><div class="mobile-ftth-summary"><div class="mobile-summary-card"><b>光纖到府</b><p>訊號直接到家中設備，申辦前先依地址確認可辦條件。</p></div><div class="mobile-summary-card"><b>上傳也要看</b><p>視訊、備份、遊戲與多人使用，下載／上傳都會影響體驗。</p></div><div class="mobile-summary-card"><b>Wi‑Fi 另外規劃</b><p>網路速度正常，不代表每個房間 Wi‑Fi 都會滿格，分享器位置很重要。</p></div></div>
 <div class="ftth-compare-wrap">
 <div class="ftth-compare-card">
 <svg aria-label="一般網路與 FTTH 光纖到府在尖峰時段穩定度的比較" class="compare-art" role="img" viewbox="0 0 720 300">
@@ -2943,7 +3108,7 @@ footer{ background:#FFFFFF !important; border-top-color:rgba(18,60,105,.10) !imp
 </div>
 </div>
 <div class="ftth-compare-note"><b>以左右對照方式呈現。</b> 先看懂「一般網路 vs FTTH 光纖到府」差異，再依地址與使用需求選擇合適方案。</div>
-</div>
+<div class="mobile-section-cta"><a href="#address-check">回填地址查可裝</a></div></div>
 </section>
 <section id="coverage">
 <div class="wrap">
@@ -2961,7 +3126,7 @@ footer{ background:#FFFFFF !important; border-top-color:rgba(18,60,105,.10) !imp
 <span class="chip"><strong>三峽區</strong> 市區周邊</span>
 <span class="chip"><strong>鶯歌區</strong> 市區周邊</span>
 </div>
-</div>
+<div class="mobile-section-cta"><a href="#address-check">回填地址查可裝</a></div></div>
 </section>
 <section class="section-alt" id="preapply">
 <div class="wrap">
@@ -2969,7 +3134,7 @@ footer{ background:#FFFFFF !important; border-top-color:rgba(18,60,105,.10) !imp
 <span class="eyebrow">申辦與安裝前確認</span>
 <h2>申辦前先確認，安裝當天才不會卡住</h2>
 <p>把申辦前必看的幾件事集中在這裡：地址能不能裝、費用項目、雙證件影本、扣款需求與安裝前準備。</p>
-</div>
+</div><div class="mobile-preapply-summary"><h3>安裝前先準備這幾件事</h3><ul><li>準備雙證件影本，方便申辦資料確認。</li><li>如需信用卡扣款，請提前告知業務人員。</li><li>先想好光纖設備與分享器放哪裡。</li><li>當天家中需有人可配合工程到府。</li></ul></div>
 <div class="preapply-hero">
 <div>
 <h3>申辦前先確認 4 件事，安裝當天更順</h3>
@@ -3026,23 +3191,9 @@ footer{ background:#FFFFFF !important; border-top-color:rgba(18,60,105,.10) !imp
 </ul>
 </div>
 </div>
-<div class="section-head center" style="margin-top:42px;">
-<span class="eyebrow">申辦與安裝 FAQ</span>
-<h2>申辦前 10 大常見疑問</h2>
-</div>
-<div class="faq-list">
-<details class="faq-item"><summary>我不知道家裡能不能裝，可以先查嗎？</summary><p>可以。建議直接提供完整地址，先查詢服務範圍、管線與社區狀況，再決定是否安排到府安裝。</p></details>
-<details class="faq-item"><summary>裝機會不會鑽牆？</summary><p>一般會依現場線路與屋內配置判斷，不一定需要鑽牆。若有特殊施工需求，會先確認位置與施工方式。</p></details>
-<details class="faq-item"><summary>可以只辦網路不辦第四台嗎？</summary><p>可以。可單辦網路，也可依需求搭配第四台或組合方案，實際優惠以申辦時業務說明為準。</p></details>
-<details class="faq-item"><summary>可以用自己的分享器嗎？</summary><p>可以。常見接法是 ONT 的 LAN 接到自己分享器的 WAN／Internet，再由分享器分配 Wi‑Fi 與有線網路。</p></details>
-<details class="faq-item"><summary>分享器要放哪裡比較好？</summary><p>建議放在客廳或家中中央、開放的位置。弱電箱、櫃子內、地上角落通常會影響 Wi‑Fi 覆蓋。</p></details>
-<details class="faq-item"><summary>申辦後多久可以安裝？</summary><p>確認地址與方案後，會依工程排程安排到府；實際時間需看服務區、管線狀況與住戶可配合時段。</p></details>
-<details class="faq-item"><summary>舊網路需要先退掉嗎？</summary><p>不一定。很多人會等新網路裝好並測試穩定後，再處理舊網路退租，避免中間沒網路可用。</p></details>
-<details class="faq-item"><summary>租屋可以申辦嗎？</summary><p>通常可以，但建議先確認房東或管理室是否同意施工與牽線，尤其是需要進弱電箱、管道間或公共空間時。</p></details>
-<details class="faq-item"><summary>店面可以申辦嗎？</summary><p>可以。店面若有 POS、外送平台、監視器、刷卡機等需求，建議申辦前先說明設備數量與使用情境。</p></details>
-<details class="faq-item"><summary>裝完會幫我測速嗎？</summary><p>工程師通常會確認線路與設備能正常使用。若要確認最準速度，建議用電腦接有線測試，Wi‑Fi 測速會受環境影響。</p></details>
-</div>
-</div>
+
+
+<div class="mobile-section-cta"><a href="#address-check">回填地址查可裝</a></div></div>
 </section>
 <section class="section-alt" id="bundle-tv-net">
 <div class="wrap">
@@ -3056,7 +3207,7 @@ footer{ background:#FFFFFF !important; border-top-color:rgba(18,60,105,.10) !imp
 <div class="biz-card"><h3>店面／公司戶</h3><p>POS、刷卡機、外送平台、監視器與多人辦公，需要先評估分享器位置與設備數量。</p></div>
 <div class="biz-card"><h3>搬家／換業者</h3><p>新家、社區、換約或升速，建議先查地址與可裝速率，再安排安裝時間。</p></div>
 </div>
-</div>
+<div class="mobile-section-cta"><a href="#address-check">回填地址查可裝</a></div></div>
 </section>
 <section class="section-alt" id="faq">
 <div class="wrap">
@@ -3071,7 +3222,7 @@ footer{ background:#FFFFFF !important; border-top-color:rgba(18,60,105,.10) !imp
 <details class="faq-item"><summary>安裝前需要準備什麼？</summary><p>建議準備雙證件影本；如需信用卡扣款，請提前告知業務人員。也請先確認家中是否有人可配合施工、ONT／分享器預計放置位置與是否需要接電腦、電視盒或監視器。</p></details>
 <details class="faq-item"><summary>Wi‑Fi 不穩是不是網路速度問題？</summary><p>不一定。網路速度是線路與設備可提供的頻寬；Wi‑Fi 訊號會受分享器位置、牆壁、樓層、弱電箱與設備規格影響。申辦時可先說明坪數與使用情境。</p></details>
 <details class="faq-item"><summary>這個頁面是官方網站嗎？</summary><p>本頁為業務人員提供的申辦諮詢頁，非官方總公司網站或官方客服系統。實際方案、費用、設備、施工與優惠內容，以業務確認、當期活動與正式合約為準。</p></details></div>
-</div>
+<div class="mobile-section-cta"><a href="#address-check">回填地址查可裝</a></div></div>
 </section>
 <section id="apply">
 <div class="wrap">
@@ -3108,13 +3259,10 @@ footer{ background:#FFFFFF !important; border-top-color:rgba(18,60,105,.10) !imp
 <a href="#ftth-compare">FTTH 光纖到府說明</a></div>
 </div>
 <div class="foot-legal">© 2026 大大寬頻／大豐有線電視申辦諮詢頁．主要服務範圍：新北市板橋區、中和區、永和區、土城區、樹林區、三峽區、鶯歌區。<br/>
-本頁為業務人員提供之申辦諮詢頁，非大大寬頻／大豐有線電視官方總公司網站或官方客服系統。網站資訊僅供申辦前了解，實際可辦區域、速率、月租、押金、設備、施工時間、付款方式與優惠內容，均以完整地址查詢、當期活動、業務人員說明及正式合約為準。既有用戶帳務、障礙申告或合約爭議，請以官方客服與正式契約資料為準。</div>
+本頁為業務人員提供之申辦諮詢頁，非大大寬頻／大豐有線電視官方總公司網站或官方客服系統。網站資訊僅供申辦前了解，實際可辦區域、速率、月租、押金、設備、施工時間、付款方式與優惠內容，均以完整地址查詢、當期活動、業務人員說明及正式合約為準。既有用戶帳務、障礙申告或合約爭議，請以官方客服與正式契約資料為準。</div><details class="mobile-legal-note"><summary>頁面聲明與實際方案說明</summary><p>本頁為業務人員提供之申辦諮詢頁，非官方總公司客服系統。實際可辦區域、速率、月租、押金、設備、施工時間與優惠內容，以完整地址查詢、當期活動、業務說明與正式合約為準。</p></details>
 </div>
 </footer>
-<div class="mobile-scroll-tools" aria-label="手機快速操作">
-  <a href="#top">↑ 回首頁</a>
-  <a href="#site-guide">快速選單</a>
-</div>
+<div aria-label="手機快速操作" class="mobile-scroll-tools"><a href="#address-check">回填地址</a><a href="#top">↑ 回頂部</a></div>
 <a class="line-float" href="#address-check">填地址查方案</a>
 <div class="sticky-call">
 <a class="sales" href="tel:0988232247"><svg class="icon"><use href="#i-phone"></use></svg>電話申辦</a>
